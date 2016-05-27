@@ -1,4 +1,4 @@
-<legend><?php echo $title;?></legend>
+<legend>Add Bed Type</legend>
 <?php echo validation_errors();?>
 <?php echo $message;?>
 
