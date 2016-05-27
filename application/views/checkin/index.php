@@ -147,23 +147,23 @@
 <input type="hidden" name="id_bookedRoom" id="id_bookedRoom">
     <?php echo validation_errors(); echo $message;?>
 		  <div class="form-group">
-                    <label class="col-lg-2 control-label" >ID Check In</label>
+                    <label class="col-lg-2 control-label" >Check In ID</label>
                     <div class="col-lg-5">
                         <input type="text" id="nomer" name="nomer" value="<?php echo $noauto;?>" readonly="readonly"class="form-control" >
                     </div>
                 </div>
 		    <div class="form-group">
-                    <label class="col-lg-2 control-label">Tanggal</label>
+                    <label class="col-lg-2 control-label">Check In Date</label>
                     <div class="col-lg-5">
                         <input type="text" id="tglsajian" name="tglsajian" value="<?php echo $tglsajian;?>" readonly="readonly"class="form-control" >
                     </div>
                 </div>
 	<br>			
-	<h4>Reservasi</h4>
+	<h4>Reservation Info</h4>
 	<hr>
 	</hr>
     <div class="form-group">
-           <label class="col-lg-2 control-label" id="id_reservasi">ID Reservasi</label>
+           <label class="col-lg-2 control-label" id="id_reservasi">Reservation ID</label>
                     <div class="col-lg-5">
                         <input type="text" id="no" name="no" class="form-control" >
                     </div>
@@ -172,50 +172,50 @@
                     </div>
                 </div>  
 	  <div class="form-group">
-                    <label class="col-lg-2 control-label">Tgl Reservasi</label>
+                    <label class="col-lg-2 control-label">Reservation Date</label>
                     <div class="col-lg-5">
                         <input type="text" id="tglreservasi" name="tglreservasi" class="form-control" >
                     </div>
                 </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Nama Customer</label>
+        <label class="col-lg-2 control-label">Customer Name</label>
         <div class="col-lg-5">
             <input type="text" name="namareservasi" id="namareservasi" class="form-control">
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Jumlah</label>
+        <label class="col-lg-2 control-label">Guest</label>
         <div class="col-lg-5">
             <input type="text" name="jumlah" id="jumlah" class="form-control">
         </div>
     </div>
 	  <div class="form-group">
-                    <label class="col-lg-2 control-label">Tgl Reservasi</label>
+                    <label class="col-lg-2 control-label">Check In Date</label>
                     <div class="col-lg-5">
                         <input type="text" id="tglcheckin" name="tglcheckin" class="form-control" >
                     </div>
                 </div>
 	   <div class="form-group">
-                    <label class="col-lg-2 control-label">Tgl Reservasi</label>
+                    <label class="col-lg-2 control-label">Check Out Date</label>
                     <div class="col-lg-5">
                         <input type="text" id="tglcheckout" name="tglcheckout" class="form-control" >
                     </div>
                 </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Tipe Kamar</label>
+        <label class="col-lg-2 control-label">Room Type</label>
          <div class="col-lg-5">
             <input type="text" name="tipekamar" id="tipekamar" class="form-control">
         </div>
     </div>
 	 <div class="form-group">
-        <label class="col-lg-2 control-label">Tipe Bed</label>
+        <label class="col-lg-2 control-label">Bed Type</label>
         <div class="col-lg-5">
             <input type="text" name="tipebed" id="tipebed" class="form-control">
         </div>
      </div>
 	 
 	 <div class="form-group">
-        <label class="col-lg-2 control-label">Nomor Kamar</label>
+        <label class="col-lg-2 control-label">Room ID</label>
         <div class="col-lg-5">
             <input disabled = "true" type="text" name="nomorKamar" id="nomorKamar" class="form-control">
         </div>
@@ -223,8 +223,8 @@
 	 
 	
     <div class="form-group well">
-        <button class="btn btn-primary" name="Simpan" value="a" id="Simpan"><i class="glyphicon glyphicon-hdd" ></i> Simpan</button>
-        <a href="<?php echo site_url('reservasi');?>" class="btn btn-default">Kembali</a>
+        <button class="btn btn-primary" name="Simpan" value="a" id="Simpan"><i class="glyphicon glyphicon-hdd" ></i> Proceed Check In</button>
+     
     </div>
 	<?php echo form_close();?>
 </div>
@@ -234,7 +234,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Cari Reservasi
+                    <h4 class="modal-title">Search Guest
                     <input type="text" name="carimenu" id="carimenu" >
 								 <button id="carimenu2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
@@ -248,10 +248,10 @@
                             <table class="table table-striped">
         <thead>
             <tr>
-                <td>ID Reservasi</td>
-                <td>Nama </td>
-                <td>Tanggal Check in</td>
-				<td>Tanggal Check Out</td>
+                <td>Reservation ID</td>
+                <td>Name </td>
+                <td>Check in Date</td>
+				<td>Check Out Date</td>
                 <td></td>
             </tr>
         </thead>

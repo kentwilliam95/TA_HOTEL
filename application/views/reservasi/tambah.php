@@ -2,7 +2,7 @@
 	$(document).ready(function(){
 		
 		$("#tambah").click(function(){
-			$("#groupChoice").after('<div id="groupChoice"><div class="form-group"><label class="col-lg-2 control-label">Tanggal Check In</label><div class="col-lg-5"><input type="text" name="tglcheckin" id="tanggal" class="form-control checkin"></div></div><div class="form-group"><label class="col-lg-2 control-label">Tanggal Check Out</label><div class="col-lg-5"><input type="text" name="tglcheckout" id="tanggal2" class="form-control checkout"></div></div><div class="form-group"><label class="col-lg-2 control-label">Tipe Kamar</label> <div class="col-lg-5"><select name="idtipe" class="form-control tipekamar" id="idtipe"><?php foreach($tipekamar as $tipekamar):?><option value="<?php echo $tipekamar->nama_tipe;?>"><?php echo $tipekamar->nama_tipe;?></option><?php endforeach;?></select></div></div><div class="form-group"><label class="col-lg-2 control-label">Tipe Bed</label> <div class="col-lg-5"><select name="idbed" class="form-control tipebed" id="idbed"><?php foreach($anggota as $anggota):?><option value="<?php echo $anggota->nama_bed;?>"><?php echo $anggota->nama_bed;?></option><?php endforeach;?></select></div></div></div>');
+			$("#groupChoice").after('<div id="groupChoice"><div class="form-group"><label class="col-lg-2 control-label">Check In Date</label><div class="col-lg-5"><input type="text" name="tglcheckin" id="tanggal" class="form-control checkin"></div></div><div class="form-group"><label class="col-lg-2 control-label">Check Out Date</label><div class="col-lg-5"><input type="text" name="tglcheckout" id="tanggal2" class="form-control checkout"></div></div><div class="form-group"><label class="col-lg-2 control-label">Room Type</label> <div class="col-lg-5"><select name="idtipe" class="form-control tipekamar" id="idtipe"><?php foreach($tipekamar as $tipekamar):?><option value="<?php echo $tipekamar->nama_tipe;?>"><?php echo $tipekamar->nama_tipe;?></option><?php endforeach;?></select></div></div><div class="form-group"><label class="col-lg-2 control-label">Bed Type</label> <div class="col-lg-5"><select name="idbed" class="form-control tipebed" id="idbed"><?php foreach($anggota as $anggota):?><option value="<?php echo $anggota->nama_bed;?>"><?php echo $anggota->nama_bed;?></option><?php endforeach;?></select></div></div></div>');
 		});
 		$("body").on("click",".checkin",function(i){
 			$(this).datepicker();
@@ -46,29 +46,29 @@
 	})
 </script>
 <body>
-<legend><?php echo $title;?></legend>
+<legend>Add Reservation</legend>
 <div class="form-horizontal" action="#"/>
     <?php echo validation_errors(); echo $message;?>
     <div class="form-group">
-           <label class="col-lg-2 control-label">ID Reservasi</label>
+           <label class="col-lg-2 control-label">Reservation ID</label>
                     <div class="col-lg-5">
                         <input type="text" id="no" name="no" class="form-control" value="<?php echo $noauto;?>" readonly="readonly">
                     </div>
                 </div>  
 	  <div class="form-group">
-                    <label class="col-lg-2 control-label">Tgl Reservasi</label>
+                    <label class="col-lg-2 control-label">Reservation</label>
                     <div class="col-lg-5">
                         <input type="text" id="tglreservasi" name="tglreservasi" class="form-control" value="<?php echo $tgl_reservasi;?>" readonly="readonly">
                     </div>
                 </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Nama Customer</label>
+        <label class="col-lg-2 control-label">Customer Name</label>
         <div class="col-lg-5">
             <input id ="nama" type="text" name="namareservasi" class="form-control">
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Jumlah</label>
+        <label class="col-lg-2 control-label">Guest</label>
         <div class="col-lg-5">
             <input id="jumlah" type="text" name="jumlah" class="form-control">
         </div>
@@ -77,14 +77,14 @@
 	
 	<div id="groupChoice">
 	 <div class="form-group">
-        <label class="col-lg-2 control-label">Tanggal Check In</label>
+        <label class="col-lg-2 control-label">Check In Date</label>
         <div class="col-lg-5">
             <input type="text" name="tglcheckin"  class="form-control checkin">
         </div>
     </div>
 	
 	 <div class="form-group">
-        <label class="col-lg-2 control-label">Tanggal Check Out</label>
+        <label class="col-lg-2 control-label">Check Out Date</label>
         <div class="col-lg-5">
             <input type="text" name="tglcheckout"  class="form-control checkout">
         </div>
@@ -92,7 +92,7 @@
 	
 	
 		<div class="form-group">
-			<label class="col-lg-2 control-label">Tipe Kamar</label> 
+			<label class="col-lg-2 control-label">Room Type</label> 
 			
 			<div class="col-lg-5">
 				<select name="idtipe" class="form-control tipekamar" id="idtipe">
@@ -103,7 +103,7 @@
 			</div>
 		</div>
 		 <div class="form-group">
-			<label class="col-lg-2 control-label">Tipe Bed</label> 
+			<label class="col-lg-2 control-label">Bed Type</label> 
 			<div class="col-lg-5">
 		  <select name="idbed" class="form-control tipebed" id="idbed">
 		  
@@ -125,8 +125,8 @@
 	<input type="hidden" name="jumlahTemp" id="jumlahTemp"></input>
 	<input type="hidden" name="namaTemp" id="namaTemp"></input>
 	<input type="hidden" name="tgl_reservasiTemp" id="tgl_reservasiTemp"></input>
-        <button id="simpan" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i>	Simpan</button>
-        <a href="<?php echo site_url('reservasi');?>" class="btn btn-default">Kembali</a>
+        <button id="simpan" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i>	Save</button>
+        <a href="<?php echo site_url('reservasi');?>" class="btn btn-default">Back to Menu</a>
     </div>
 	<?php echo form_close();?>
 </div>

@@ -65,7 +65,7 @@
                                                 </td>
                                             </tr>
 										<?php }?>
-                                           <?php if($tipe == 5){?>
+                                           <?php if($tipe==1||$tipe == 5){?>
 										   <tr>
                                                 <td>
                                                     <span class="glyphicon glyphicon-bed text-primary"></span> Restaurant

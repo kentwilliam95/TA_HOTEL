@@ -141,48 +141,48 @@
 <div class="form-horizontal" />
     <?php echo validation_errors(); echo $message;?>
 		  <div class="form-group">
-                    <label class="col-lg-2 control-label">ID Check In</label>
+                    <label class="col-lg-2 control-label">Check In ID</label>
                     <div class="col-lg-5">
                         <input type="text" id="nomer" name="nomer" value="<?php echo $noauto;?>" readonly="readonly"class="form-control" >
                     </div>
                 </div>
 		    <div class="form-group">
-                    <label class="col-lg-2 control-label">Tanggal</label>
+                    <label class="col-lg-2 control-label">Check Out Date</label>
                     <div class="col-lg-5">
                         <input type="text" id="tglsajian" name="tglsajian" value="<?php echo $tglsajian;?>" readonly="readonly"class="form-control" >
                     </div>
                 </div>
 	<br>			
-	<h4>Reservasi</h4>
+	<h4>Reservation Info</h4>
 	<hr>
 	</hr>
   
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Nama Customer</label>
+        <label class="col-lg-2 control-label">Customer Name</label>
         <div class="col-lg-5">
             <input type="text" name="namareservasi" id="namareservasi" class="form-control">
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Jumlah</label>
+        <label class="col-lg-2 control-label">Guest</label>
         <div class="col-lg-5">
             <input type="text" name="jumlah" id="jumlah" class="form-control">
         </div>
     </div>
 	  <div class="form-group">
-                    <label class="col-lg-2 control-label">Tgl Check In</label>
+                    <label class="col-lg-2 control-label">Check In Date</label>
                     <div class="col-lg-5">
                         <input type="text" id="tanggal" name="tglcheckin" class="form-control" >
                     </div>
                 </div>
 	   <div class="form-group">
-                    <label class="col-lg-2 control-label">Tgl Check Out</label>
+                    <label class="col-lg-2 control-label">Check Out Date</label>
                     <div class="col-lg-5">
                         <input type="text" id="tanggal2" name="tglcheckout" class="form-control" >
                     </div>
                 </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Tipe Kamar</label>
+        <label class="col-lg-2 control-label">Room Type</label>
          <div class="col-lg-5">
             <select name="tipekamar" class="form-control" id="tipekamar">
                             <?php foreach($tipekamar as $tipekamar):?>
@@ -193,7 +193,7 @@
     </div>
 	 
 	 <div class="form-group">
-        <label class="col-lg-2 control-label">Tipe Bed</label>
+        <label class="col-lg-2 control-label">Bed Type</label>
          <div class="col-lg-5">
             <select name="tipebed" class="form-control" id="tipebed">
                             <?php foreach($tipebed as $tipebed):?>
@@ -203,7 +203,7 @@
         </div>
     </div>
 	 <div class="form-group">
-        <label class="col-lg-2 control-label">ID Kamar</label>
+        <label class="col-lg-2 control-label">Room ID</label>
         <div class="col-lg-5">
             <input type="text" name="carikamar" id="carikamar" class="form-control">
         </div>
@@ -213,8 +213,8 @@
     </div>
 	
     <div class="form-group well">
-        <button name="Simpan" class="btn btn-primary" value="asd"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>
-        <a href="<?php echo site_url('reservasi');?>" class="btn btn-default">Kembali</a>
+        <button name="Simpan" class="btn btn-primary" value="asd"><i class="glyphicon glyphicon-hdd"></i> Save</button>
+       
     </div>
 </div>
 <?php echo form_close()?>
@@ -224,7 +224,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Cari Kamar
+                    <h4 class="modal-title">Search Room
                     <input type="text" name="carikamar" id="carikamar" >
 								 <button id="cari2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
@@ -238,9 +238,9 @@
                             <table id ="isiTabel" class="table table-striped">
         <thead>
             <tr>
-                <td>ID Kamar</td>
-                <td>Tipe Kamar </td>
-                <td>Tipe Bed</td>
+                <td>Room ID</td>
+                <td>Room Type </td>
+                <td>Bed Type</td>
             </tr>
         </thead>
 		

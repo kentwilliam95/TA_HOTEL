@@ -25,7 +25,7 @@
         <td><?php echo $row->id_pegawai;?></td>
         <td><?php echo $row->nama_pegawai;?></td>
 		 <td><?php echo $row->jabatan_pegawai;?></td>
-		  <td><a href="<?php echo site_url('pegawai/detail_pinjam/'.$row->id_pegawai);?>">Lihat Detail</a></td>
+		  <td><a href="<?php echo site_url('pegawai/detail_pinjam/'.$row->id_pegawai);?>">See Detail</a></td>
         <td><a href="<?php echo site_url('pegawai/edit/'.$row->id_pegawai);?>"><i class="glyphicon glyphicon-edit"></i></a></td>
         <td><a href="#" class="hapus" kode="<?php echo $row->id_pegawai;?>"><i class="glyphicon glyphicon-trash"></i></a></td>
     </tr>

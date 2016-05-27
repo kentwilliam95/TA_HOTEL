@@ -11,11 +11,11 @@
 		})*/
 	});
 </script>
-<legend><?php echo $title;?></legend>
+<legend>Add Room</legend>
   <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" />
     <?php echo validation_errors(); echo $message;?>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Tipe Kamar</label>
+        <label class="col-lg-2 control-label">Room Type</label>
         <div class="col-lg-7">
             <select name="idtipe" class="form-control" id="idtipe">
                             <?php foreach($tipekamar as $tipekamar):?>
@@ -25,7 +25,7 @@
         </div>
     </div>
 	 <div class="form-group">
-        <label class="col-lg-2 control-label">Tipe Bed</label>
+        <label class="col-lg-2 control-label">Bed Type</label>
         <div class="col-lg-7">
       <select name="idbed" class="form-control" id="idbed">
                             <?php foreach($anggota as $anggota):?>
@@ -35,13 +35,13 @@
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">ID Kamar</label>
+        <label class="col-lg-2 control-label">Room ID</label>
         <div class="col-lg-5">
             <input type="text" name="idkamar" class="form-control">
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">View Kamar</label>
+        <label class="col-lg-2 control-label">Room View</label>
         <div class="col-lg-5">
             <input type="text" name="viewkamar" class="form-control">
         </div>
@@ -58,8 +58,8 @@
 	        
    
     <div class="form-group well">
-        <button class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>
-        <a href="<?php echo site_url('kamar');?>" class="btn btn-default">Kembali</a>
+        <button class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Save</button>
+        <a href="<?php echo site_url('kamar');?>" class="btn btn-default">Back to Menu</a>
     </div>
 </form>
 

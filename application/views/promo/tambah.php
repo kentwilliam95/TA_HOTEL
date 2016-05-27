@@ -2,37 +2,37 @@
 <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" />
     <?php echo validation_errors(); echo $message;?>
 	<div class="form-group">
-           <label class="col-lg-2 control-label">ID Promo</label>
+           <label class="col-lg-2 control-label">Promo ID</label>
                     <div class="col-lg-5">
                         <input type="text" id="no" name="no" class="form-control" value="<?php echo $noauto;?>" readonly="readonly">
                     </div>
                 </div>  
     <div class="form-group">
-        <label class="col-lg-2 control-label">Nama Promo</label>
+        <label class="col-lg-2 control-label">Promo Name</label>
         <div class="col-lg-5">
             <input type="text" name="namapromo" class="form-control">
         </div>
     </div>
      <div class="form-group">
-        <label class="col-lg-2 control-label">Tanggal Awal</label>
+        <label class="col-lg-2 control-label">Start Date</label>
         <div class="col-lg-5">
             <input type="text" name="tglawalpromo" id="tanggal" class="form-control">
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Tanggal Akhir</label>
+        <label class="col-lg-2 control-label">End Date</label>
         <div class="col-lg-5">
             <input type="text" name="tglakhirpromo" id="tanggal2" class="form-control">
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Gambar</label>
+        <label class="col-lg-2 control-label">Picture</label>
         <div class="col-lg-5">
             <input type="file" name="gambar" class="form-control">
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Keterangan</label>
+        <label class="col-lg-2 control-label">Description</label>
         <div class="col-lg-10">
             <textarea name="keterangan"></textarea>
         </div>
@@ -44,7 +44,7 @@
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Status Promo</label>
+        <label class="col-lg-2 control-label">Status</label>
         <div class="col-lg-5">
        <select name="statuspromo" class="form-control" id="statuspromo">
                             <option>Berlaku</option>

@@ -57,6 +57,7 @@ class pegawai extends CI_Controller{
         $this->_set_rules();
         if($this->form_validation->run()==true){
             $nis=$this->input->post('kode');
+			$tipe=$this->input->post('jabatanpegawai');
             //setting konfiguras upload image
             $config['upload_path'] = './assets/img/pegawai/';
 	    $config['allowed_types'] = 'gif|jpg|png';
@@ -70,7 +71,7 @@ class pegawai extends CI_Controller{
             // }else{
                 // $gambar=$this->upload->file_name;
             // }
-            
+            if($tipe=="Admin"){  
             $info=array(
                 'nama_pegawai'=>$this->input->post('namapegawai'),
                 'alamat_pegawai'=>$this->input->post('alamatpegawai'),
@@ -78,8 +79,63 @@ class pegawai extends CI_Controller{
                 'jk_pegawai'=>$this->input->post('jkpegawai'),
                 'telepon_pegawai'=>$this->input->post('teleponpegawai'),
 				'jabatan_pegawai'=>$this->input->post('jabatanpegawai'),
+				'username'=>$this->input->post('username'),
+				'password_pegawai'=>$this->input->post('passwordpegawai')
 				
             );
+			 }
+			 else if($tipe=="Manager"){   
+              $info=array(
+                'nama_pegawai'=>$this->input->post('namapegawai'),
+                'alamat_pegawai'=>$this->input->post('alamatpegawai'),
+				'ttl_pegawai'=>$this->input->post('ttl'),
+                'jk_pegawai'=>$this->input->post('jkpegawai'),
+                'telepon_pegawai'=>$this->input->post('teleponpegawai'),
+				'jabatan_pegawai'=>$this->input->post('jabatanpegawai'),
+				'username'=>$this->input->post('username'),
+				'password_pegawai'=>$this->input->post('passwordpegawai'),
+				'tipe_pegawai'=>'2',
+            );			
+			}
+			else if($tipe=="Housekeeping"){   
+              $info=array(
+                'nama_pegawai'=>$this->input->post('namapegawai'),
+                'alamat_pegawai'=>$this->input->post('alamatpegawai'),
+				'ttl_pegawai'=>$this->input->post('ttl'),
+                'jk_pegawai'=>$this->input->post('jkpegawai'),
+                'telepon_pegawai'=>$this->input->post('teleponpegawai'),
+				'jabatan_pegawai'=>$this->input->post('jabatanpegawai'),
+				'username'=>$this->input->post('username'),
+				'password_pegawai'=>$this->input->post('passwordpegawai'),
+				'tipe_pegawai'=>'3',
+            );			
+			}
+			else if($tipe=="Front Office"){   
+              $info=array(
+                'nama_pegawai'=>$this->input->post('namapegawai'),
+                'alamat_pegawai'=>$this->input->post('alamatpegawai'),
+				'ttl_pegawai'=>$this->input->post('ttl'),
+                'jk_pegawai'=>$this->input->post('jkpegawai'),
+                'telepon_pegawai'=>$this->input->post('teleponpegawai'),
+				'jabatan_pegawai'=>$this->input->post('jabatanpegawai'),
+				'username'=>$this->input->post('username'),
+				'password_pegawai'=>$this->input->post('passwordpegawai'),
+				'tipe_pegawai'=>'4',
+            );			
+			}	
+			else if($tipe=="Food&Beverage"){   
+              $info=array(
+                'nama_pegawai'=>$this->input->post('namapegawai'),
+                'alamat_pegawai'=>$this->input->post('alamatpegawai'),
+				'ttl_pegawai'=>$this->input->post('ttl'),
+                'jk_pegawai'=>$this->input->post('jkpegawai'),
+                'telepon_pegawai'=>$this->input->post('teleponpegawai'),
+				'jabatan_pegawai'=>$this->input->post('jabatanpegawai'),
+				'username'=>$this->input->post('username'),
+				'password_pegawai'=>$this->input->post('passwordpegawai'),
+				'tipe_pegawai'=>'5',
+            );			
+			}	
             //update data angggota
             $this->m_pegawai->update($nis,$info);
             

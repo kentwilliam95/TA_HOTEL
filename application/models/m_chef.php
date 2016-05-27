@@ -64,7 +64,7 @@ class M_chef extends CI_Model{
     
     function cari($cari){
         $this->db->like($this->primary,$cari);
-        $this->db->or_like("nama_customer",$cari);
+        $this->db->or_like("nama_chef",$cari);
         return $this->db->get($this->table);
     }
 	function cariTipe($nama)

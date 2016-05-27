@@ -150,13 +150,13 @@
     })
 </script>
 
-<legend><?php echo $title;?></legend>
+<legend>Add Inventory</legend>
 <div class="panel panel-default">
     <div class="panel-body">
         <form class="form-horizontal" action="<?php echo site_url('restaurant/simpan');?>" method="post">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="col-lg-4 control-label">ID Kamar</label>
+                    <label class="col-lg-4 control-label">Room ID</label>
                     <div class="col-lg-7">
                         <input type="text" id="nomer" name="nomer" class="form-control" readonly="readonly" value='<?php echo $this->uri->segment(3);?>'></input>
                     </div>
@@ -170,7 +170,7 @@
 
 <div class="panel panel-success">
     <div class="panel-heading">
-        Tambah Inventaris
+        Add Inventory
     </div>
 	
    
@@ -178,19 +178,19 @@
 	<input type="hidden" id="hidVal"></input>
         <div class="form-inline">
             <div class="form-group">
-                <label>Kode Item</label>
+                <label>Item ID &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;</label>
                 <input type="text" class="form-control iditem" placeholder="Kode Menu" id="iditem1">
             </div>
 			<br>
 			<br>
             <div class="form-group">
-                <label>Nama Item</label>
+                <label>Item Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
                 <input type="text" class="form-control namaitem" placeholder="Nama Menu" id="namaitem1">
             </div>
 			<br>
 			<br>
 			 <div class="form-group">
-                <label>Jumlah</label>
+                <label>Qty &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</label>
                 <input type="text" class="form-control jumlahItem" placeholder="Jumlah" id="jumlah1">
             </div>
             <div class="form-group">
@@ -239,8 +239,8 @@
                             <table class="table table-striped">
         <thead>
             <tr>
-                <td>Kode Item</td>
-                <td>Nama Item</td>
+                <td>Item ID</td>
+                <td>Item Name</td>
                 <td>Start Guarantee</td>
 				<td>End Guarantee</td>
                 <td></td>

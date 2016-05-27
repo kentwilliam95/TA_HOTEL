@@ -110,11 +110,11 @@
         })
     })
 </script>
-	<legend><?php echo $title;?></legend>
+	<legend>Edit Room</legend>
   <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" />
     <?php echo validation_errors(); echo $message;?>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Tipe Kamar</label>
+        <label class="col-lg-2 control-label">Room Type</label>
         <div class="col-lg-7">
             <select name="idtipe" class="form-control" id="idtipe" value="<?php echo $kamar['id_tipekamar'];?>">
                             <?php foreach($tipekamar as $tipekamar):?>
@@ -124,7 +124,7 @@
         </div>
     </div>
 	 <div class="form-group">
-        <label class="col-lg-2 control-label">Tipe Bed</label>
+        <label class="col-lg-2 control-label">Bed Type</label>
         <div class="col-lg-7">
       <select name="idbed" class="form-control" id="idbed" value="<?php echo $kamar['id_bed'];?>">
                             <?php foreach($anggota as $anggota):?>
@@ -134,19 +134,19 @@
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">ID Kamar</label>
+        <label class="col-lg-2 control-label">Room ID</label>
         <div class="col-lg-5">
             <input type="text" name="idkamar" class="form-control" value="<?php echo $kamar['id_kamar'];?>" readonly="readonly">
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">View Kamar</label>
+        <label class="col-lg-2 control-label">Room View</label>
         <div class="col-lg-5">
             <input type="text" name="viewkamar" class="form-control" value="<?php echo $kamar['view_kamar'];?>">
         </div>
     </div>
 	 <div class="form-group">
-        <label class="col-lg-2 control-label">Gambar</label>
+        <label class="col-lg-2 control-label">Image</label>
         <div class="col-lg-5">
              <img src="<?php echo base_url('assets/img/'.$kamar['gambar_kamar']);?>" height="200px" width="200px">
         </div>
@@ -158,29 +158,7 @@
         </div>
     </div>
     </div>
-                <div class="form-group">
-                    <label class="col-lg-2 control-label">Pegawai</label>
-                    <div class="col-lg-5">
-                        <input type="text" name="no" id="no" class="form-control" value="<?php echo $kamar['id_pegawai'];?>">
-                    </div>
-                    
-                    <div class="col-lg-2">
-                        <a href="#" class="btn btn-primary" id="cari"><i class="glyphicon glyphicon-search"></i></a>
-                    </div>
-			<div>
-			</div>
-			<div>
-			</div>
-			 <label class="col-lg-2 control-label">Managed By</label>
-                     <div class="col-lg-5">
-						<input type="text" name="pegawai2" id="pegawai2" class="form-control" value="<?php echo $kamar['pegawai2'];?>" >
-					</div>
-                    
-                    <div class="col-lg-2">
-                        <a href="#" class="btn btn-primary" id="cari2"><i class="glyphicon glyphicon-search"></i></a>
-                    </div>	
-        
-    </div>        
+             
 	    <br>
 		<br>
 	
