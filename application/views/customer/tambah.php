@@ -123,44 +123,38 @@
         })
     })
 </script>
-<legend><?php echo $title;?></legend>
+<legend>Add Customer</legend>
 <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" />
     <?php echo validation_errors(); echo $message;?>
 	 <div class="form-group">
-           <label class="col-lg-2 control-label">ID Check In</label>
+           <label class="col-lg-2 control-label">Check In ID</label>
                     <div class="col-lg-5">
                         <input type="text" id="no" name="no" class="form-control" >
                     </div>
 					<div class="col-lg-2">
                         <a href="#" class="btn btn-primary" id="cari"><i class="glyphicon glyphicon-search"></i></a>
                     </div>
-                </div> 
-	<div class="form-group">
-           <label class="col-lg-2 control-label">ID Customer</label>
-                    <div class="col-lg-5">
-                        <input type="text" id="no" name="no" class="form-control" value="<?php echo $noauto;?>" readonly="readonly">
-                    </div>
-                </div>  
+                </div>   
     <div class="form-group">
-        <label class="col-lg-2 control-label">Nama Customer</label>
+        <label class="col-lg-2 control-label">Customer Name</label>
         <div class="col-lg-5">
             <input type="text" name="namacustomer" class="form-control">
         </div>
     </div>
      <div class="form-group">
-        <label class="col-lg-2 control-label">Alamat Customer</label>
+        <label class="col-lg-2 control-label">Customer Address</label>
         <div class="col-lg-5">
             <input type="text" name="alamatcustomer" class="form-control">
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Tanggal Lahir</label>
+        <label class="col-lg-2 control-label">BirthDate</label>
         <div class="col-lg-5">
             <input type="text" name="ttl" id="tanggal" class="form-control">
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Jenis Kelamin</label>
+        <label class="col-lg-2 control-label">Gender</label>
         <div class="col-lg-5">
        <select name="jkcustomer" class="form-control" id="jkcustomer">
                             <option>L</option>
@@ -169,7 +163,7 @@
         </div>
     </div>
 	 <div class="form-group">
-        <label class="col-lg-2 control-label">Telepon Customer</label>
+        <label class="col-lg-2 control-label">Customer Phone</label>
         <div class="col-lg-5">
             <input type="text" name="teleponcustomer" class="form-control">
         </div>
@@ -184,23 +178,23 @@
         </div>
     </div>
 	 <div class="form-group">
-        <label class="col-lg-2 control-label">Nomor KTP</label>
+        <label class="col-lg-2 control-label">ID Number</label>
         <div class="col-lg-5">
             <input type="text" name="ktpcustomer" class="form-control">
         </div>
     </div>
     <div class="form-group">
-        <label class="col-lg-2 control-label">Pekerjaan</label>
+        <label class="col-lg-2 control-label">Job</label>
         <div class="col-lg-5">
             <input type="text" name="pekerjaancustomer" class="form-control">
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Status Nikah</label>
+        <label class="col-lg-2 control-label">Status</label>
         <div class="col-lg-5">
        <select name="statnikahcustomer" class="form-control" id="statnikahcustomer">
-                            <option>Menikah</option>
-							 <option>Belum Menikah</option>
+                            <option>Married</option>
+							 <option>Single</option>
        </select>
         </div>
     </div>
@@ -211,8 +205,8 @@
         </div>
     </div>
     <div class="form-group well">
-        <button class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>
-        <a href="<?php echo site_url('customer');?>" class="btn btn-default">Kembali</a>
+        <button class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Save</button>
+        <a href="<?php echo site_url('customer');?>" class="btn btn-default">Back to Menu</a>
     </div>
 	
 </form>
@@ -222,7 +216,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Cari Reservasi
+                    <h4 class="modal-title">Search Guest
                     <input type="text" name="carimenu" id="carimenu" >
 								 <button id="carimenu2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
@@ -236,8 +230,8 @@
                             <table class="table table-striped">
         <thead>
             <tr>
-                <td>ID Check In</td>
-                <td>Nama </td>
+                <td>Check In ID</td>
+                <td>Guest </td>
                 <td></td>
             </tr>
         </thead>

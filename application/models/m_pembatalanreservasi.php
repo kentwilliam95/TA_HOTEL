@@ -7,6 +7,7 @@ class M_pembatalanreservasi extends CI_Model{
        $this->db->select("*");
 	   $this->db->from("reservasi");
 	   $this->db->join("useroom","useroom.id_reservasi = reservasi.id_reservasi");
+	    $this->db->limit(5);
         return $this->db->get()->result();
     }
 	function deleteData($tablename,$data)

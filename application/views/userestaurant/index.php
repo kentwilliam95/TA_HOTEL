@@ -262,7 +262,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Cari Item
+                    <h4 class="modal-title">Search Menu
                     <input type="text" name="carimenu" id="carimenu" >
 								 <button id="carimenu2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
@@ -276,9 +276,9 @@
                             <table class="table table-striped">
         <thead>
             <tr>
-                <td>ID Menu</td>
-                <td>Nama Menu</td>
-				<td>Harga</td>
+                <td>Menu ID</td>
+                <td>Menu Name</td>
+				<td>Price</td>
             </tr>
         </thead>
         <?php foreach($buku as $tmp):?>
@@ -312,7 +312,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Cari Menu
+                    <h4 class="modal-title">Search Room 
                     <input type="text" name="carimenu" id="carimenu" >
 								 <button id="carimenu2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
@@ -326,9 +326,9 @@
                             <table class="table table-striped">
         <thead>
             <tr>
-                <td>Kode Item</td>
-				<td>Nomor Kamar</td>
-                <td>Nama reservasi</td>
+                <td>Check In ID</td>
+				<td>Room Number</td>
+                <td>Name</td>
                 <td></td>
             </tr>
         </thead>

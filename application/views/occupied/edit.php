@@ -73,11 +73,11 @@
         })
     })
 </script>
-	<legend><?php echo $title;?></legend>
+	<legend>Change Room Status</legend>
   <form class="form-horizontal" action="<?php echo site_url("occupied/update")?>" method="post" enctype="multipart/form-data" />
     <?php echo validation_errors(); echo $message;?>
                 <div class="form-group">
-                    <label class="col-lg-2 control-label">ID Kamar</label>
+                    <label class="col-lg-2 control-label">Room Status</label>
                     <div class="col-lg-5">
                         <input type="text" name="kode" class="form-control" value="<?php echo $occupied['id_kamar']?>" readonly="readonly">
                     </div>
@@ -95,14 +95,14 @@
         <label class="col-lg-2 control-label">Status</label>
         <div class="col-lg-7">
        <select name="statuskamar" class="form-control" id="statuskamar"><?php echo $occupied["Status"]?>
-                            <option value="Occupied">Occupied</option>
-							<option value="Occupied Clean">Occupied Clean</option>
-							<option value="Occupied Dirty">Occupied Dirty</option>
-						    <option value="Vacant Clean">Vacant Clean</option>
-						    <option value="Vacant Ready">Vacant Ready</option>
-							<option value="Vacant Dirty">Vacant Dirty</option>
-							<option value="Out Of Order">Out of Order</option>
-							<option value="Blocked">Blocked</option>
+                            <option value="OCCUPIED">OCCUPIED</option>
+							<option value="OCCUPIED CLEAN">OCCUPIED CLEAN</option>
+							<option value="OCCUPIED DIRTY">OCCUPIED DIRTY</option>
+						    <option value="Vacant Clean">VACANT CLEAN</option>
+						    <option value="VACANT READY">VACANT READY</option>
+							<option value="VACANT DIRTY">VACANT DIRTY</option>
+							<option value="OUT OF ORDER">OUT OF ORDER</option>
+							<option value="BLOCKED">BLOCKED</option>
                             
                         </select>
         </div>

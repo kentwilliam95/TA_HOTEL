@@ -18,19 +18,19 @@
     <title>Occupied Room</title>
 	<form class="navbar-form navbar-left" role="search" action="<?php echo site_url('occupied/cari');?>" method="post">
      <div class="form-group">
-            <label>Cari Kamar</label>
+            <label>Search Room</label>
             <input type="text" class="form-control" placeholder="Search" name="cari">
         </div>
-        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i> Cari</button>
+        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i> Search</button>
     </form>
 </div>
 <?php echo $message;?>
 <Table class="table">
     <thead>
         <tr>
-            <td>ID Kamar</td>
-            <td>Tipe Kamar</td>
-			<td>Tipe Ranjang</td>
+            <td>Room ID</td>
+            <td>Room Type</td>
+			<td>Bed Type</td>
 			<td>Status</td>
             <td colspan="2"></td>
         </tr>

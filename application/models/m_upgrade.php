@@ -12,7 +12,7 @@ class M_upgrade extends CI_Model{
         return $this->db->get()->result();
     }
 	function ubah($info,$idtipe,$idbed){
-        $query=$this->db->query("update booked_room set id_tipekamar='$idtipe',id_bed='$idbed' where id_reservasi='$info'");
+        $query=$this->db->query("update useroom set id_tipekamar='$idtipe',id_bed='$idbed' where id_reservasi='$info'");
         return $query;
     }
 	function getAnggota(){

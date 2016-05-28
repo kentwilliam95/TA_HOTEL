@@ -295,7 +295,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Cari Reservasi
+                    <h4 class="modal-title">Search Guest
                     <input type="text" name="carimenu" id="carimenu" >
 								 <button id="carimenu2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
@@ -309,10 +309,10 @@
                             <table class="table table-striped">
         <thead>
             <tr>
-                <td>ID Reservasi</td>
-                <td>Nama </td>
-                <td>Tanggal Check in</td>
-				<td>Tanggal Check Out</td>
+                <td>Reservation ID</td>
+                <td>Reservation Name</td>
+                <td>Check In Date</td>
+				<td>Check Out Date</td>
                 <td></td>
             </tr>
         </thead>
@@ -354,7 +354,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Cari Reservasi
+                    <h4 class="modal-title">Search Promo
                     <input type="text" name="carimenu" id="carimenu" >
 								 <button id="carimenu2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
@@ -368,8 +368,8 @@
                             <table class="table table-striped">
         <thead>
             <tr>
-                <td>Id Promo</td>
-                <td>Nama Promo </td>
+                <td>Promo ID</td>
+                <td>Promo Name </td>
 				<td>Disc Value</td>
                 <td></td>
             </tr>

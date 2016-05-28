@@ -254,7 +254,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Cari Item
+                    <h4 class="modal-title">Search Item
                     <input type="text" name="carimenu" id="carimenu" >
 								 <button id="carimenu2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
@@ -268,9 +268,9 @@
                             <table class="table table-striped">
         <thead>
             <tr>
-                <td>ID Item</td>
-                <td>Nama Item</td>
-				<td>Harga</td>
+                <td>Item ID</td>
+                <td>Item Name</td>
+				<td>Price</td>
             </tr>
         </thead>
         <?php foreach($buku as $tmp):?>
@@ -278,8 +278,6 @@
             <td><?php echo $tmp->id_laundry;?></td>
             <td><?php echo $tmp->nama_item;?></td>
             <td><?php echo $tmp->satuan;?></td>
-			 <td><?php echo $tmp->nama_satuan;?></td>
-			  <td><?php echo $tmp->harga_laundry;?></td>
             <td><a href="#" class="tambah" idmenu="<?php echo $tmp->id_laundry;?>"
         
             namamenu="<?php echo $tmp->nama_item;?>"  harga="<?php echo $tmp->harga_laundry;?>"><i class="glyphicon glyphicon-plus"></i></a>
@@ -309,7 +307,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Cari Item
+                    <h4 class="modal-title">Search Room
                     <input type="text" name="carimenu" id="carimenu" >
 								 <button id="carimenu2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
@@ -323,9 +321,9 @@
                             <table class="table table-striped">
         <thead>
             <tr>
-                <td>ID checkin</td>
-				<td>nomor Kamar</td>
-				<td>Nama Reservasi</td>
+                <td>Check In</td>
+				<td>Room Number</td>
+				<td>Name</td>
             </tr>
         </thead>
         <?php foreach($idCheckin as $tmp):?>

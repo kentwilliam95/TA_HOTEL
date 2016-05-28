@@ -132,11 +132,11 @@
         
     })
 </script>
-<legend><?php echo $title;?></legend>
+<legend>Upgrade Room</legend>
 <div class="form-horizontal" action="" method="post" enctype="multipart/form-data" />
     <?php echo validation_errors(); echo $message;?>
      <div class="form-group">
-           <label class="col-lg-2 control-label">ID Reservasi</label>
+           <label class="col-lg-2 control-label">Reservation ID</label>
                     <div class="col-lg-5">
                         <input type="text" id="no" name="no" class="form-control" >
                     </div>
@@ -145,19 +145,19 @@
                     </div>
                 </div>  
 	  <div class="form-group">
-                    <label class="col-lg-2 control-label">Tgl Reservasi</label>
+                    <label class="col-lg-2 control-label">Reservation Date</label>
                     <div class="col-lg-5">
                         <input type="text" id="tglreservasi" name="tglreservasi" class="form-control" >
                     </div>
                 </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Nama Customer</label>
+        <label class="col-lg-2 control-label">Customer Name</label>
         <div class="col-lg-5">
             <input type="text" name="namareservasi" id="namareservasi" class="form-control">
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Jumlah</label>
+        <label class="col-lg-2 control-label">Guest</label>
         <div class="col-lg-5">
             <input type="text" name="jumlah" id="jumlah" class="form-control">
         </div>
@@ -175,7 +175,7 @@
                     </div>
                 </div>
 <div class="form-group">
-        <label class="col-lg-2 control-label">Tipe Kamar</label>
+        <label class="col-lg-2 control-label">Room Type</label>
         <div class="col-lg-5">
             <select name="idtipe" class="form-control" id="idtipe">
                             <?php foreach($tipekamar as $tipekamar):?>
@@ -185,7 +185,7 @@
         </div>
     </div>
 	 <div class="form-group">
-        <label class="col-lg-2 control-label">Tipe Bed</label>
+        <label class="col-lg-2 control-label">Bed Type</label>
         <div class="col-lg-5">
       <select name="idbed" class="form-control" id="idbed">
                             <?php foreach($anggota as $tipebed):?>
@@ -202,8 +202,7 @@
 	<input type= "hidden" name="KodeTipeKamar" id="KodeTipeKamar" > </input>
 	<input type="hidden" name="kodeTipeBed" id="kodeTipeBed" > </input>
 	
-        <button class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>
-        <a href="<?php echo site_url('reservasi');?>" class="btn btn-default">Kembali</a>
+        <button class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Save</button>
     </div>
 <?php echo form_close();?>
 </div>
@@ -213,7 +212,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Cari Reservasi
+                    <h4 class="modal-title">Search Guest
                     <input type="text" name="carimenu" id="carimenu" >
 								 <button id="carimenu2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
@@ -227,10 +226,10 @@
                             <table class="table table-striped">
         <thead>
             <tr>
-                <td>ID Reservasi</td>
-                <td>Nama </td>
-                <td>Tanggal Check in</td>
-				<td>Tanggal Check Out</td>
+                <td>Reservation ID</td>
+                <td>Name </td>
+                <td>Check in Date</td>
+				<td>Check Out Date</td>
                 <td></td>
             </tr>
         </thead>
