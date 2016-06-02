@@ -108,7 +108,7 @@
         })
 		
         
-        $("#carimenu2").keyup(function(){
+        $("#carimenu2").click(function(){
             var carimenu=$("#carimenu").val();
             
             $.ajax({

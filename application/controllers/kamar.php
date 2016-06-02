@@ -163,10 +163,10 @@ class Kamar extends CI_Controller{
 		$config['max_height']  = '1024';
                 
                 $this->upload->initialize($config);
-                if(!$this->upload->do_upload('gambarkamar')){
-                    $gambar="";
+                if($this->upload->do_upload('gambarkamar')){
+                   $gambar=$this->upload->file_name;
                 }else{
-                    $gambar=$this->upload->file_name;
+                    $gambar="";
                 }
             
             $info=array(

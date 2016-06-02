@@ -116,7 +116,7 @@ class Promo extends CI_Controller{
                 
             $this->upload->initialize($config);
             if(!$this->upload->do_upload('gambarpromo')){
-                $gambar="";
+                $gambar=$this->upload->file_name;
             }else{
                 $gambar=$this->upload->file_name;
             }

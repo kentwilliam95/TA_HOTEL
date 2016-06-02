@@ -44,6 +44,12 @@
         </div>
     </div>
 	<div class="form-group">
+        <label class="col-lg-2 control-label">Disc Value</label>
+        <div class="col-lg-10">
+           <input type="text" name="discvalue" class="form-control">
+        </div>
+    </div>
+	<div class="form-group">
         <label class="col-lg-2 control-label">Status</label>
         <div class="col-lg-5">
        <select name="statuspromo" class="form-control">

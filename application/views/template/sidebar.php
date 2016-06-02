@@ -253,11 +253,7 @@
                     <div id="collapseN" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table">
-                                <tr>
-                                                <td>
-                                                    <span class="glyphicon glyphicon-room text-success"></span> <a href="<?php echo site_url('checkout');?>">&nbsp;&nbsp;&nbsp;&nbsp;Check Out</a>
-                                                </td>
-                                            </tr>
+                          
                                   <tr>
                                                 <td>
                                                     <span class="glyphicon glyphicon-room text-success"></span> <a href="<?php echo site_url('payment');?>">&nbsp;&nbsp;&nbsp;&nbsp;Payment</a>
