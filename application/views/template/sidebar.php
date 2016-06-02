@@ -139,39 +139,7 @@
                     </div>
                 </div>
 <?php }?>
-<?php if($tipe == 1 || $tipe == 2 || $tipe == 3 || $tipe == 4){?>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th">
-                            </span> Room Status</a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table">
-                                
-								<tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon"></span><a href="<?php echo site_url('occupied');?>">Occupied Room</a></span>
-                                    </td>
-                                </tr>
-								<tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon"></span><a href="<?php echo site_url('vacant');?>">Vacant Room</a></span>
-                                    </td>
-                                </tr>
-								<tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon"></span><a href="<?php echo site_url('outoforder');?>">Out Of Order</a></span>
-                                    </td>
-                                </tr>
-                               
-                            </table>
-                        </div>
-                    </div>
-                </div>
-<?php }?>
+
 
 <?php if($tipe == 1 || $tipe == 2 || $tipe == 4){?>				
 			<div class="panel panel-default">

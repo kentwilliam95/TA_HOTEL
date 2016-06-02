@@ -106,19 +106,15 @@
         $("#cari").click(function(){
             $("#myModal2").modal("show");
         })
-		$("#carimenu2").click(function(){
-			 var carimenu=$("#carimenu").val();
-			 alert(carimenu);
-			 $("#myModal3").modal("show");
-        })
+		
         
-        $("#caribuku").keyup(function(){
-            var caribuku=$("#caribuku").val();
+        $("#carimenu2").keyup(function(){
+            var carimenu=$("#carimenu").val();
             
             $.ajax({
                 url:"<?php echo site_url('restaurant/pencarianbuku');?>",
                 type:"POST",
-                data:"caribuku="+caribuku,
+                data:"carimenu="+carimenu,
                 cache:false,
                 success:function(html){
                     $("#tampilbuku").html(html);

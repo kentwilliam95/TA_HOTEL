@@ -84,10 +84,13 @@ class userestaurant extends CI_Controller{
             $this->m_useuserestaurant->simpanTmp($info);
         }
     }
-   function carimenu(){
-        $cari=$this->input->post('carimenu');
-        $data['menu']=$this->m_useuserestaurant->cari($cari)->result();
-        $this->load->view('useuserestaurant/index',$data);
+   function cariMenu(){
+        $kode=$this->input->post('carimenu');
+        $buku=$this->m_userestaurant->cariMenu($kode);
+        if($buku->num_rows()>0){
+            $buku=$buku->row_array();
+            echo $buku['nama_menu']."|".$buku['harga_menu'];
+        }
     }
     function hapus(){
         $kode=$this->input->post('id_menu');
