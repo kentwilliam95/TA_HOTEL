@@ -79,7 +79,14 @@ class M_depositoawal extends CI_Model{
 		$this->db->where("id_tipekamar",$value);
 		return $this->db->get()->result();
 	}
-	
+	function cariMenu($kode){
+		$query=$this->db->query("select * from booked_room where nama_reservasi='$kode'");
+        return $query;
+    }
+	function pencarianbuku($cari){
+		$query=$this->db->query("select * from booked_room  where nama_reservasi like'%$cari%'");
+        return $query;
+    }
 	function insertData($tableName,$data)
 	{
 		$this->db->insert($tableName,$data);

@@ -86,6 +86,14 @@ class M_changeroom extends CI_Model{
 		$this->db->from("booked_room");
 		return $this->db->get()->result();
 	}
+	function cariMenu($kode){
+		$query=$this->db->query("select * from booked_room where id_kamar='$kode'");
+        return $query;
+    }
+	function pencarianbuku($cari){
+		$query=$this->db->query("select * from booked_room  where id_kamar like'%$cari%'");
+        return $query;
+    }
 	function cariTipe($nama)
 	{
 		$this->db->select("*");

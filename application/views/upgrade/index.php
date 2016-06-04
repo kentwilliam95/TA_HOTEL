@@ -215,7 +215,7 @@
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title">Search Guest
-                    <input type="text" name="cari22 id="cari22" >
+                   <input type="text" name="cari22" id="cari22" >
 								 <button id="cari23" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
 					

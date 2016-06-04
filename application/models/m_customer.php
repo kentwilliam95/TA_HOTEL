@@ -75,6 +75,14 @@ class M_customer extends CI_Model{
         $this->db->or_like("nama_customer",$cari);
         return $this->db->get($this->table);
     }
+	function cariMenu($kode){
+		$query=$this->db->query("select c.id_checkin,r.nama_reservasi from checkin c,reservasi r where r.id_reservasi=c.id_reservasi and r.nama_reservasi='$kode'");
+        return $query;
+    }
+	function pencarianbuku($cari){
+		$query=$this->db->query("select c.id_checkin,r.nama_reservasi from checkin c,reservasi r where r.id_reservasi=c.id_reservasi and r.nama_reservasi like '%$cari%'");
+        return $query;
+    }
 	function cariTipe($nama)
 	{
 		$this->db->select("*");

@@ -81,20 +81,21 @@
          $("#cari").click(function(){
             $("#myModal2").modal("show");
         })
-        $("#caribuku").keyup(function(){
-            var caribuku=$("#caribuku").val();
+        $("#cari23").click(function(){
+            var cari22=$("#cari22").val();
             
             $.ajax({
-                url:"<?php echo site_url('checkin/pencarianbuku');?>",
+                url:"<?php echo site_url('customer/pencarianbuku');?>",
                 type:"POST",
-                data:"caribuku="+caribuku,
+                data:"cari22="+cari22,
                 cache:false,
                 success:function(html){
                     $("#tampilbuku").html(html);
+					$("#xx").hide();
                 }
             })
-        })
-        
+			//alert("x");
+			})
       
 
         $(".tambah").live("click",function(){
@@ -217,8 +218,8 @@
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title">Search Guest
-                    <input type="text" name="carimenu" id="carimenu" >
-								 <button id="carimenu2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                    <input type="text" name="cari22" id="cari22" >
+								 <button id="cari23" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
 					
                   </div>
@@ -227,11 +228,12 @@
                        <div class="form-horizontal">
                           
                         </div>
-                            <table class="table table-striped">
+                            <table class="table table-striped" id="xx">
         <thead>
             <tr>
                 <td>Check In ID</td>
                 <td>Guest </td>
+				 
                 <td></td>
             </tr>
         </thead>
@@ -239,6 +241,7 @@
         <tr>
             <td><?php echo $tmp->id_checkin;?></td>
             <td><?php echo $tmp->nama_reservasi;?></td>
+			
             <td><a href="#" class="tambah" no="<?php echo $tmp->id_checkin;?>"
 			>
 			<i class="glyphicon glyphicon-plus"></i></a></td>

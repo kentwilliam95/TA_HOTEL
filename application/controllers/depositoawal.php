@@ -154,7 +154,21 @@ class depositoawal extends CI_Controller{
             $this->template->display('depositoawal/edit',$data);
         }
     }
+    function cariMenu(){
+        $kode=$this->input->post('cari22');
+        $buku=$this->m_depositoawal->cariMenu($kode);
+        if($buku->num_rows()>0){
+            $buku=$buku->row_array();
+            echo $buku['nama_reservasi']."|".$buku['tgl_checkin']."|".$buku['tgl_checkout'];
+        }
+    }
+   
     
+    function pencarianbuku(){
+        $cari=$this->input->post('cari22');
+        $data['buku']=$this->m_depositoawal->pencarianbuku($cari)->result();
+        $this->load->view('depositoawal/pencarianbuku',$data);
+    }
     function hapus(){
         $kode=$this->input->post('kode');
         $detail=$this->m_depositoawal->cek($kode)->result();

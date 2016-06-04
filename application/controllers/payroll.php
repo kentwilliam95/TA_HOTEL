@@ -35,7 +35,7 @@ class payroll extends CI_Controller{
         $config['uri_segment']=3;
         $this->pagination->initialize($config);
         $data['pagination']=$this->pagination->create_links();
-        
+        $data['payroll']=$this->m_payroll->getAnggota()->result();
         
         if($this->uri->segment(3)=="delete_success")
             $data['message']="<div class='alert alert-success'>Data berhasil dihapus</div>";
@@ -169,7 +169,21 @@ class payroll extends CI_Controller{
             $this->template->display('categorypayroll/cari',$data);
         }
     }
+   function cariMenu(){
+        $kode=$this->input->post('cari22');
+        $buku=$this->m_payroll->cariMenu($kode);
+        if($buku->num_rows()>0){
+            $buku=$buku->row_array();
+            echo $buku['nama_pegawai']."|".$buku['jabatan_pegawai'];
+        }
+    }
+   
     
+    function pencarianbuku(){
+        $cari=$this->input->post('cari22');
+        $data['buku']=$this->m_payroll->pencarianbuku($cari)->result();
+        $this->load->view('payroll/pencarianbuku',$data);
+    }
     function _set_rules(){
       $this->form_validation->set_rules('tglpenggajian','Nama Kategori','required|max_length[50]');
         // $this->form_validation->set_rules('judul','Judul categorypayroll','required|max_length[100]');

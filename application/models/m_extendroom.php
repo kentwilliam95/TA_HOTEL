@@ -73,7 +73,14 @@ class M_extendroom extends CI_Model{
 	{
 		return $this->db->get("booked_room")->result();
 	}
-	
+	function cariMenu($kode){
+		$query=$this->db->query("select * from booked_room where id_kamar='$kode'");
+        return $query;
+    }
+	function pencarianbuku($cari){
+		$query=$this->db->query("select * from booked_room  where id_kamar like'%$cari%'");
+        return $query;
+    }
 	function updateData($tablename,$data,$titleName,$titleValue)
 	{
 		$this->db->where($titleName,$titleValue);

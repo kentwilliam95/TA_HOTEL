@@ -95,6 +95,14 @@ class M_payment extends CI_Model{
 		$this->db->where($titleName,$titlevalue);
 		$this->db->update($tablename,$data);
 	}
+	function cariMenu($kode){
+		$query=$this->db->query("select * from booked_room,pembayaran,promo where booked_room.id_checkin = pembayaran.id_checkin   and promo.id_promo=pembayaran.id_promo and booked_room.id_kamar='$kode'");
+        return $query;
+    }
+	function pencarianbuku($cari){
+			$query=$this->db->query("select * from booked_room,pembayaran,promo where booked_room.id_checkin = pembayaran.id_checkin   and promo.id_promo=pembayaran.id_promo and booked_room.id_kamar like '%$cari%'");
+        return $query;
+    }
 	function cariTipe($nama)
 	{
 		$this->db->select("*");

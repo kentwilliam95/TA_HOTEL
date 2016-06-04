@@ -154,6 +154,21 @@ class extendroom extends CI_Controller{
             $this->template->display('extendroom/cari',$data);
         }
     }
+	function cariMenu(){
+        $kode=$this->input->post('cari22');
+        $buku=$this->m_extendroom->cariMenu($kode);
+        if($buku->num_rows()>0){
+            $buku=$buku->row_array();
+            echo $buku['nama_reservasi']."|".$buku['tgl_checkin']."|".$buku['tgl_checkout']."|".$buku['id_kamar'];
+        }
+    }
+   
+    
+    function pencarianbuku(){
+        $cari=$this->input->post('cari22');
+        $data['buku']=$this->m_extendroom->pencarianbuku($cari)->result();
+        $this->load->view('extendroom/pencarianbuku',$data);
+    }
     function detail_pinjam($id){
         $data['title']=$id;
         $data['pinjam']=$this->m_extendroom->detail_pinjam($id)->row_array();
