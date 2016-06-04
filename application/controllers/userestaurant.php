@@ -85,7 +85,7 @@ class userestaurant extends CI_Controller{
         }
     }
    function cariMenu(){
-        $kode=$this->input->post('carimenu');
+        $kode=$this->input->post('cari22');
         $buku=$this->m_userestaurant->cariMenu($kode);
         if($buku->num_rows()>0){
             $buku=$buku->row_array();
@@ -98,9 +98,9 @@ class userestaurant extends CI_Controller{
     }
     
     function pencarianbuku(){
-        $cari=$this->input->post('caribuku');
-        $data['buku']=$this->m_useuserestaurant->pencarianbuku($cari)->result();
-        $this->load->view('useuserestaurant/pencarianbuku',$data);
+        $cari=$this->input->post('cari22');
+        $data['buku']=$this->m_userestaurant->pencarianbuku($cari)->result();
+        $this->load->view('userestaurant/pencarianbuku',$data);
     }
 	function simpan()
 	{

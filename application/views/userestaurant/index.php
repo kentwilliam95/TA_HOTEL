@@ -108,18 +108,20 @@
         })
 		
         
-        $("#carimenu2").click(function(){
-            var carimenu=$("#carimenu").val();
+        $("#cari23").click(function(){
+            var cari22=$("#cari22").val();
             
             $.ajax({
-                url:"<?php echo site_url('restaurant/pencarianbuku');?>",
+                url:"<?php echo site_url('userestaurant/pencarianbuku');?>",
                 type:"POST",
-                data:"carimenu="+carimenu,
+                data:"cari22="+cari22,
                 cache:false,
                 success:function(html){
                     $("#tampilbuku").html(html);
+					$("#xx").hide();
                 }
             })
+			//alert("x");
         })
         
         $(".tambah").live("click",function(){
@@ -259,8 +261,8 @@
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title">Search Menu
-                    <input type="text" name="carimenu" id="carimenu" >
-								 <button id="carimenu2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                    <input type="text" name="cari22" id="cari22" >
+								 <button id="cari23" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
 					
                   </div>
@@ -269,7 +271,7 @@
                        <div class="form-horizontal">
                           
                         </div>
-                            <table class="table table-striped">
+                            <table class="table table-striped" id="xx">
         <thead>
             <tr>
                 <td>Menu ID</td>
@@ -302,6 +304,7 @@
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
+
  <!-- Modal -->
             <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">

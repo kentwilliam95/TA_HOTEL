@@ -62,8 +62,8 @@ class M_userestaurant extends CI_Model{
         return $query;
     }
     function pencarianbuku($cari){
-        $this->db->like("judul",$cari);
-        return $this->db->get("buku");
+        $this->db->like("nama_menu",$cari);
+        return $this->db->get("restaurant");
     }
     function cariMenu($kode){
         $this->db->where("nama_menu",$kode);
