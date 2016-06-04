@@ -7,7 +7,6 @@ class M_pembatalanreservasi extends CI_Model{
        $this->db->select("*");
 	   $this->db->from("reservasi");
 	   $this->db->join("useroom","useroom.id_reservasi = reservasi.id_reservasi");
-	   // $this->db->limit(5);
         return $this->db->get()->result();
     }
 	function deleteData($tablename,$data)
@@ -59,16 +58,19 @@ class M_pembatalanreservasi extends CI_Model{
         $this->db->update($this->table,$data);
     }
     
-    function hapus($kode){
-        $this->db->where($this->primary,$kode);
-        $this->db->delete($this->table);
+    
+    function pencarianbuku($cari){
+		$query=$this->db->query("select * from useroom, reservasi where reservasi.id_reservasi=useroom.id_reservasi and reservasi.nama_reservasi like '%$cari%'");
+        return $query;
+    }
+    function cariMenu($kode){
+       $this->db->where("reservasi.nama_reservasi",$kode);
+	   $this->db->select("*");
+	   $this->db->from("reservasi");
+	   $this->db->join("useroom","useroom.id_reservasi = reservasi.id_reservasi");
+      // return $this->db->get()->result();
     }
     
-    function cari($cari){
-        $this->db->like($this->primary,$cari);
-        $this->db->or_like("nama_item",$cari);
-        return $this->db->get($this->table);
-    }
 	function cariTipe($nama)
 	{
 		$this->db->select("*");

@@ -51,6 +51,14 @@ class M_checkin extends CI_Model{
 		$query=$this->db->query("insert into booked_room(id_checkin,tgl_checkin,id_tipekamar,id_bed,passengers,nama_reservasi,status,tgl_checkout,tgl_masuk) values('$idcheckin','$tglcheckin2','$idtipekamar','$idbed','$passengers','$nama','$status','$tglcheckout','$tglcheckin') ");
         return $query;
     }
+	function cariMenu($kode){
+		$query=$this->db->query("select * from booked_room br where id_checkin not in (select id_checkin from checkin) and Status='Blocked' and nama_reservasi='$kode'");
+        return $query;
+    }
+	function pencarianbuku($cari){
+		$query=$this->db->query("select * from booked_room br where id_checkin not in (select id_checkin from checkin) and Status='Blocked' and nama_reservasi like'%$cari%'");
+        return $query;
+    }
 	function gettipebed(){
         return $this->db->get("bed")->result();
     }

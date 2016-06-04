@@ -1,20 +1,22 @@
-<table class="table table-striped">
+      <table class="table table-striped">
         <thead>
             <tr>
-                <td>Kode Buku</td>
-                <td>Judul Buku</td>
-                <td>Pengarang</td>
-                <td></td>
+                <td>Item ID</td>
+                <td>Item Name</td>
+				<td>Price</td>
             </tr>
         </thead>
         <?php foreach($buku as $tmp):?>
         <tr>
-            <td><?php echo $tmp->kode_buku;?></td>
-            <td><?php echo $tmp->judul;?></td>
-            <td><?php echo $tmp->pengarang;?></td>
-            <td><a href="#" class="tambah" kode="<?php echo $tmp->kode_buku;?>"
-            judul="<?php echo $tmp->judul;?>"
-            pengarang="<?php echo $tmp->pengarang;?>"><i class="glyphicon glyphicon-plus"></i></a></td>
+            <td><?php echo $tmp->id_laundry;?></td>
+            <td><?php echo $tmp->nama_item;?></td>
+            <td><?php echo $tmp->harga_laundry;?></td>
+            <td><a href="#" class="tambah" idmenu="<?php echo $tmp->id_laundry;?>"
+        
+            namamenu="<?php echo $tmp->nama_item;?>"  harga="<?php echo $tmp->harga_laundry;?>"><i class="glyphicon glyphicon-plus"></i></a>
+			
+			</td>
+			
         </tr>
         <?php endforeach;?>
     </table>

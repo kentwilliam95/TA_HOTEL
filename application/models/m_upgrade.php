@@ -60,7 +60,14 @@ class M_upgrade extends CI_Model{
         $this->db->where($this->primary,$kode);
         $this->db->delete($this->table);
     }
-    
+    function cariMenu($kode){
+		$query=$this->db->query("select * from useroom, reservasi where reservasi.nama_reservasi='$kode' and reservasi.id_reservasi=useroom.id_reservasi and reservasi.status_reservasi='Fixed'");
+        return $query;
+    }
+	function pencarianbuku($cari){
+		$query=$this->db->query("select * from useroom, reservasi where reservasi.nama_reservasi='$cari' and reservasi.id_reservasi=useroom.id_reservasi and reservasi.status_reservasi='Fixed'");
+        return $query;
+    }
     function cari($cari){
         $this->db->like($this->primary,$cari);
         $this->db->or_like("nama_item",$cari);

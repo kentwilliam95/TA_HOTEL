@@ -51,13 +51,20 @@ class pembatalanreservasi extends CI_Controller{
     }
     
     
-    function hapus(){
-        $kode=$this->input->post('kode');
-        $detail=$this->m_reservasi->cek($kode)->result();
-	foreach($detail as $det):
-	    unlink("assets/img/".$det->image);
-	endforeach;
-        $this->m_reservasi->hapus($kode);
+   function cariMenu(){
+        $kode=$this->input->post('cari22');
+        $buku=$this->m_pembatalanreservasi->cariMenu($kode);
+        if($buku->num_rows()>0){
+            $buku=$buku->row_array();
+            echo $buku['nama_reservasi']."|".$buku['tgl_checkin']."|".$buku['tgl_checkout'];
+        }
+    }
+   
+    
+    function pencarianbuku(){
+        $cari=$this->input->post('cari22');
+        $data['buku']=$this->m_pembatalanreservasi->pencarianbuku($cari)->result();
+        $this->load->view('pembatalanreservasi/pencarianbuku',$data);
     }
     
     function cari(){
@@ -95,7 +102,7 @@ class pembatalanreservasi extends CI_Controller{
 		if($this->input->post("answer")=="true")
 		{
 			$idReservasi = $this->input->post("nomorReservasi");
-			//$this->m_pembatalanreservasi->update(array("status_reservasi"=>"Cancelled"),array("id_reservasi"=>$idReservasi));
+			$this->m_pembatalanreservasi->update(array("status_reservasi"=>"Cancelled"),array("id_reservasi"=>$idReservasi));
 		$this->m_pembatalanreservasi->deleteData("useroom",Array("id_useroom"=>$idReservasi));
 			redirect("pembatalanreservasi/index");
 		}

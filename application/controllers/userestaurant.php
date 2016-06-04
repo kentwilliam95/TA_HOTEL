@@ -33,11 +33,7 @@ class userestaurant extends CI_Controller{
         $this->template->display('userestaurant/index',$data);
     }
     
-    function tampil(){
-        $data['tmp']=$this->m_useuseuserestaurant->tampilTmp()->result();
-       $data['jumlahTmp']=$this->m_useuseuserestaurant->jumlahTmp();
-       $this->load->view('useuseuserestaurant/tampil',$data);
-    }
+   
     
      function sukses(){
         
@@ -59,14 +55,7 @@ class userestaurant extends CI_Controller{
             $this->m_useuserestaurant->hapusTmp($row->id_menu);
         }
     }    
-    function cariAnggota(){
-        $nis=$this->input->post('nis');
-        $anggota=$this->m_useuserestaurant->cariAnggota($nis);
-        if($anggota->num_rows()>0){
-            $anggota=$anggota->row_array();
-            echo $anggota['nama'];
-        }
-    }   
+   
     function tambah(){
         $kode=$this->input->post('nomer');
         $cek=$this->m_useuserestaurant->cekTmp($kode);
@@ -92,15 +81,27 @@ class userestaurant extends CI_Controller{
             echo $buku['nama_menu']."|".$buku['harga_menu'];
         }
     }
-    function hapus(){
-        $kode=$this->input->post('id_menu');
-        $this->m_useuserestaurant->hapusTmp($kode);
-    }
+   
     
     function pencarianbuku(){
         $cari=$this->input->post('cari22');
         $data['buku']=$this->m_userestaurant->pencarianbuku($cari)->result();
         $this->load->view('userestaurant/pencarianbuku',$data);
+    }
+	function cariKamar(){
+        $kode=$this->input->post('carikamar');
+        $buku2=$this->m_userestaurant->cariKamar($kode);
+        if($buku2->num_rows()>0){
+            $buku2=$buku2->row_array();
+            echo $buku2['id_checkin']."|".$buku2['id_kamar']."|".$buku2['nama_reservasi'];
+        }
+    }
+   
+    
+    function pencarianbuku2(){
+        $cari=$this->input->post('carikamar');
+        $data['buku2']=$this->m_userestaurant->pencarianbuku2($cari)->result();
+        $this->load->view('userestaurant/pencarianbuku2',$data);
     }
 	function simpan()
 	{

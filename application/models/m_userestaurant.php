@@ -70,6 +70,14 @@ class M_userestaurant extends CI_Model{
         return $this->db->get("restaurant");
     }
 	
+	function pencarianbuku2($cari){
+        $this->db->like("id_kamar",$cari);
+        return $this->db->get("booked_room");
+    }
+    function cariKamar($kode){
+        $this->db->where("id_kamar",$kode);
+        return $this->db->get("booked_room");
+    }
 	function GetAllDataFrom($tablename){
        $this->db->select("*");
 	   $this->db->from($tablename);

@@ -61,15 +61,22 @@ class M_uselaundry extends CI_Model{
         $query=$this->db->query("select * from restaurant where nama_menu like'%$cari%'");
         return $query;
     }
-    function pencarianbuku($cari){
-        $this->db->like("judul",$cari);
-        return $this->db->get("buku");
+   function pencarianbuku($cari){
+        $this->db->like("nama_item",$cari);
+        return $this->db->get("laundry");
     }
-    function cariBuku($kode){
-        $this->db->where("nama_menu",$kode);
-        return $this->db->get("restaurant");
+    function cariItem($kode){
+        $this->db->where("nama_item",$kode);
+        return $this->db->get("laundry");
     }
-	
+	function pencarianbuku2($cari){
+        $this->db->like("id_kamar",$cari);
+        return $this->db->get("booked_room");
+    }
+    function cariKamar($kode){
+        $this->db->where("id_kamar",$kode);
+        return $this->db->get("booked_room");
+    }
 	function GetAllDataFrom($tablename){
        $this->db->select("*");
 	   $this->db->from($tablename);

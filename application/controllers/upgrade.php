@@ -54,7 +54,21 @@ class upgrade extends CI_Controller{
 		 
     }
     
+    function cariMenu(){
+        $kode=$this->input->post('cari22');
+        $buku=$this->m_upgrade->cariMenu($kode);
+        if($buku->num_rows()>0){
+            $buku=$buku->row_array();
+            echo $buku['nama_reservasi']."|".$buku['tgl_checkin']."|".$buku['tgl_checkout'];
+        }
+    }
+   
     
+    function pencarianbuku(){
+        $cari=$this->input->post('cari22');
+        $data['buku']=$this->m_upgrade->pencarianbuku($cari)->result();
+        $this->load->view('upgrade/pencarianbuku',$data);
+    }
   
     
 	function change()

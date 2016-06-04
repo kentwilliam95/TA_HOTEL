@@ -57,7 +57,14 @@ class M_blockingroom extends CI_Model{
             $this->db->order_by($order_column,$order_type);
         return $this->db->get($this->table,$limit,$offset);
     }
-    
+    function cariMenu($kode){
+		$query=$this->db->query("select * from reservasi re,useroom ur where ur.id_reservasi = re.id_reservasi and re.nama_reservasi='$kode' and ur.id_useroom not in(select id_useroom from booked_room)");
+        return $query;
+    }
+	function pencarianbuku($cari){
+		$query=$this->db->query("select * from reservasi re,useroom ur where ur.id_reservasi = re.id_reservasi and re.nama_reservasi like'%$cari%' and ur.id_useroom not in(select id_useroom from booked_room)");
+        return $query;
+    }
     function jumlah(){
         return $this->db->count_all($this->table);
     }

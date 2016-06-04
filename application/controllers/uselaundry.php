@@ -84,20 +84,35 @@ class uselaundry extends CI_Controller{
             $this->m_useuselaundry->simpanTmp($info);
         }
     }
-   function carimenu(){
-        $cari=$this->input->post('carimenu');
-        $data['menu']=$this->m_useuselaundry->cari($cari)->result();
-        $this->load->view('useuselaundry/index',$data);
+	function cariItem(){
+        $kode=$this->input->post('cari22');
+        $buku=$this->m_uselaundry->cariItem($kode);
+        if($buku->num_rows()>0){
+            $buku=$buku->row_array();
+            echo $buku['nama_item']."|".$buku['harga_laundry'];
+        }
     }
-    function hapus(){
-        $kode=$this->input->post('id_menu');
-        $this->m_useuselaundry->hapusTmp($kode);
-    }
+   
     
     function pencarianbuku(){
-        $cari=$this->input->post('caribuku');
-        $data['buku']=$this->m_useuselaundry->pencarianbuku($cari)->result();
-        $this->load->view('useuselaundry/pencarianbuku',$data);
+        $cari=$this->input->post('cari22');
+        $data['buku']=$this->m_uselaundry->pencarianbuku($cari)->result();
+        $this->load->view('uselaundry/pencarianbuku',$data);
+    }
+	function cariKamar(){
+        $kode=$this->input->post('carikamar');
+        $buku2=$this->m_uselaundry->cariKamar($kode);
+        if($buku2->num_rows()>0){
+            $buku2=$buku2->row_array();
+            echo $buku2['id_checkin']."|".$buku2['id_kamar']."|".$buku2['nama_reservasi'];
+        }
+    }
+   
+    
+    function pencarianbuku2(){
+        $cari=$this->input->post('carikamar');
+        $data['buku2']=$this->m_uselaundry->pencarianbuku2($cari)->result();
+        $this->load->view('uselaundry/pencarianbuku2',$data);
     }
 	function simpan()
 	{

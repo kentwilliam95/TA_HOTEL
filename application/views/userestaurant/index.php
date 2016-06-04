@@ -123,7 +123,21 @@
             })
 			//alert("x");
         })
-        
+        $("#carikamar2").click(function(){
+            var carikamar=$("#carikamar").val();
+            
+            $.ajax({
+                url:"<?php echo site_url('userestaurant/pencarianbuku2');?>",
+                type:"POST",
+                data:"carikamar="+carikamar,
+                cache:false,
+                success:function(html){
+                    $("#tampilbuku2").html(html);
+					$("#xy").hide();
+                }
+            })
+			//alert("x");
+        })
         $(".tambah").live("click",function(){
             var kode=$(this).attr("idmenu");
             var judul=$(this).attr("namamenu");
@@ -312,8 +326,8 @@
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title">Search Room 
-                    <input type="text" name="carimenu" id="carimenu" >
-								 <button id="carimenu2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                    <input type="text" name="carikamar" id="carikamar" >
+								 <button id="carikamar2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
 					
                   </div>
@@ -322,7 +336,7 @@
                        <div class="form-horizontal">
                           
                         </div>
-                            <table class="table table-striped">
+                            <table class="table table-striped" id="xy">
         <thead>
             <tr>
                 <td>Check In ID</td>
@@ -342,7 +356,7 @@
     </table>
                         </div>
                         
-                        <div id="tampilbuku"></div>
+                        <div id="tampilbuku2"></div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

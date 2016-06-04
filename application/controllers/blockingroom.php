@@ -38,6 +38,21 @@ class blockingroom extends CI_Controller{
             $data['message']='';
             $this->template->display('blockingroom/index',$data);
     }
+	function cariMenu(){
+        $kode=$this->input->post('cari22');
+        $buku=$this->m_blockingroom->cariMenu($kode);
+        if($buku->num_rows()>0){
+            $buku=$buku->row_array();
+            echo $buku['nama_reservasi']."|".$buku['tgl_checkin']."|".$buku['tgl_checkout'];
+        }
+    }
+   
+    
+    function pencarianbuku(){
+        $cari=$this->input->post('cari22');
+        $data['buku']=$this->m_blockingroom->pencarianbuku($cari)->result();
+        $this->load->view('blockingroom/pencarianbuku',$data);
+    }
     function simpan()
 	{
 		$hasil = $this->m_blockingroom->cariTipe($this->session->userdata('username'));
@@ -92,21 +107,7 @@ class blockingroom extends CI_Controller{
         $this->m_blockingroom->hapus($kode);
     }
     
-    function cari(){
-        $data['title']="Pencairan";
-        $cari=$this->input->post('cari');
-        $cek=$this->m_blockingroom->cari($cari);
-        if($cek->num_rows()>0){
-            $data['message']="";
-            $data['blockingroom']=$cek->result();
-            $this->template->display('blockingroom/cari',$data);
-        }else{
-            $data['message']="<div class='alert alert-success'>Data tidak ditemukan</div>";
-            $data['blockingroom']=$cek->result();
-            $this->template->display('blockingroom/cari',$data);
-        }
-    }
-
+   
     function _set_rules(){
         $this->form_validation->set_rules('namablockingroom','Nama Item','required|max_length[50]');
 		$this->form_validation->set_rules('tglblockingroom','Harga blockingroom','required|max_length[50]');
