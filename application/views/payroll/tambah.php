@@ -19,9 +19,8 @@
             
             $("#myModal2").modal("hide");
         })
-	  $("#cari23").click(function(){
+	 $("#cari23").click(function(){
             var cari22=$("#cari22").val();
-            
             $.ajax({
                 url:"<?php echo site_url('payroll/pencarianbuku');?>",
                 type:"POST",
@@ -32,8 +31,8 @@
 					$("#xx").hide();
                 }
             })
-			alert("x");
-        }) 
+			//alert("x");
+        })
       $("#overtime").change(function(){
 		  var temp =parseInt($("#overtime").val());
 		  $("#overtime1").val(temp);

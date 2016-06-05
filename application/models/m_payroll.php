@@ -56,10 +56,10 @@ class M_payroll extends CI_Model{
         return $query;
     }
 	function pencarianbuku($cari){
-        $query=$this->db->query("select * from pegawai where nama_pegawai='$cari");
-        return $query;
+        $this->db->like("nama_pegawai",$cari);
+        return $this->db->get("pegawai");
     }
-    function cariMenu($kode){
+    function cariItem($kode){
         $this->db->where("nama_pegawai",$kode);
         return $this->db->get("pegawai");
     }

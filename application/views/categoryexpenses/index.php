@@ -2,16 +2,33 @@
 <div class="nav navbar-nav navbar-right">
     <form class="navbar-form navbar-left" role="search" action="<?php echo site_url('kategoriinventaris/cari');?>" method="post">
         <div class="form-group">
-            <label>Search Category</label>
-            <input type="text" class="form-control" placeholder="Search" name="cari">
+           
         </div>
-        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i> Search</button>
+
     </form>
 </div>
 <a href="<?php echo site_url('categoryexpenses/tambah');?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> New</a>
 <hr>
 
-
+<Table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Category ID</td>
+            <td>Category Name</td>
+            <td colspan="2"></td>
+        </tr>
+    </thead>
+    <?php $no=0; foreach($categoryexpenses as $row ): $no++;?>
+    <tr>
+      
+       
+        <td><?php echo $row->id_kategoripengeluaran;?></td>
+        <td><?php echo $row->nama_kategoripengeluaran;?></td>
+        
+    </tr>
+    <?php endforeach;?>
+</Table>
+<?php echo $pagination;?>
 <script>
     $(function(){
         $(".hapus").click(function(){

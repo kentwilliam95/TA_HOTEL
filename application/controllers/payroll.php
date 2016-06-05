@@ -169,9 +169,9 @@ class payroll extends CI_Controller{
             $this->template->display('categorypayroll/cari',$data);
         }
     }
-   function cariMenu(){
+  function cariItem(){
         $kode=$this->input->post('cari22');
-        $buku=$this->m_payroll->cariMenu($kode);
+        $buku=$this->m_payroll->cariItem($kode);
         if($buku->num_rows()>0){
             $buku=$buku->row_array();
             echo $buku['nama_pegawai']."|".$buku['jabatan_pegawai'];

@@ -2,8 +2,7 @@
 <div class="nav navbar-nav navbar-right">
     <form class="navbar-form navbar-left" role="search" action="<?php echo site_url('expenses/cari');?>" method="post">
         <div class="form-group">
-            <label>Search Category</label>
-            <input type="text" class="form-control" placeholder="Search" name="cari">
+            
         </div>
         <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i> Search</button>
     </form>
@@ -11,7 +10,26 @@
 <a href="<?php echo site_url('expenses/tambah');?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> New</a>
 <hr>
 <?php echo $message;?>
-
+<Table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Category</td>
+            <td>Date</td>
+			  <td>Nominal</td>
+            <td colspan="2"></td>
+        </tr>
+    </thead>
+    <?php $no=0; foreach($expenses as $row ): $no++;?>
+    <tr>
+      
+       
+        <td><?php echo $row->id_kategoripengeluaran;?></td>
+        <td><?php echo $row->tanggal;?></td>
+         <td><?php echo $row->nominal;?></td>
+    </tr>
+    <?php endforeach;?>
+</Table>
+<?php echo $pagination;?>
 
 <script>
     $(function(){

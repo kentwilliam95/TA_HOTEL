@@ -1,4 +1,4 @@
-                     <table class="table table-striped" id="xx">
+   <table class="table table-striped" id="xx">
         <thead>
             <tr>
                 <td>Employee ID</td>
