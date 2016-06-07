@@ -83,19 +83,25 @@ class dinein extends CI_Controller{
             $this->m_dinein->simpanTmp($info);
         }
     }
-   function carimenu(){
-        $cari=$this->input->post('carimenu');
-        $data['menu']=$this->m_dinein->cari($cari)->result();
-        $this->load->view('usedinein/index',$data);
+   function cariMenu(){
+        $kode=$this->input->post('cari22');
+        $buku=$this->m_dinein->cariMenu($kode);
+        if($buku->num_rows()>0){
+            $buku=$buku->row_array();
+            echo $buku['nama_menu']."|".$buku['harga_menu'];
+        }
+    }
+   
+    
+    function pencarianbuku(){
+        $cari=$this->input->post('cari22');
+        $data['buku']=$this->m_dinein->pencarianbuku($cari)->result();
+        $this->load->view('dinein/pencarianbuku',$data);
     }
     function hapus(){
         $kode=$this->input->post('id_menu');
         $this->m_dinein->hapusTmp($kode);
     }
     
-    function pencarianbuku(){
-        $cari=$this->input->post('caribuku');
-        $data['buku']=$this->m_dinein->pencarianbuku($cari)->result();
-        $this->load->view('dinein/pencarianbuku',$data);
-    }
+   
 }

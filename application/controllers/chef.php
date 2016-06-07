@@ -48,6 +48,13 @@ class chef extends CI_Controller{
     
     
     function edit($id){
+		if($this->session->userdata("username") == null)
+		{
+			redirect("web/index");
+		}
+		$hasil = $this->m_chef->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Edit Data chef";
         $this->_set_rules();
         if($this->form_validation->run()==true){
@@ -93,6 +100,14 @@ class chef extends CI_Controller{
     
     
     function tambah(){
+		if($this->session->userdata("username") == null)
+		{
+			redirect("web/index");
+		}
+		$hasil = $this->m_chef->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
+		
         $data['title']="Tambah Data chef";
 		$data['noauto']=$this->m_chef->nootomatis();
         $this->_set_rules();

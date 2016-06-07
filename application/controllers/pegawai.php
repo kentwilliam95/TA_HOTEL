@@ -80,7 +80,7 @@ class pegawai extends CI_Controller{
                 'telepon_pegawai'=>$this->input->post('teleponpegawai'),
 				'jabatan_pegawai'=>$this->input->post('jabatanpegawai'),
 				'username'=>$this->input->post('username'),
-				'password_pegawai'=>$this->input->post('passwordpegawai')
+				'password_pegawai'=>$this->input->post('password')
 				
             );
 			 }
@@ -93,7 +93,7 @@ class pegawai extends CI_Controller{
                 'telepon_pegawai'=>$this->input->post('teleponpegawai'),
 				'jabatan_pegawai'=>$this->input->post('jabatanpegawai'),
 				'username'=>$this->input->post('username'),
-				'password_pegawai'=>$this->input->post('passwordpegawai'),
+				'password_pegawai'=>$this->input->post('password'),
 				'tipe_pegawai'=>'2',
             );			
 			}
@@ -106,7 +106,7 @@ class pegawai extends CI_Controller{
                 'telepon_pegawai'=>$this->input->post('teleponpegawai'),
 				'jabatan_pegawai'=>$this->input->post('jabatanpegawai'),
 				'username'=>$this->input->post('username'),
-				'password_pegawai'=>$this->input->post('passwordpegawai'),
+				'password_pegawai'=>$this->input->post('password'),
 				'tipe_pegawai'=>'3',
             );			
 			}
@@ -119,7 +119,7 @@ class pegawai extends CI_Controller{
                 'telepon_pegawai'=>$this->input->post('teleponpegawai'),
 				'jabatan_pegawai'=>$this->input->post('jabatanpegawai'),
 				'username'=>$this->input->post('username'),
-				'password_pegawai'=>$this->input->post('passwordpegawai'),
+				'password_pegawai'=>$this->input->post('password'),
 				'tipe_pegawai'=>'4',
             );			
 			}	
@@ -132,7 +132,7 @@ class pegawai extends CI_Controller{
                 'telepon_pegawai'=>$this->input->post('teleponpegawai'),
 				'jabatan_pegawai'=>$this->input->post('jabatanpegawai'),
 				'username'=>$this->input->post('username'),
-				'password_pegawai'=>$this->input->post('passwordpegawai'),
+				'password_pegawai'=>$this->input->post('password'),
 				'tipe_pegawai'=>'5',
             );			
 			}	

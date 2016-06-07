@@ -60,12 +60,12 @@ class M_dinein extends CI_Model{
     function cari($cari){
         $query=$this->db->query("select * from restaurant where nama_menu like'%$cari%'");
         return $query;
+	}
+	function pencarianbuku($cari){
+        $this->db->like("nama_menu",$cari);
+        return $this->db->get("restaurant");
     }
-    function pencarianbuku($cari){
-        $this->db->like("judul",$cari);
-        return $this->db->get("buku");
-    }
-    function cariBuku($kode){
+    function cariMenu($kode){
         $this->db->where("nama_menu",$kode);
         return $this->db->get("restaurant");
     }

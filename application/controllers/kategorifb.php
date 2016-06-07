@@ -44,6 +44,13 @@ class kategorifb extends CI_Controller{
     
     
     function tambah(){
+		if($this->session->userdata("username") == null)
+		{
+			redirect("web/index");
+		}
+		$hasil = $this->m_kategorifb->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Tambah Kategori";
 		$data['noauto']=$this->m_kategorifb->nootomatis();
         $this->_set_rules();
@@ -88,7 +95,14 @@ class kategorifb extends CI_Controller{
     }
     
     function edit($id){
-        $data['title']="Edit data kategorifb";
+			if($this->session->userdata("username") == null)
+		{
+			redirect("web/index");
+		}
+		$hasil = $this->m_kategorifb->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
+        $data['title']="Edit Category";
         $this->_set_rules();
         if($this->form_validation->run()==true){
             $kode=$this->input->post('kode');

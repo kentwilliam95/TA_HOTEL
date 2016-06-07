@@ -185,12 +185,7 @@ div#place-nav li li:hover ul
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-9">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"/>
-                                                    Remember me
-                                                </label>
-                                            </div>
+                                           
                                         </div>
                                     </div>
                                     <div class="form-group last">

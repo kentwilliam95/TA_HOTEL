@@ -48,6 +48,13 @@ class menu extends CI_Controller{
     
     
     function tambah(){
+		if($this->session->userdata("username") == null)
+		{
+			redirect("web/index");
+		}
+		$hasil = $this->m_menu->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Tambah Daftar Menu";
 		$data['noauto']=$this->m_menu->nootomatis();
         $this->_set_rules();
@@ -90,6 +97,13 @@ class menu extends CI_Controller{
     }
     
     function edit($id){
+		if($this->session->userdata("username") == null)
+		{
+			redirect("web/index");
+		}
+		$hasil = $this->m_menu->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Edit data menu";
         $this->_set_rules();
         if($this->form_validation->run()==true){

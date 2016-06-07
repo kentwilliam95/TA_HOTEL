@@ -112,18 +112,20 @@
 			 $("#myModal3").modal("show");
         })
         
-        $("#caribuku").keyup(function(){
-            var caribuku=$("#caribuku").val();
+          $("#cari23").click(function(){
+            var cari22=$("#cari22").val();
             
             $.ajax({
-                url:"<?php echo site_url('restaurant/pencarianbuku');?>",
+                url:"<?php echo site_url('dinein/pencarianbuku');?>",
                 type:"POST",
-                data:"caribuku="+caribuku,
+                data:"cari22="+cari22,
                 cache:false,
                 success:function(html){
                     $("#tampilbuku").html(html);
+					$("#xx").hide();
                 }
             })
+			//alert("x");
         })
         
         $(".tambah").live("click",function(){
@@ -139,6 +141,19 @@
             
             $("#myModal2").modal("hide");
         })
+		$("#qty").change(function()
+		{
+			var temp = parseInt($("#qty").val());
+			temp = temp * parseInt($("#harga").val());
+			$("#subtotal").val(temp);
+		})
+        $("#simpan").click(function(){
+			$("#idCheckin").val($("#nomer").val());
+			$("#idMenu").val($("#idmenu").val());
+			$("#jumlah").val($("#qty").val());
+			$("#subtotal1").val($("#subtotal").val());
+			
+		});
         
     })
 </script>
@@ -149,16 +164,6 @@
       
                 <div class="form-group">
 			
-                <div class="form-group">
-				<label class="col-lg-4 control-label">ID</label>
-                    <div class="col-lg-5">
-                        <input type="text" id="nomer" name="nomer" class="form-control" value="<?php echo $noauto;?>" readonly="readonly">
-                  
-					</div>
-					
-			<br>
-                <br>
-				<br>
                     <label class="col-lg-4 control-label">Services Date</label>
                     <div class="col-lg-5">
                         <input type="text" id="tglsajian" name="tglsajian" class="form-control" value="<?php echo $tglsajian;?>" >
@@ -203,13 +208,13 @@
 			<br>
 			<div class="form-group">
                 <label>Qty &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" class="form-control" placeholder="Kode Item" id="idmenu">
+                <input type="text" class="form-control" placeholder="Kode Item" id="qty">
             </div>
 			<br>
 			<br>
             <div class="form-group">
                 <label>Subtotal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" class="form-control" placeholder="Kode Item" id="idmenu">
+                <input type="text" class="form-control" placeholder="Kode Item" id="subtotal">
             </div>
          
 			   
@@ -255,9 +260,14 @@
 			   
         </div>
     </div>
-  
+	<?php echo form_open("dinein/simpan")?>
+   <div class="panel-footer">
+
+	<input type="hidden" value="" name="idMenu" id="idMenu" >
+	<input type="hidden" value="" name="jumlah" id="jumlah" >
+	<input type="hidden" value="" name="subtotal" id="subtotal1" >
     
-    <div class="panel-footer">
+   
 		<button id="simpan" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Add</button>
         <button id="simpan" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Proceed</button>
 		<button id="simpan" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Save</button>
@@ -273,9 +283,9 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Cari Item
-                    <input type="text" name="carimenu" id="carimenu" >
-								 <button id="carimenu2" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                    <h4 class="modal-title">Cari Menu
+                    <input type="text" name="cari22" id="cari22" >
+								 <button id="cari23" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
 					
                   </div>
@@ -284,7 +294,7 @@
                        <div class="form-horizontal">
                           
                         </div>
-                            <table class="table table-striped">
+                            <table class="table table-striped" id="xx">
         <thead>
             <tr>
                 <td>ID Menu</td>
