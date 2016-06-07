@@ -21,6 +21,48 @@ $(document).ready(function() {
             { title: "Keterangan" }
         ]
     } );
+	
+	$('#tabelPayroll').DataTable( {
+        data: <?php echo $DataPengeluaranPayroll?>,
+        columns: [
+            { title: "ID Penggajian" },
+            { title: "Tangal Pengajian" },
+            { title: "Id Pegawai" },
+            { title: "Gaji Pokok" },
+            { title: "bonus" },
+			{ title: "Deskripsi" },
+			{ title: "Overtime" },
+			{ title: "Total_gaji" }
+        ]
+    } );
+	
+	$('#tabelIncome').DataTable( {
+        data: <?php echo $DataPengeluaranIncome?>,
+        columns: [
+            { title: "ID Checkin" },
+            { title: "Nomor Debit" },
+            { title: "Akun Bayar" },
+            { title: "Jumlah" },
+            { title: "Terbayar" },
+			{ title: "Sisa" },
+			{ title: "Id Promo" },
+			{ title: "Status Pembayaran" },
+			{ title: "Jenis Pembayaran" }
+        ]
+    } );
+	
+	$('#tabelInventaris').DataTable( {
+        data: <?php echo $DataPengeluaranInventaris?>,
+        columns: [
+            { title: "ID Kategori Inventaris" },
+            { title: "Id Item" },
+            { title: "Nama Item" },
+            { title: "Start Guarantee" },
+            { title: "End Guarantee" }
+        ]
+    } );
+	
+	
 } );
 	
 </script>
@@ -30,11 +72,11 @@ $(document).ready(function() {
 <div class="container">
 <ul class="nav nav-pills">
     <li class="active"><a data-toggle="pill" href="#Expense"><strong>Expense Hotel</strong></a></li>
-    <li><a data-toggle="pill" href="#menu1">Menu 1</a></li>
-    <li><a data-toggle="pill" href="#menu2">Menu 2</a></li>
-    <li><a data-toggle="pill" href="#menu3">Menu 3</a></li>
-  </ul>
-  </div>
+    <li><a data-toggle="pill" href="#payroll"><Strong>PayRoll Hotel</Strong></a></li>
+    <li><a data-toggle="pill" href="#Income"><Strong> Income Hotel</strong> </a></li>
+    <li><a data-toggle="pill" href="#menu3"><strong>Inventaris Hotel</strong></a></li>
+</ul>
+</div>
   <br>
 <div class="container">
 
@@ -44,16 +86,20 @@ $(document).ready(function() {
 	
 	  </table>
     </div>
-    <div id="menu1" class="tab-pane fade">
-      <h3>HAI 1</h3>
-      
+    <div id="payroll" class="tab-pane fade">
+      <table id="tabelPayroll" class="table table-striped table-bordered table-responsive"> 
+	  
+	  </table>
     </div>
-    <div id="menu2" class="tab-pane fade">
-      <h3>HAI 2</h3>
-      
+    <div id="Income" class="tab-pane fade">
+     <table id="tabelIncome" class="table table-striped table-bordered table-responsive"> 
+	  
+	  </table>
     </div>
     <div id="menu3" class="tab-pane fade">
-      <h3>HAI 3</h3>
+     <table id="tabelInventaris" class="table table-striped table-bordered table-responsive"> 
+	  
+	  </table>
       
     </div>
 </div>

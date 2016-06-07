@@ -6,7 +6,7 @@ class Pengembalian extends CI_Controller{
         parent::__construct();
         $this->load->library(array('template','form_validation'));
         $this->load->model('m_pengembalian');
-        
+        $this->load->helper("url");
         if(!$this->session->userdata('username')){
             redirect('web');
         }
@@ -17,7 +17,7 @@ class Pengembalian extends CI_Controller{
 		{
 			redirect("web/index");
 		}
-		$hasil = $this->m_pengembalian->cariTipe($this->session->userdata('username'));
+		$hasil = $this->m_pengembalian->getData("pegawai",Array("username"=>$this->session->userdata("username")));
 		
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
 		
