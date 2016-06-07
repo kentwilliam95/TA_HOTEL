@@ -19,6 +19,13 @@ class basic extends CI_Model
 		}
 		
 	}
+	public function getDataReportReservasi()
+	{
+		$this->db->select ("*");
+		$this->db->from("reservasi");
+		$this->db->join("useroom","useroom.id_reservasi = reservasi.id_reservasi");
+		return $this->db->get()->result();
+	}
 }
 
 ?>

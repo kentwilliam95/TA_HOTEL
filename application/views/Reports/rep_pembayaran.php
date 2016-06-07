@@ -61,7 +61,44 @@ $(document).ready(function() {
             { title: "End Guarantee" }
         ]
     } );
+	$("#tabelReservasi").DataTable({
+		data:<?php echo $DataPengeluaranReservasi?>,
+		columns:
+		[
+		{title:"Id Reservasi"},
+		{title:"Nama Reservasi"},
+		{title:"Tanggal Checkin"},
+		{title:"Tanggal Reservasi"},
+		{title:"Tanggal checkout"},
+		{title:"Status"}
+		]
+	});
 	
+	$("#tabelMenuRestaurant").DataTable({
+		data:<?php echo $DataPengeluaranMenurestaurant?>,
+		columns:
+		[
+		{title:"Id Penyajian"},
+		{title:"Tanggal Sajian"},
+		{title:"Id Menu"},
+		{title:"Nama Menu"},
+		{title:"Id Chef"},
+		{title:"Kategori"},
+		{title:"Qualified"}
+		]
+	});
+	
+	$("#tabelUseRestaurant").DataTable({
+		data:<?php echo $DataPengeluaranUserestaurant?>,
+		columns:
+		[
+		{title:"Id Menu"},
+		{title:"Id Checkin"},
+		{title:"Jumlah"},
+		{title:"Subtotal"},
+		{title:"Id Userestaurant"}
+		]
+	});
 	
 } );
 	
@@ -75,10 +112,14 @@ $(document).ready(function() {
     <li><a data-toggle="pill" href="#payroll"><Strong>PayRoll Hotel</Strong></a></li>
     <li><a data-toggle="pill" href="#Income"><Strong> Income Hotel</strong> </a></li>
     <li><a data-toggle="pill" href="#menu3"><strong>Inventaris Hotel</strong></a></li>
+	<li><a data-toggle="pill" href="#ReservasiReport"><strong>Reservasi Hotel</strong></a></li>
+	<li><a data-toggle="pill" href="#reportMenuRestaurant"><strong>Menu Restaurant</strong></a></li>
+	<li><a data-toggle="pill" href="#reportUseRestaurant"><strong>Use Restaurant</strong></a></li>
+	
 </ul>
 </div>
   <br>
-<div class="container">
+<div class="container-fluid">
 
 <div class="tab-content">
     <div id="Expense" class="tab-pane fade in active">
@@ -100,8 +141,26 @@ $(document).ready(function() {
      <table id="tabelInventaris" class="table table-striped table-bordered table-responsive"> 
 	  
 	  </table>
-      
     </div>
+	
+	<div id="ReservasiReport" class="tab-pane fade">
+		<table id="tabelReservasi" class="table table-striped table-bordered table-responsive">
+		
+		</table>
+	</div>
+	
+	<div id="reportMenuRestaurant" class="tab-pane fade"> 
+		<table id="tabelMenuRestaurant" class="table table-striped table-bordered table-responsive">
+		
+		</table>
+	</div>
+	
+	<div id="reportUseRestaurant" class="tab-pane fade"> 
+		<table id="tabelUseRestaurant" class="table table-striped table-bordered table-responsive">
+		
+		</table>
+	</div>
+	
 </div>
   
 	
