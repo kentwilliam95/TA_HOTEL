@@ -93,6 +93,15 @@ class reports extends CI_Controller
 		$hasil = json_encode($hasil);
 		$data["DataPengeluaranUserestaurant"] = $hasil;
 		
+		$temp =$this->basic->getData("kamar",null);
+		$hasil = Array();
+		foreach($temp as $row)
+		{
+			Array_push($hasil,Array($row->id_tipekamar,$row->id_bed,$row->id_kamar,$row->Status,$row->Times));
+		}
+		$hasil = json_encode($hasil);
+		$data["DataPengeluaranKamar"] = $hasil;
+		
 		$data['title']="The Hotel Reports";
 		$data['message']="";
 		$this->template->display("Reports/rep_pembayaran",$data);

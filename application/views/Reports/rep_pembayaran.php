@@ -7,6 +7,12 @@
 <script src="<?php echo base_url("assets/js_reports/dataTables.bootstrap.min.js")?>"></script>
 <script src="<?php echo base_url("dataTables.responsive.min.js")?>"></script>
 <script src="<?php echo base_url("assets/js_reports/responsive.bootstrap.min.js")?>"></script>
+<Style>
+.container
+{
+	width:auto;
+}
+</style>
 <script>
 var dataSet = null;
  
@@ -99,6 +105,17 @@ $(document).ready(function() {
 		{title:"Id Userestaurant"}
 		]
 	});
+	$("#tabelKamar").DataTable({
+		data:<?php echo $DataPengeluaranKamar?>,
+		columns:
+		[
+		{title:"Tipe Kamar"},
+		{title:"Tipe Bed"},
+		{title:"Nomor Kamar"},
+		{title:"Status Kamar"},
+		{title:"Jumlah Dipakai"}
+		]
+	});
 	
 } );
 	
@@ -115,11 +132,13 @@ $(document).ready(function() {
 	<li><a data-toggle="pill" href="#ReservasiReport"><strong>Reservasi Hotel</strong></a></li>
 	<li><a data-toggle="pill" href="#reportMenuRestaurant"><strong>Menu Restaurant</strong></a></li>
 	<li><a data-toggle="pill" href="#reportUseRestaurant"><strong>Use Restaurant</strong></a></li>
-	
+	<li><a data-toggle="pill" href="#reportKamar"><strong>Kamar</strong></a></li>
 </ul>
 </div>
+<hr>
+<br>
   <br>
-<div class="container-fluid">
+<div class="container">
 
 <div class="tab-content">
     <div id="Expense" class="tab-pane fade in active">
@@ -161,6 +180,11 @@ $(document).ready(function() {
 		</table>
 	</div>
 	
+	<div id="reportKamar" class="tab-pane fade"> 
+		<table id="tabelKamar" class="table table-striped table-bordered table-responsive">
+		
+		</table>
+	</div>
 </div>
   
 	

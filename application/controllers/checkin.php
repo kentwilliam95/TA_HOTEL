@@ -117,6 +117,14 @@ class checkin extends CI_Controller{
     }
 	function Simpan()
 	{
+		if($this->session->userdata("username") == null)
+		{
+			redirect("web/index");
+		}
+		$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
+		
 		$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
 		
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
@@ -139,8 +147,10 @@ class checkin extends CI_Controller{
 				
 				$data = array("id_reservasi"=>$id_reservasi,"id_checkin"=>$id_checkin,"tgl_checkin"=>$tgl_checkin,"tgl_checkout"=>$tgl_checkout);
 				$this->m_checkin->insertData("checkin",$data);
+				$temp = $this->m_checkin->getDataWhere("kamar",Array("id_kamar"=>$id_kamar[0]->id_kamar));
+				$temp = ($temp[0]->Times)+1;
 				
-				$this->m_checkin->updateValue("kamar",array("id_kamar"=>$nomorKamar),array("Status"=>"OCCUPIED"));
+				$this->m_checkin->updateValue("kamar",array("id_kamar"=>$nomorKamar),array("Status"=>"OCCUPIED","Times"=>$temp));
 				
 				$this->m_checkin->updateValue("booked_room",array("id_bookedRoom"=>$id_bookedRoom),array("id_kamar"=>$nomorKamar,"id_checkin"=>$id_checkin));
 				$data['message']='<div class="alert alert-success"> Berhasil Input Data</div>';
