@@ -343,16 +343,16 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseB"><span class="glyphicon glyphicon-file">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseXD"><span class="glyphicon glyphicon-file">
                             </span> Reports</a>
                         </h4>
                     </div>
-                    <div id="collapseB" class="panel-collapse collapse">
+                    <div id="collapseXD" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table">
                                 <tr>
                                                 <td>
-                                                    <span class="glyphicon glyphicon-room text-success"></span> <a href="<?php echo site_url('restaurant');?>">&nbsp;&nbsp;&nbsp;&nbsp;Restaurant</a>
+                                                    <span class="glyphicon glyphicon-room text-success"></span> <a href="<?php echo site_url('Reports');?>">&nbsp;&nbsp;&nbsp;&nbsp;Reports</a>
                                                 </td>
                                             </tr>
                                 
