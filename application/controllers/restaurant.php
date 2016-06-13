@@ -4,6 +4,7 @@ class restaurant extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->library(array('form_validation','template'));
+		$this->load->model("basic");
         $this->load->model('m_restaurant');
         
         if(!$this->session->userdata('username')){
@@ -39,24 +40,17 @@ class restaurant extends CI_Controller{
     }
     
      function sukses(){
+		$data =explode(";",$this->input->post("tabeldata"));
+		$kode='T'.date("Ymdhis");$grandTotal=0;$tanggal=date("Y-m-d");
+		for($i=0;$i<count($data)-1;$i++)
+		{
+			$asd = explode(",",$data[$i]);
+			$this->basic->insertData("dnotadinein",Array("idDnota"=>$kode,"nama_menu"=>$asd[1],"harga"=>$asd[2],"qty"=>$asd[3],"total"=>$asd[4]));
+			$grandTotal = $grandTotal +(int)$asd[4];
+		}
+		$this->basic->insertData("hnotadinein",Array("idHnota"=>$kode,"tanggal"=>$tanggal,"subtotal"=>$grandTotal));
+		redirect("dinein/index");
         
-        $tmp=$this->m_restaurant->tampilTmp()->result();
-        foreach($tmp as $row){
-			if($cek->num_rows()<10000){
-            $info=array(
-                'id_penyajian'=>$this->input->post('nomer'),
-                'tgl_sajian'=>$this->input->post('tglsajian'),
-				'id_menu'=>$this->input->post('idmenu'),
-                'id_chef'=>$this->input->post('idchef'),
-				'id_kategorifb'=>$this->input->post('idkategorifb'),
-				'nama_menu'=>$this->input->post('namamenu'),
-				'status'=>$this->input->post('status'),
-            );
-            $this->m_restaurant->simpan($info);
-            }
-            //hapus data di temp
-            $this->m_restaurant->hapusTmp($row->id_menu);
-        }
     }    
     function cariAnggota(){
         $nis=$this->input->post('nis');

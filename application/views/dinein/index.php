@@ -1,3 +1,7 @@
+<head>
+<script src="<?php echo base_url("assets/js_reports/jquery.dataTables.min.js")?>"></script>
+<script src="<?php echo base_url("assets/js_reports/dataTables.bootstrap.min.js")?>"></script> 	
+</head>
 <script>
     $(function(){
         
@@ -60,33 +64,6 @@
                 })    
             }
   
-        })
-        
-        $("#simpan").click(function(){
-            var idmenu=$("#idmenu").val();
-			var nomer=$("#nomer").val();
-			var tglsajian=$("#tglsajian").val();
-			var namamenu=$("#namamenu").val();
-			var idchef=$("#idchef").val();
-            var idkategorifb=$("#idkategorifb").val();
-			var status=$("#status").val();
-            
-            if (idmenu=="") {
-                alert("Pilih Nis Siswa");
-                return false;
-            }else{
-                $.ajax({
-                    url:"<?php echo site_url('restaurant/sukses');?>",
-                    type:"POST",
-                    data:"idmenu="+idmenu+"&namamenu="+namamenu+"&idchef="+idchef+"&idkategorifb="+idkategorifb+"&status="+status+"&nomer="+nomer+"&tglsajian="+tglsajian,
-					cache:false,
-                    success:function(html){
-						alert(tglsajian);
-                        alert("Transaksi restaurant berhasil");
-                        location.reload();
-                    }
-                })
-            }
         })
         
         $(".hapus").live("click",function(){
@@ -154,7 +131,93 @@
 			$("#subtotal1").val($("#subtotal").val());
 			
 		});
-        
+         $("#tabelPemesanan").DataTable(
+		{
+			data:null,
+			columns:[
+			{title:"ID Menu"},
+			{title:"Nama Menu"},
+			{title:"Harga"},
+			{title:"Jumlah"},
+			{title:"Total"}
+			],
+			destroy:true
+		})
+		$("#simpanData").click(function()
+		{
+			
+			if($("#idmenu").val() == "" )
+			{
+				alert("Data Restoran Menu tidak valid");
+			}
+			else if($("#subtotal").val() == "")
+			{
+				alert("Data Restoran Menu tidak valid");
+			}
+			else
+			{
+				var tabel = $("#tabelPemesanan").DataTable();
+				var ctr = tabel.rows().data();
+				tabel.clear().draw();
+				if(ctr.length == 0)
+				{
+					tabel.row.add([
+					$("#idmenu").val(),
+					$("#namamenu").val(),
+					$("#harga").val(),
+					$("#qty").val(),
+					$("#subtotal").val()
+					]).draw(false);
+				}
+				else
+				{
+					var tidakSama=0;var tempData=[];
+					for(i=0;i< ctr.length;i++)
+					{
+						
+						if(ctr[i][0] == $("#idmenu").val())
+						{	
+							
+							ctr[i][3] = parseInt(ctr[i][3])+ parseInt($("#qty").val());
+							ctr[i][4] = parseInt(ctr[i][3])*parseInt(ctr[i][2]);							
+							break;
+						}
+						else
+						{
+							tidakSama = tidakSama +1;
+						}
+					}
+					if(tidakSama==ctr.length)
+					{
+						var temp1=[$("#idmenu").val(),$("#namamenu").val(),$("#harga").val(),$("#qty").val(),$("#subtotal").val()];
+						ctr.push(temp1);
+					}
+					for(i=0;i<ctr.length;i++)
+					{
+						tabel.row.add([
+						ctr[i][0],
+						ctr[i][1],
+						ctr[i][2],
+						ctr[i][3],
+						ctr[i][4]
+						]).draw(false);
+					}
+				}
+			}
+			
+		});
+		$("#simpanNota").click(function()
+		{
+			var data = $("#tabelPemesanan").DataTable().rows().data();
+			var hasil="";
+			
+			for(i=0;i < data.length;i++)
+			{
+				hasil += data[i][0]+','+data[i][1]+','+data[i][2]+','+data[i][3]+','+data[i][4]+';';
+			}
+			
+			$("#datatabel").val(hasil);
+		})
     })
 </script>
 
@@ -216,9 +279,12 @@
                 <label>Subtotal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <input type="text" class="form-control" placeholder="Kode Item" id="subtotal">
             </div>
-         
-			   
+			<br><br>
+        
         </div>
+		 <table id="tabelPemesanan" class="table table-striped">
+		 
+		 </table>
     </div>
     <div class="panel panel-success">
     <div class="panel-heading">
@@ -260,18 +326,20 @@
 			   
         </div>
     </div>
-	<?php echo form_open("dinein/simpan")?>
+	
    <div class="panel-footer">
 
-	<input type="hidden" value="" name="idMenu" id="idMenu" >
-	<input type="hidden" value="" name="jumlah" id="jumlah" >
-	<input type="hidden" value="" name="subtotal" id="subtotal1" >
-    
-   
-		<button id="simpan" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Add</button>
-        <button id="simpan" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Proceed</button>
+	
+		<button id="simpanData" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Add</button>
+		
+		<form action="<?php echo site_url("restaurant/sukses")?>" method="post" >
+		<input type="hidden" value="" name="tabeldata" id="datatabel" style="display:inline">
+        <button id="simpanNota" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Proceed</button>
+		
+		
 		<button id="simpan" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Save</button>
     </div>
+	</form>
 </div>
 
 

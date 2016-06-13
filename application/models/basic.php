@@ -19,6 +19,10 @@ class basic extends CI_Model
 		}
 		
 	}
+	function insertData($tablename,$data)
+	{
+		$this->db->insert($tablename,$data);
+	}
 	public function getDataReportReservasi()
 	{
 		$this->db->select ("*");
