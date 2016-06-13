@@ -104,7 +104,7 @@ class reports extends CI_Controller
 		
 		$data['title']="The Hotel Reports";
 		$data['message']="";
-		$this->template->display("Reports/rep_pembayaran",$data);
+		$this->template->display("Reports/index",$data);
 		
 		//$this->load->view("Reports/rep_pembayaran",$data);
 	}
