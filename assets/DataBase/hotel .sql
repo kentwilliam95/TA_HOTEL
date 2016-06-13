@@ -166,9 +166,6 @@ INSERT INTO `customer` (`id_customer`, `nama_customer`, `alamat_customer`, `ttl_
 -- Table structure for table `dates`
 --
 
-DROP TABLE IF EXISTS `dates`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dates` AS select (curdate() - interval `hotel`.`numbers`.`number` day) AS `date` from `numbers`;
--- Error reading data: (#1356 - View 'hotel.dates' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them)
 
 -- --------------------------------------------------------
 
