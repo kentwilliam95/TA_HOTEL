@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2016 at 06:46 PM
+-- Generation Time: Jun 14, 2016 at 03:02 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -163,13 +163,6 @@ INSERT INTO `customer` (`id_customer`, `nama_customer`, `alamat_customer`, `ttl_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dates`
---
-
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `depositoawal`
 --
 
@@ -180,6 +173,55 @@ CREATE TABLE IF NOT EXISTS `depositoawal` (
   `terbayar` varchar(20) NOT NULL,
   `sisa` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dnotadinein`
+--
+
+DROP TABLE IF EXISTS `dnotadinein`;
+CREATE TABLE IF NOT EXISTS `dnotadinein` (
+  `idDnota` varchar(15) NOT NULL,
+  `nama_menu` varchar(15) NOT NULL,
+  `harga` varchar(10) NOT NULL,
+  `qty` varchar(5) NOT NULL,
+  `total` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dnotadinein`
+--
+
+INSERT INTO `dnotadinein` (`idDnota`, `nama_menu`, `harga`, `qty`, `total`) VALUES
+('T20160613071644', 'Espresso Coffee', '35000', '2', '40000'),
+('T20160613071725', 'Sushi', '30000', '3', '90000'),
+('T20160613071725', 'Jjampong', '20000', '2', '40000'),
+('T20160613071725', 'Espresso Coffee', '35000', '2', '40000'),
+('T20160613072027', 'Sushi', '30000', '1', '30000'),
+('T20160613072027', 'Tteokbokki', '40000', '3', '120000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hnotadinein`
+--
+
+DROP TABLE IF EXISTS `hnotadinein`;
+CREATE TABLE IF NOT EXISTS `hnotadinein` (
+  `idHnota` varchar(15) NOT NULL,
+  `tanggal` date NOT NULL,
+  `subtotal` int(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hnotadinein`
+--
+
+INSERT INTO `hnotadinein` (`idHnota`, `tanggal`, `subtotal`) VALUES
+('T20160613071644', '2016-06-13', 40000),
+('T20160613071725', '2016-06-13', 170000),
+('T20160613072027', '2016-06-13', 150000);
 
 -- --------------------------------------------------------
 
