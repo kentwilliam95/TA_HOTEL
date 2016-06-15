@@ -114,7 +114,53 @@ $(document).ready(function() {
 		{title:"Jumlah Dipakai"}
 		]
 	});
+	$("#dinein").DataTable({
+		data:<?php echo $DataPengeluarandinein?>,
+		columns:
+		[
+		{title:"ID Hnota"},
+		{title:"Tanggal Transaksi"},
+		{title:"Total Transaksi"}
+		]
+	});
+	$("#labarugi").DataTable({
+		data:null,
+		columns:
+		[
+		{title:"Tanggal Transaksi"},
+		{title:"Pengeluaran"},
+		{title:"Pemasukan"}
+		],
+		destroy:true
+	});
+	$("#submitLabaRugi").click(function()
+	{
+		alert(1);
+		$.ajax({
+			url:"<?php echo site_url("reports/prosesLabaRugi")?>",
+			datatype:"json",
+			type:"post",
+			data:{tanggal1:$("#tanggal1").val(),tanggal2:$("#tanggal2").val()},
+			success:function(res)
+			{
+				createLabaRugi(JSON.parse(res));
+			}
+		})
+	})
 	
+	function createLabaRugi(duata)
+	{
+		$("#labarugi").DataTable({
+		data:duata,
+		columns:
+		[
+		{title:"Tanggal Transaksi"},
+		{title:"Pengeluaran"},
+		{title:"Pemasukan"}
+		],
+		destroy:true
+	});
+	}
 } );
 	
 </script>
@@ -131,6 +177,8 @@ $(document).ready(function() {
 	<li><a data-toggle="pill" href="#reportMenuRestaurant"><strong>Menu Restaurant</strong></a></li>
 	<li><a data-toggle="pill" href="#reportUseRestaurant"><strong>Use Restaurant</strong></a></li>
 	<li><a data-toggle="pill" href="#reportKamar"><strong>Kamar</strong></a></li>
+	<li><a data-toggle="pill" href="#dineIn"><strong>Dine In</strong></a></li>
+	<li><a data-toggle="pill" href="#LabaRugi"><strong>LabaRugi</strong></a></li>
 </ul>
 </div>
 <hr>
@@ -183,6 +231,22 @@ $(document).ready(function() {
 		
 		</table>
 	</div>
+	
+	<div id="dineIn" class="tab-pane fade"> 
+		<table id="dinein" class="table table-striped table-bordered table-responsive">
+		
+		</table>
+	</div>
+	
+	<div id="LabaRugi" class="tab-pane fade"> 
+	
+	<p style="display:inline">From :</p><input type="text" id="tanggal1" name="tanggal1" style="display:inline"> <p style="display:inline">To:</p><input type="text" id="tanggal2" name="tanggal2"><button id="submitLabaRugi">Submit</button>
+	
+		<table id="labarugi" class="table table-striped table-bordered table-responsive">
+		
+		</table>
+	</div>
+	
 </div>
   
 	

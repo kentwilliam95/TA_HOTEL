@@ -168,6 +168,7 @@
 					$("#qty").val(),
 					$("#subtotal").val()
 					]).draw(false);
+					$("#TOTAL").val($("#subtotal").val());
 				}
 				else
 				{
@@ -192,8 +193,10 @@
 						var temp1=[$("#idmenu").val(),$("#namamenu").val(),$("#harga").val(),$("#qty").val(),$("#subtotal").val()];
 						ctr.push(temp1);
 					}
+					var total=0;
 					for(i=0;i<ctr.length;i++)
 					{
+						total = total + parseInt(ctr[i][4]);
 						tabel.row.add([
 						ctr[i][0],
 						ctr[i][1],
@@ -202,6 +205,8 @@
 						ctr[i][4]
 						]).draw(false);
 					}
+					alert(total);
+					$("#TOTAL").val(total+"");
 				}
 			}
 			
@@ -296,7 +301,7 @@
         <div class="form-inline">
 			<div class="form-group">
                 <label>Total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" class="form-control" placeholder="Item Name" id="namamenu" >
+                <input type="text" class="form-control" placeholder="Item Name" id="TOTAL" >
             </div>
 			<br>
 			<br>

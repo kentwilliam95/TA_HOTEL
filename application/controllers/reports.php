@@ -5,6 +5,7 @@ class reports extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->helper('url');
+		$this->load->helper('form');
 		$this->load->model("basic");
 		$this->load->library("template");
 	}
@@ -102,12 +103,86 @@ class reports extends CI_Controller
 		$hasil = json_encode($hasil);
 		$data["DataPengeluaranKamar"] = $hasil;
 		
+		$temp =$this->basic->getData("hnotadinein",null);
+		$hasil = Array();
+		foreach($temp as $row)
+		{
+			Array_push($hasil,Array($row->idHnota,$row->tanggal,$row->subtotal));
+		}
+		$hasil = json_encode($hasil);
+		$data["DataPengeluarandinein"] = $hasil;
+		
 		$data['title']="The Hotel Reports";
 		$data['message']="";
 		$this->template->display("Reports/index",$data);
 		
 		//$this->load->view("Reports/rep_pembayaran",$data);
 	}
+	function prosesLabaRugi()
+	{
+		$tanggal1 = $this->input->post("tanggal1");
+		$tanggal2 = $this->input->post("tanggal2");
+		$endDate = strtotime($tanggal2);
+		$endDate= date("Y-m-01",$endDate);
+		
+		$timestamp    = strtotime($tanggal1);
+		$first_second = date('Y-m-01 ',$timestamp);
+	
+		
+		
+		$endDate = strtotime($endDate);
+		$first_second = strtotime($first_second);
+		//echo $first_second.",".$endDate."<br>";
+		
+		//$first_second = date("Y-m-01",strtotime("+1 month",$first_second));
+		//$first_second = strtotime($first_second);
+		//echo $first_second.",".$endDate."<br>";
+		$hasilReport=array();
+		
+		$hasilIncome = 0;$hasilExpense = 0;
+		while($endDate != $first_second)
+		{
+			$awalBulan = date('Y-m-01 ',$first_second);
+			$akhirBulan = date('Y-m-t',$first_second);
+			
+			
+			$temp = $this->basic->getDataBetween("hnotadinein",$awalBulan,$akhirBulan);
+			foreach($temp as $row)
+			{
+				$hasilIncome = $hasilIncome + $row->subtotal;
+			}
+			
+			$temp = $this->basic->getDataBetween("pengeluaran",$awalBulan,$akhirBulan);
+			foreach($temp as $row)
+			{
+				$hasilExpense = $hasilExpense+$row->nominal;
+			}
+			Array_push($hasilReport,array($awalBulan." s/d ".$akhirBulan,$hasilExpense,$hasilIncome));
+			$first_second = date("Y-m-01",strtotime("+1 month",$first_second));
+			$first_second = strtotime($first_second);
+		}
+		$awalBulan = date('Y-m-01 ',$first_second);
+		$akhirBulan = date('Y-m-t',$first_second);
+		$temp = $this->basic->getDataBetween("hnotadinein",$awalBulan,$akhirBulan);
+		foreach($temp as $row)
+		{
+			$hasilIncome = $hasilIncome + $row->subtotal;
+		}
+		
+		$temp = $this->basic->getDataBetween("pengeluaran",$awalBulan,$akhirBulan);
+		foreach($temp as $row)
+		{
+			$hasilExpense = $hasilExpense+$row->nominal;
+		}
+		Array_push($hasilReport,array($awalBulan." s/d ".$akhirBulan,$hasilExpense,$hasilIncome));
+		
+		$hasilReport = json_encode($hasilReport);
+		
+		
+		$data["HasilReportLabaRugi"] = $hasilReport;
+		echo $hasilReport;
+	}
+	
 	
 	
 }
