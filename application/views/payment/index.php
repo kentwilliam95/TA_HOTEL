@@ -57,7 +57,7 @@
 				$("#changeValue").val(change);
 				$("#id_kamar").val(roomId);
 				$("#afterDiscount").val(Amount-(Amount*discount/100));
-				
+				$("#tanggal").val(checkoutDate);
 				hitungLaundry(checkinID);
 				hitungRestaurant(checkinID);
 				
@@ -270,6 +270,7 @@
     </div>
 	<?php echo form_open("payment/SubmitData");?>
     <div class="form-group well">
+	<input type="hidden" name="tanggal" id="tanggal"/>
 	<input type="hidden" name="checkinID" id="checkinID" />
 	<input type="hidden" name="exchange" id="exchange" />
 	<input type="hidden" name="id_kamar" id="id_kamar" />

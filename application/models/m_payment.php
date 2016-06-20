@@ -110,4 +110,16 @@ class M_payment extends CI_Model{
 		$this->db->where("username",$nama);
 		return $this->db->get()->result();
 	}
+	function deleteData($tablename,$conditions)
+	{
+		$this->db->where($conditions);
+		$this->db->delete($tablename);
+	}
+	function getData($tablename,$conditions)
+	{
+		$this->db->select('*');
+		$this->db->from($tablename);
+		$this->db->where($conditions);
+		return $this->db->get()->result();
+	}
 }

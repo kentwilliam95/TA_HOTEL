@@ -135,8 +135,7 @@ class checkin extends CI_Controller{
 		$tipekamar = $this->input->post("tipekamar");
 		$tipebed=$this->input->post("tipebed");
 		$id_bookedRoom = $this->input->post("id_bookedRoom");
-		$id_kamar = $this->m_checkin->getDataWhere("booked_room",array("id_reservasi"=>$id_reservasi));
-		
+		$id_kamar = $this->m_checkin->getDataWhere("booked_room",array("id_bookedRoom"=>$id_bookedRoom));
 			if(!empty($id_kamar))
 			{
 				$nomorKamar = $id_kamar[0]->id_kamar;
@@ -160,54 +159,6 @@ class checkin extends CI_Controller{
 		
 	}
 	
-	function Simpan2()
-	{
-		if($this->session->userdata("username") == null)
-		{
-			redirect("web/index");
-		}
-		$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
-		
-		$data['tipe'] = $hasil[0]->tipe_pegawai;
-		$id_checkin=$this->input->post("nomer");
-		$id_reservasi=$this->input->post("no");
-		$tgl_checkin=$this->input->post("tglcheckin");
-		$tgl_checkout=$this->input->post("tglcheckout");
-		$tipekamar = $this->input->post("tipekamar");
-		$tipebed=$this->input->post("tipebed");
-		$id_bookedRoom = $this->input->post("id_bookedRoom");
-		$nama = $this->input->post("namareservasi");
-		$jumlah = $this->input->post("jumlah");
-		$nomorKamar = $this->input->post("carikamar");
-		
-		if($this->input->post("Simpan"))
-		{
-				if($this->session->userdata("username") == null)
-		{
-			redirect("web/index");
-		}
-		$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
-		
-		$data['tipe'] = $hasil[0]->tipe_pegawai;
-			
-				$data = array("id_reservasi"=>$id_reservasi,"id_checkin"=>$id_checkin,"tgl_checkin"=>$tgl_checkin,"tgl_checkout"=>$tgl_checkout);
-				$this->m_checkin->insertData("checkin",$data);
-			
-				$data = array("id_tipekamar"=>$tipekamar,"id_bed"=>$tipebed,"passengers"=>$jumlah,"Status"=>"Blocked","id_kamar"=>$nomorKamar,"nama_reservasi"=>$nama,"id_reservasi"=>$id_reservasi,"id_checkin"=>$id_checkin,"tgl_checkin"=>$tgl_checkin,"tgl_checkout"=>$tgl_checkout);
-				$this->m_checkin->insertData("booked_room",$data);
-				
-				$this->m_checkin->updateValue("kamar",array("id_kamar"=>$nomorKamar),array("Status"=>"OCCUPIED"));
-				$data['message']='<div class="alert alert-success"> Berhasil Input Data</div>';
-			
-		}
-		$data['message']='';
-		$data['title']="Checkin";
-		$data['noauto']=$this->m_checkin->nootomatis();
-		$data['reserved']=$this->m_checkin->semua2()->result();
-		$data['tglsajian']=date('d-m-Y');
-		$this->template->display('checkin/notreserved',$data);
-		
-	}
 	
 	function ShowKamar()
 	{

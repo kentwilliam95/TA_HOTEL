@@ -118,23 +118,11 @@
 			$("#idkamar").val(judul8);
 			$("#id_bookedRoom").val($(this).attr("id_bookedRoom"));
             $("#myModal2").modal("hide");
-			checkKamar(kode,judul5,judul6);
+			alert(judul8);
+			$("#nomorKamar").val("Kamar Nomor :"+judul8);
 			
         })
-		function checkKamar(kode,tipekamar1,tipebed1)
-		{
-			$.ajax({
-                url:"<?php echo site_url('checkin/ShowKamar')?>", 
-				type:"POST",
-				datatype:"json",
-				data:{tipekamar: tipekamar1,tipebed: tipebed1,kode1:kode},
-				success: function(result)
-				{
-					$("#nomorKamar").val(result);
-				},
-				
-            });
-		}
+		
     })
 </script>
 <legend><?php echo $title;?></legend>

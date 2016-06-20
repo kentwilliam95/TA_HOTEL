@@ -149,7 +149,7 @@ class reports extends CI_Controller
 			$temp = $this->basic->getDataBetween("pembayaran",$awalBulan,$akhirBulan);
 			foreach($temp as $row)
 			{
-				$hasilIncome = $hasilIncome + $row->subtotal;
+				$hasilIncome = $hasilIncome + $row->jumlah;
 			}
 			
 			$temp = $this->basic->getDataBetween("pengeluaran",$awalBulan,$akhirBulan);
@@ -166,7 +166,7 @@ class reports extends CI_Controller
 		$temp = $this->basic->getDataBetween("pembayaran",$awalBulan,$akhirBulan);
 		foreach($temp as $row)
 		{
-			$hasilIncome = $hasilIncome + $row->subtotal;
+			$hasilIncome = $hasilIncome + $row->jumlah;
 		}
 		
 		$temp = $this->basic->getDataBetween("pengeluaran",$awalBulan,$akhirBulan);
