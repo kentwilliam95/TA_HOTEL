@@ -143,7 +143,7 @@
 <div class="form-horizontal"  enctype="multipart/form-data" />
     <?php echo validation_errors(); echo $message;?>
      <div class="form-group">
-           <label class="col-lg-2 control-label">ID Reservasi</label>
+           <label class="col-lg-2 control-label">Reservation ID</label>
                     <div class="col-lg-5">
                         <input type="text" id="no" name="no" class="form-control" >
                     </div>
@@ -152,43 +152,43 @@
                     </div>
                 </div>  
 	  <div class="form-group">
-                    <label class="col-lg-2 control-label">Tgl Reservasi</label>
+                    <label class="col-lg-2 control-label">Reservation Date</label>
                     <div class="col-lg-5">
                         <input type="text" id="tglreservasi" name="tglreservasi" class="form-control" >
                     </div>
                 </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Nama Customer</label>
+        <label class="col-lg-2 control-label">Customer Name</label>
         <div class="col-lg-5">
             <input type="text" name="namareservasi" id="namareservasi" class="form-control">
         </div>
     </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Jumlah</label>
+        <label class="col-lg-2 control-label">Guest</label>
         <div class="col-lg-5">
             <input type="text" name="jumlah" id="jumlah" class="form-control">
         </div>
     </div>
 	  <div class="form-group">
-                    <label class="col-lg-2 control-label">Tgl Reservasi</label>
+                    <label class="col-lg-2 control-label">Check In Date</label>
                     <div class="col-lg-5">
                         <input type="text" id="tglcheckin" name="tglcheckin" class="form-control" >
                     </div>
                 </div>
 	   <div class="form-group">
-                    <label class="col-lg-2 control-label">Tgl Reservasi</label>
+                    <label class="col-lg-2 control-label">Check Out Date</label>
                     <div class="col-lg-5">
                         <input type="text" id="tglcheckout" name="tglcheckin" class="form-control" >
                     </div>
                 </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Tipe Kamar</label>
+        <label class="col-lg-2 control-label">Room Type</label>
          <div class="col-lg-5">
             <input type="text" name="tipekamar" id="tipekamar" class="form-control">
         </div>
     </div>
 	 <div class="form-group">
-        <label class="col-lg-2 control-label">Tipe Bed</label>
+        <label class="col-lg-2 control-label">Bed Type</label>
         <div class="col-lg-5">
             <input type="text" name="tipebed" id="tipebed" class="form-control">
         </div>
@@ -255,7 +255,7 @@
 			jumlah="<?php echo $tmp->passengers;?>"
 			tipekamar="<?php echo $tmp->id_tipekamar;?>"
 			tipebed="<?php echo $tmp->id_bed;?>"
-			id_useroom="<?php echo $tmp->id_useroom;?>"
+			id_useroom="<?php echo $tmp->id_reservasi;?>"
 			>
 			<i class="glyphicon glyphicon-plus"></i></a></td>
         </tr>

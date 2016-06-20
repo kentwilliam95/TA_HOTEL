@@ -100,7 +100,7 @@ $(document).ready(function() {
 		{title:"Id Checkin"},
 		{title:"Jumlah"},
 		{title:"Subtotal"},
-		{title:"Id Userestaurant"}
+		//{title:"Id Userestaurant"}
 		]
 	});
 	$("#tabelKamar").DataTable({
@@ -169,16 +169,16 @@ $(document).ready(function() {
 <?php echo $message;?>
 <div class="container">
 <ul class="nav nav-pills">
-    <li class="active"><a data-toggle="pill" href="#Expense"><strong>Expense Hotel</strong></a></li>
+    <li class="active"><a data-toggle="pill" href="#Expense"><strong>Expenses Hotel</strong></a></li>
     <li><a data-toggle="pill" href="#payroll"><Strong>PayRoll Hotel</Strong></a></li>
     <li><a data-toggle="pill" href="#Income"><Strong> Income Hotel</strong> </a></li>
-    <li><a data-toggle="pill" href="#menu3"><strong>Inventaris Hotel</strong></a></li>
-	<li><a data-toggle="pill" href="#ReservasiReport"><strong>Reservasi Hotel</strong></a></li>
-	<li><a data-toggle="pill" href="#reportMenuRestaurant"><strong>Menu Restaurant</strong></a></li>
-	<li><a data-toggle="pill" href="#reportUseRestaurant"><strong>Use Restaurant</strong></a></li>
-	<li><a data-toggle="pill" href="#reportKamar"><strong>Kamar</strong></a></li>
+    <li><a data-toggle="pill" href="#menu3"><strong>Inventory Hotel</strong></a></li>
+	<li><a data-toggle="pill" href="#ReservasiReport"><strong>Reservation Hotel</strong></a></li>
+	<li><a data-toggle="pill" href="#reportMenuRestaurant"><strong>Restaurant</strong></a></li>
+	<li><a data-toggle="pill" href="#reportUseRestaurant"><strong>Restaurant Income</strong></a></li>
+	<li><a data-toggle="pill" href="#reportKamar"><strong>Room Usage</strong></a></li>
 	<li><a data-toggle="pill" href="#dineIn"><strong>Dine In</strong></a></li>
-	<li><a data-toggle="pill" href="#LabaRugi"><strong>LabaRugi</strong></a></li>
+	<li><a data-toggle="pill" href="#LabaRugi"><strong>Profit-Loss</strong></a></li>
 </ul>
 </div>
 <hr>

@@ -59,13 +59,15 @@ class blockingroom extends CI_Controller{
 		
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
 		$data['message']="";
+
 		if($this->input->post("Simpan1"))
 		{
 			$tipekamar=$this->input->post('tipekamar');
 			$tipebed=$this->input->post('tipebed');
 			$dataArray=array("Status"=>"VACANT READY","id_tipekamar"=>$tipekamar,"id_bed"=>$tipebed);
-			$idKamar = $this->m_blockingroom->carikamar($dataArray);
 			
+			$idKamar = $this->m_blockingroom->carikamar($dataArray);
+			//$idKamar = $this->m_blockingroom->updateValue("kamar",array("Status"=>"BLOCKED"));
 			if(empty($idKamar))
 			{
 				$data['message']="<div class='alert alert-danger'>Kamar tidak tersedia</div>";
@@ -88,7 +90,7 @@ class blockingroom extends CI_Controller{
 						'id_kamar'=>$id_kamar,
 						"id_useroom"=>$this->input->post("id_useroom")
 					);
-				
+				$this->m_blockingroom->update($id_kamar);
 				$this->m_blockingroom->simpan($info);
 			}
 		}

@@ -7,6 +7,7 @@ class M_pembatalanreservasi extends CI_Model{
        $this->db->select("*");
 	   $this->db->from("reservasi");
 	   $this->db->join("useroom","useroom.id_reservasi = reservasi.id_reservasi");
+	   $this->db->where_not_in("reservasi.id_reservasi","booked_room.id_reservasi");
         return $this->db->get()->result();
     }
 	function deleteData($tablename,$data)

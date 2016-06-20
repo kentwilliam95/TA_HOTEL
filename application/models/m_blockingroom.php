@@ -35,7 +35,7 @@ class M_blockingroom extends CI_Model{
 		}
 	}
 	function semua2(){
-        $query=$this->db->query("select * from reservasi re,useroom ur where ur.id_reservasi = re.id_reservasi and ur.id_useroom not in(select id_useroom from booked_room)");
+        $query=$this->db->query("select * from reservasi re,useroom ur where ur.id_reservasi = re.id_reservasi and ur.id_useroom not in(select id_useroom from booked_room) and re.status_reservasi='Fixed'");
         return $query;
     }
 	function carikamar($data){
@@ -79,6 +79,10 @@ class M_blockingroom extends CI_Model{
     function simpan($jenis){
         $this->db->insert($this->table,$jenis);
         return $this->db->insert_id();
+    }
+	function update($id_kamar){
+        $query=$this->db->query("update kamar set Status='BLOCKED' where id_kamar='$id_kamar'");
+        return $query;
     }
 	function cariTipe($nama)
 	{

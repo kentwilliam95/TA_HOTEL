@@ -125,7 +125,7 @@ class checkin extends CI_Controller{
 		
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
 		
-		$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
+	//	$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
 		
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
 		$id_checkin=$this->input->post("nomer");
@@ -141,6 +141,13 @@ class checkin extends CI_Controller{
 		//echo $id_bookedRoom;
 		if($this->input->post("Simpan"))
 		{
+			if($this->session->userdata("username") == null)
+		{
+			redirect("web/index");
+		}
+		$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
 			if(!empty($id_kamar))
 			{
 				$nomorKamar = $id_kamar[0]->id_kamar;
@@ -171,6 +178,13 @@ class checkin extends CI_Controller{
 	
 	function Simpan2()
 	{
+		if($this->session->userdata("username") == null)
+		{
+			redirect("web/index");
+		}
+		$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
 		$id_checkin=$this->input->post("nomer");
 		$id_reservasi=$this->input->post("no");
 		$tgl_checkin=$this->input->post("tglcheckin");
@@ -184,6 +198,13 @@ class checkin extends CI_Controller{
 		
 		if($this->input->post("Simpan"))
 		{
+				if($this->session->userdata("username") == null)
+		{
+			redirect("web/index");
+		}
+		$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
 			
 				$data = array("id_reservasi"=>$id_reservasi,"id_checkin"=>$id_checkin,"tgl_checkin"=>$tgl_checkin,"tgl_checkout"=>$tgl_checkout);
 				$this->m_checkin->insertData("checkin",$data);

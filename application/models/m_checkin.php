@@ -122,11 +122,11 @@ class M_checkin extends CI_Model{
 		$this->db->where($conditions);
 		return $this->db->get()->result();
 	}
-	function updateValue($tablename,$conditions,$data)
-	{
-		$this->db->where($conditions);
-		$this->db->update($tablename,$data);
-	}
+	// function updateValue($tablename,$conditions,$data)
+	// {
+		// $this->db->where($conditions);
+		// $this->db->update($tablename,$data);
+	// }
 	function cariTipe($nama)
 	{
 		$this->db->select("*");
