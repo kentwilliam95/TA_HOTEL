@@ -124,8 +124,8 @@
 			$("#tipekamar").val(judul5);
 			$("#tipebed").val(judul6);
 			$("#namareservasi").val(judul7);
-	
-
+			$("#kodeTipeBed").val(judul6);
+			$("#KodeTipeKamar").val(judul5);
 			$("#kodeUseroom").val(kode);
 			
             

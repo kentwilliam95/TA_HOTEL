@@ -107,7 +107,6 @@
 			var judul6=$(this).attr("tipebed");
 			var judul7=$(this).attr("namareservasi");
 			var judul8=$(this).attr("idkamar");
-			
             $("#no").val(kode);
             $("#tglreservasi").val(judul);
 			$("#tglcheckin").val(judul2);
@@ -119,17 +118,16 @@
 			$("#idkamar").val(judul8);
 			$("#id_bookedRoom").val($(this).attr("id_bookedRoom"));
             $("#myModal2").modal("hide");
-			checkKamar(judul5,judul6);
+			checkKamar(kode,judul5,judul6);
 			
         })
-		function checkKamar(tipekamar1,tipebed1)
+		function checkKamar(kode,tipekamar1,tipebed1)
 		{
-			
 			$.ajax({
                 url:"<?php echo site_url('checkin/ShowKamar')?>", 
 				type:"POST",
 				datatype:"json",
-				data:{tipekamar: tipekamar1,tipebed: tipebed1},
+				data:{tipekamar: tipekamar1,tipebed: tipebed1,kode1:kode},
 				success: function(result)
 				{
 					$("#nomorKamar").val(result);

@@ -135,19 +135,8 @@ class checkin extends CI_Controller{
 		$tipekamar = $this->input->post("tipekamar");
 		$tipebed=$this->input->post("tipebed");
 		$id_bookedRoom = $this->input->post("id_bookedRoom");
-		$id_kamar = $this->m_checkin->getDataWhere("kamar",array("id_bed"=>$tipebed,"id_tipekamar"=>$tipekamar,"Status"=>"VACANT READY"));
+		$id_kamar = $this->m_checkin->getDataWhere("booked_room",array("id_reservasi"=>$id_reservasi));
 		
-		//print_r($id_kamar);
-		//echo $id_bookedRoom;
-		if($this->input->post("Simpan"))
-		{
-			if($this->session->userdata("username") == null)
-		{
-			redirect("web/index");
-		}
-		$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
-		
-		$data['tipe'] = $hasil[0]->tipe_pegawai;
 			if(!empty($id_kamar))
 			{
 				$nomorKamar = $id_kamar[0]->id_kamar;
@@ -166,13 +155,8 @@ class checkin extends CI_Controller{
 			{
 				$data['message']='<div class="alert alert-danger"> Kamar Habis </div>';
 			}
-		}
-		$data['message']='';
-		$data['title']="Checkin";
-		$data['noauto']=$this->m_checkin->nootomatis();
-		$data['reserved']=$this->m_checkin->semua2()->result();
-		$data['tglsajian']=date('d-m-Y');
-		$this->template->display('checkin/index',$data);
+		
+		redirect("checkin/index");
 		
 	}
 	
@@ -227,9 +211,9 @@ class checkin extends CI_Controller{
 	
 	function ShowKamar()
 	{
-		$tipekamar = $this->input->post("tipekamar");
-		$tipebed = $this->input->post("tipebed");
-		$id_kamar = $this->m_checkin->getDataWhere("kamar",array("id_bed"=>$tipebed,"id_tipekamar"=>$tipekamar,"Status"=>"VACANT READY"));
+		$reservasiId=$this->input->post("kode1");
+		
+		$id_kamar = $this->m_checkin->getDataWhere("booked_room",array("id_reservasi"=> $reservasiId));
 		if(empty($id_kamar))
 		{
 			echo "Kamar Sudah tidak ada";
