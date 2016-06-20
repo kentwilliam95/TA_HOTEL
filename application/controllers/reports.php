@@ -146,7 +146,7 @@ class reports extends CI_Controller
 			$akhirBulan = date('Y-m-t',$first_second);
 			
 			
-			$temp = $this->basic->getDataBetween("hnotadinein",$awalBulan,$akhirBulan);
+			$temp = $this->basic->getDataBetween("pembayaran",$awalBulan,$akhirBulan);
 			foreach($temp as $row)
 			{
 				$hasilIncome = $hasilIncome + $row->subtotal;
@@ -163,7 +163,7 @@ class reports extends CI_Controller
 		}
 		$awalBulan = date('Y-m-01 ',$first_second);
 		$akhirBulan = date('Y-m-t',$first_second);
-		$temp = $this->basic->getDataBetween("hnotadinein",$awalBulan,$akhirBulan);
+		$temp = $this->basic->getDataBetween("pembayaran",$awalBulan,$akhirBulan);
 		foreach($temp as $row)
 		{
 			$hasilIncome = $hasilIncome + $row->subtotal;
