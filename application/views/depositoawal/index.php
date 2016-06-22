@@ -41,14 +41,12 @@
 		});
 		function betweenDate( date1, date2)
 		{
-			
-			
 			var start= date1.split('-');
 			var to = date2.split('-');
 		    var dateStart = new Date(start[0],start[1]-1,start[2]);
 			var dateStop = new Date(to[0],to[1]-1,to[2]);
 			
-			dateStart.setDate(dateStart.getDate() + 1);
+			
 			
 			var dd1 = dateStart.getDate();
 			var mm1= dateStart.getMonth()+1;
@@ -60,7 +58,7 @@
 			
 			var hasil=[];
 			var looping = true;
-			
+			alert(dd1+","+dd2+","+mm1+","+mm2+","+yyyy1+","+yyyy2);
 			while(looping)
 			{
 				if(dd1 == dd2 && mm1 == mm2 && yyyy1 == yyyy2)
@@ -72,6 +70,7 @@
 				dd1 = dateStart.getDate();
 				mm1 = dateStart.getMonth()+1;
 				yyyy1 = dateStart.getFullYear();
+				alert(dd1+","+dd2+","+mm1+","+mm2+","+yyyy1+","+yyyy2);
 			}
 			
 			var tprice;
