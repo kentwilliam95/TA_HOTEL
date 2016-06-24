@@ -6,7 +6,7 @@ class Promo extends CI_Controller{
         parent::__construct();
         $this->load->library(array('template','form_validation','pagination','upload'));
         $this->load->model('m_promo');
-        
+        $this->load->model("basic");
         if(!$this->session->userdata('username')){
             redirect('web');
         }
@@ -54,6 +54,12 @@ class Promo extends CI_Controller{
 		
         $data['title']="Tambah Data Promo";
 		$data['noauto']=$this->m_promo->nootomatis();
+		$temp = $this->basic->query("select max(substr(id_promo,3)) as maks from promo");
+		$temp = $temp[0]->maks;
+		$temp = $temp +1;
+		$idbaru = "PR".sprintf("%'.03d\n", $temp);
+		$data["idBaru"] = $idbaru;
+		$data['noauto'] = $idbaru;
         $this->_set_rules();
         if($this->form_validation->run()==true){//jika validasi dijalankan dan benar
             $kode=$this->input->post('kode'); // mendapatkan input dari kode

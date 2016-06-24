@@ -4,7 +4,7 @@
 		 <div class="form-group">
            <label class="col-lg-2 control-label">Room Type ID</label>
                     <div class="col-lg-5">
-                        <input type="text" id="no" name="no" class="form-control" value="<?php echo $noauto;?>" readonly="readonly">
+                        <input type="text" id="no" name="no" class="form-control" value="<?php echo $idBaru;?>" readonly="readonly">
                     </div>
                 </div>   
     <div class="form-group">

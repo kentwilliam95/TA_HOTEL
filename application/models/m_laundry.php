@@ -4,14 +4,15 @@ class M_laundry extends CI_Model{
     private $primary="id_laundry";
     
 	  function nootomatis(){
-        $today=date('Ymd');
+		  $nextNoUrut =0;
+       /* $today=date('Ymd');
         $query=mysql_query("select max(id_laundry) as last from laundry");
         $data=mysql_fetch_array($query);
         $lastNoFaktur=$data['last'];
         
         $lastNoUrut=substr($lastNoFaktur,3,3);
         
-        $nextNoUrut=$lastNoUrut+1;
+        $nextNoUrut=$lastNoUrut+1;*/
 		if ($nextNoUrut<10)
 			return "LA"."00".$nextNoUrut;
 		else if ($nextNoUrut>=10)

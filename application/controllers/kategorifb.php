@@ -5,6 +5,7 @@ class kategorifb extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->library(array('template','form_validation','pagination','upload'));
+		$this->load->model("basic");
         $this->load->model('m_kategorifb');
     }
     
@@ -52,7 +53,12 @@ class kategorifb extends CI_Controller{
 		
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Tambah Kategori";
-		$data['noauto']=$this->m_kategorifb->nootomatis();
+		$temp = $this->basic->query("select max(substr(id_kategorifb,4)) as maks from kategori_fb");
+		$temp = $temp[0]->maks;
+		$temp = $temp +1;
+		$idbaru = "KFB".sprintf("%'.03d\n", $temp);
+		$data["idBaru"] = $idbaru;
+		$data['noauto'] = $idbaru;
         $this->_set_rules();
         if($this->form_validation->run()==true){//jika validasi dijalankan dan benar
             $kode=$this->input->post('kode'); // mendapatkan input dari kode

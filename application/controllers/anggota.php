@@ -6,7 +6,7 @@ class Anggota extends CI_Controller{
         parent::__construct();
         $this->load->library(array('template','pagination','form_validation','upload'));
         $this->load->model('m_anggota');
-        
+        $this->load->model("basic");
         if(!$this->session->userdata('username')){
             redirect('web');
         }
@@ -21,20 +21,10 @@ class Anggota extends CI_Controller{
 		
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
 		
-        if(empty($offset)) $offset=0;
-        if(empty($order_column)) $order_column='id_bed';
-        if(empty($order_type)) $order_type='asc';
-        
         //load data
         $data['anggota']=$this->m_anggota->semua($this->limit,$offset,$order_column,$order_type)->result();
         $data['title']="Master Bed Type";
-        
-        $config['base_url']=site_url('anggota/index/');
-        $config['total_rows']=$this->m_anggota->jumlah();
-        $config['per_page']=$this->limit;
-        $config['uri_segment']=3;
-        $this->pagination->initialize($config);
-        $data['pagination']=$this->pagination->create_links();
+       
 
         
         if($this->uri->segment(3)=="delete_success")
@@ -93,7 +83,11 @@ class Anggota extends CI_Controller{
     function tambah(){
         $data['title']="Tambah Data Bed";
 	    $data['noauto']=$this->m_anggota->nootomatis();
-		
+		$temp = $this->basic->query("select max(substr(id_bed,3)) as maks from bed");
+		$temp = $temp[0]->maks;
+		$temp = $temp +1;
+		$idbaru = "BD".sprintf("%'.03d\n", $temp);
+		$data["idBaru"] = $idbaru;
         $this->_set_rules();
         if($this->form_validation->run()==true){
             $nis=$this->input->post('nis');

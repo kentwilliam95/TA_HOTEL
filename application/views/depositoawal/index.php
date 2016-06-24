@@ -58,7 +58,7 @@
 			
 			var hasil=[];
 			var looping = true;
-			alert(dd1+","+dd2+","+mm1+","+mm2+","+yyyy1+","+yyyy2);
+			
 			while(looping)
 			{
 				if(dd1 == dd2 && mm1 == mm2 && yyyy1 == yyyy2)
@@ -70,7 +70,7 @@
 				dd1 = dateStart.getDate();
 				mm1 = dateStart.getMonth()+1;
 				yyyy1 = dateStart.getFullYear();
-				alert(dd1+","+dd2+","+mm1+","+mm2+","+yyyy1+","+yyyy2);
+				
 			}
 			
 			var tprice;
@@ -86,33 +86,36 @@
 					tprice = result;
 					price = tprice.split(',');
 					//fungsi dibahaw ini untuk menghitung Amount to be paid
-					for(datum in hasil)
+					for(var i=0;i <hasil.length;i++)
 					{
-						if(datum == "0")
+						//alert(hasil[i]);
+						if(hasil[i] == "0")
+						{
+						
+							totalHarga = totalHarga + parseInt(price[1]);
+						}
+						if(hasil[i]=="1")
 						{
 							totalHarga = totalHarga + parseInt(price[1]);
 						}
-						if(datum=="1")
-						{
-							totalHarga = totalHarga + parseInt(price[1]);
-						}
-						if(datum=="2")
+						if(hasil[i]=="2")
 						{
 							totalHarga = totalHarga + parseInt(price[1])
 						}
-						if(datum=="3")
+						if(hasil[i]=="3")
 						{
 							totalHarga = totalHarga + parseInt(price[1]);
 						}
-						if(datum=="4")
+						if(hasil[i]=="4")
 						{
 							totalHarga = totalHarga + parseInt(price[1]);
 						}
-						if(datum=="5")
+						if(hasil[i]=="5")
 						{
+							
 							totalHarga = totalHarga + parseInt(price[2]);
 						}
-						if(datum=="6")
+						if(hasil[i]=="6")
 						{
 							totalHarga = totalHarga + parseInt(price[2]);
 						}

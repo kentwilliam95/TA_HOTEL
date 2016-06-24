@@ -30,7 +30,7 @@
     </tr>
     <?php endforeach;?>
 </Table>
-<?php echo $pagination;?>
+
 
 <script>
     $(function(){

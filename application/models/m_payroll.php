@@ -1,11 +1,11 @@
 <?php
 class M_payroll extends CI_Model{
-    private $table="kategori_fb";
-    private $primary="id_kategorifb";
+    private $table="payroll";
+    private $primary="id_penggajian";
     
 	  function nootomatis(){
         $today=date('Ymd');
-        $query=mysql_query("select max(id_kategorifb) as last from kategori_fb");
+        $query=mysql_query("select max(id_penggajian) as last from payroll");
         $data=mysql_fetch_array($query);
         $lastNoFaktur=$data['last'];
         

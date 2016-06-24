@@ -6,7 +6,7 @@ class laundry extends CI_Controller{
         parent::__construct();
         $this->load->library(array('template','form_validation','pagination','upload'));
         $this->load->model('m_laundry');
-        
+        $this->load->model("basic");
         if(!$this->session->userdata('username')){
             redirect('web');
         }
@@ -49,9 +49,22 @@ class laundry extends CI_Controller{
     
     
     function tambah(){
+		if($this->session->userdata("username") == null)
+		{
+			redirect("web/index");
+		}
+		$hasil = $this->m_laundry->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Tambah Paket";
-		$data['noauto']=$this->m_laundry->nootomatis();
+		
         $this->_set_rules();
+		$temp = $this->basic->query("select max(substr(id_laundry,3)) as maks from laundry");
+		$temp = $temp[0]->maks;
+		$temp = $temp +1;
+		$idbaru = "LA".sprintf("%'.03d\n", $temp);
+		$data["idBaru"] = $idbaru;
+		$data['noauto'] = $idbaru;
         if($this->form_validation->run()==true){//jika validasi dijalankan dan benar
             $kode=$this->input->post('kode'); // mendapatkan input dari kode
             $cek=$this->m_laundry->cek($kode); // cek kode di database

@@ -6,7 +6,7 @@ class chef extends CI_Controller{
         parent::__construct();
         $this->load->library(array('template','pagination','form_validation','upload'));
         $this->load->model('m_chef');
-        
+        $this->load->model("basic");
         if(!$this->session->userdata('username')){
             redirect('web');
         }
@@ -110,6 +110,12 @@ class chef extends CI_Controller{
 		
         $data['title']="Tambah Data chef";
 		$data['noauto']=$this->m_chef->nootomatis();
+		$temp = $this->basic->query("select max(substr(id_chef,3)) as maks from chef");
+		$temp = $temp[0]->maks;
+		$temp = $temp +1;
+		$idbaru = "CH".sprintf("%'.03d\n", $temp);
+		$data["idBaru"] = $idbaru;
+		$data['noauto'] = $idbaru;
         $this->_set_rules();
         if($this->form_validation->run()==true){
             $nis=$this->input->post('nis');

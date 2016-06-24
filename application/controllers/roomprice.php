@@ -6,7 +6,7 @@ class roomprice extends CI_Controller{
         parent::__construct();
         $this->load->library(array('template','form_validation','pagination','upload'));
         $this->load->model('m_roomprice');
-        
+        $this->load->model("basic");
         if(!$this->session->userdata('username')){
             redirect('web');
         }
@@ -56,6 +56,12 @@ class roomprice extends CI_Controller{
 		$data['noauto']=$this->m_roomprice->nootomatis();
 		       $data['tipekamar']=$this->m_roomprice->getAnggota()->result();
         $this->_set_rules();
+		$temp = $this->basic->query("select max(substr(id_price,3)) as maks from room_price");
+		$temp = $temp[0]->maks;
+		$temp = $temp +1;
+		$idbaru = "HR".sprintf("%'.03d\n", $temp);
+		$data["idBaru"] = $idbaru;
+		$data['noauto'] = $idbaru;
         if($this->form_validation->run()==true){//jika validasi dijalankan dan benar
             $kode=$this->input->post('kode'); // mendapatkan input dari kode
             $cek=$this->m_roomprice->cek($kode); // cek kode di database

@@ -6,7 +6,7 @@ class kategoriinventaris extends CI_Controller{
         parent::__construct();
         $this->load->library(array('template','form_validation','pagination','upload'));
         $this->load->model('m_kategoriinventaris');
-        
+        $this->load->model("basic");
         if(!$this->session->userdata('username')){
             redirect('web');
         }
@@ -53,7 +53,12 @@ class kategoriinventaris extends CI_Controller{
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
 		
         $data['title']="Tambah Kategori";
-		$data['noauto']=$this->m_kategoriinventaris->nootomatis();
+		$temp = $this->basic->query("select max(substr(id_kategoriinventaris,3)) as maks from kategoriinventaris");
+		$temp = $temp[0]->maks;
+		$temp = $temp +1;
+		$idbaru = "KI".sprintf("%'.03d\n", $temp);
+		$data["idBaru"] = $idbaru;
+		$data['noauto'] = $idbaru;
         $this->_set_rules();
         if($this->form_validation->run()==true){//jika validasi dijalankan dan benar
             $kode=$this->input->post('kode'); // mendapatkan input dari kode

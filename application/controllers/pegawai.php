@@ -6,7 +6,7 @@ class pegawai extends CI_Controller{
         parent::__construct();
         $this->load->library(array('template','pagination','form_validation','upload'));
         $this->load->model('m_pegawai');
-        
+        $this->load->model("basic");
         if(!$this->session->userdata('username')){
             redirect('web');
         }
@@ -168,6 +168,13 @@ class pegawai extends CI_Controller{
 		
         $data['title']="Tambah Data Pegawai";
 		$data['noauto']=$this->m_pegawai->nootomatis();
+	
+		$temp = $this->basic->query("select max(substr(id_pegawai,3)) as maks from pegawai");
+		$temp = $temp[0]->maks;
+		$temp = $temp +1;
+		$idbaru = "PG".sprintf("%'.03d\n", $temp);
+		$data["idBaru"] = $idbaru;
+		$data['noauto'] = $idbaru;
         $this->_set_rules();
         if($this->form_validation->run()==true){
             $nis=$this->input->post('nis');

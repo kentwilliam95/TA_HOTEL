@@ -6,7 +6,7 @@ class menu extends CI_Controller{
         parent::__construct();
         $this->load->library(array('template','form_validation','pagination','upload'));
         $this->load->model('m_menu');
-        
+        $this->load->model("basic");
         if(!$this->session->userdata('username')){
             redirect('web');
         }
@@ -56,7 +56,12 @@ class menu extends CI_Controller{
 		
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Tambah Daftar Menu";
-		$data['noauto']=$this->m_menu->nootomatis();
+		$temp = $this->basic->query("select max(substr(id_menu,4)) as maks from menu_restaurant");
+		$temp = $temp[0]->maks;
+		$temp = $temp +1;
+		$idbaru = "RES".sprintf("%'.03d\n", $temp);
+		$data["idBaru"] = $idbaru;
+		$data['noauto'] = $idbaru;
         $this->_set_rules();
         if($this->form_validation->run()==true){//jika validasi dijalankan dan benar
             $kode=$this->input->post('kode'); // mendapatkan input dari kode

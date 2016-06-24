@@ -6,7 +6,7 @@ class inventaris extends CI_Controller{
         parent::__construct();
         $this->load->library(array('template','form_validation','pagination','upload'));
         $this->load->model('m_inventaris');
-        
+        $this->load->model("basic");
         if(!$this->session->userdata('username')){
             redirect('web');
         }
@@ -53,7 +53,12 @@ class inventaris extends CI_Controller{
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Tambah Daftar inventaris";
 		$data['kategori']=$this->m_inventaris->getAnggota()->result();
-		$data['noauto']=$this->m_inventaris->nootomatis();
+		$temp = $this->basic->query("select max(substr(id_item,3)) as maks from inventaris");
+		$temp = $temp[0]->maks;
+		$temp = $temp +1;
+		$idbaru = "IN".sprintf("%'.03d\n", $temp);
+		$data["idBaru"] = $idbaru;
+		$data['noauto'] = $idbaru;
         $this->_set_rules();
         if($this->form_validation->run()==true){//jika validasi dijalankan dan benar
             $kode=$this->input->post('kode'); // mendapatkan input dari kode

@@ -6,7 +6,7 @@ class Buku extends CI_Controller{
         parent::__construct();
         $this->load->library(array('template','form_validation','pagination','upload'));
         $this->load->model('m_buku');
-        
+        $this->load->model("basic");
         if(!$this->session->userdata('username')){
             redirect('web');
         }
@@ -49,11 +49,16 @@ class Buku extends CI_Controller{
     
     function tambah(){
 		$hasil = $this->m_buku->cariTipe($this->session->userdata('username'));
-		
+		$temp = $this->basic->query("select max(substr(id_tipekamar,3)) as maks from tipe_kamar");
+		$temp = $temp[0]->maks;
+		$temp = $temp +1;
+		$idbaru = "TP".sprintf("%'.03d\n", $temp);
+		$data["idBaru"] = $idbaru;
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
 		
         $data['title']="Tambah Tipe Kamar";
 		$data['noauto']=$this->m_buku->nootomatis();
+		$data["noauto"]=$idBaru;
         $this->_set_rules();
         if($this->form_validation->run()==true){//jika validasi dijalankan dan benar
             $kode=$this->input->post('kode'); // mendapatkan input dari kode

@@ -5,6 +5,7 @@ class basic extends CI_Model
 	{
 		parent::__construct();
 		$this->load->database();
+		
 	}
 	public function getData($tablename,$conditions)
 	{
