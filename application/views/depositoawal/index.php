@@ -9,7 +9,7 @@
 		{
 			//alert($("#jumlah").val());
 			var j = parseInt($("#jumlah").val()) -(parseInt($("#discValue").val())/100* parseInt($("#jumlah").val()));
-			alert(j);
+			//alert(j);
 			$("#afterDiscount").val(j);
 		});
 		$("#jumlahDeposit").change(function(){

@@ -48,10 +48,6 @@ class Anggota extends CI_Controller{
     
     
     function edit($id){
-		$hasil = $this->m_anggota->cariTipe($this->session->userdata('username'));
-		
-		$data['tipe'] = $hasil[0]->tipe_pegawai;
-		
         $data['title']="Edit Data Bed";
         $this->_set_rules();
         if($this->form_validation->run()==true){
@@ -95,10 +91,6 @@ class Anggota extends CI_Controller{
     
     
     function tambah(){
-		$hasil = $this->m_anggota->cariTipe($this->session->userdata('username'));
-		
-		$data['tipe'] = $hasil[0]->tipe_pegawai;
-		
         $data['title']="Tambah Data Bed";
 	    $data['noauto']=$this->m_anggota->nootomatis();
 		

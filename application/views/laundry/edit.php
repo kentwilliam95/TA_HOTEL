@@ -4,19 +4,19 @@
 
 <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 	 <div class="form-group">
-           <label class="col-lg-2 control-label">Item ID</label>
+           <label class="col-lg-2 control-label">ID Item</label>
                     <div class="col-lg-5">
                         <input type="text" name="kode" class="form-control" value="<?php echo $laundry['id_laundry'];?>" readonly="readonly">
                     </div>
                 </div>  
 	 <div class="form-group">
-           <label class="col-lg-2 control-label">Clothes Type</label>
+           <label class="col-lg-2 control-label">Nama Item</label>
                     <div class="col-lg-5">
                         <input type="text" name="namaitem" class="form-control" value="<?php echo $laundry['nama_item'];?>" >
                     </div>
                 </div>  
 	<div class="form-group">
-           <label class="col-lg-2 control-label">Unit</label>
+           <label class="col-lg-2 control-label">Satuan</label>
                     <div class="col-lg-5">
                         <input type="text" name="satuan" class="form-control" value="<?php echo $laundry['satuan'];?>" >
                     </div>
@@ -32,13 +32,13 @@
         </div>
     </div>
 	<div class="form-group">
-           <label class="col-lg-2 control-label">Price</label>
+           <label class="col-lg-2 control-label">Harga</label>
                     <div class="col-lg-5">
                         <input type="text" name="hargalaundry" class="form-control" value="<?php echo $laundry['harga_laundry'];?>" >
                     </div>
                 </div>
 	<div class="form-group">
-        <label class="col-lg-2 control-label">Laundry Type</label>
+        <label class="col-lg-2 control-label">Keterangan</label>
       <div class="col-lg-5">
        <select name="keterangan" class="form-control" id="keterangan">
 				<option value="<?php echo $laundry['keterangan'];?>"><?php echo $laundry['keterangan'];?></option>

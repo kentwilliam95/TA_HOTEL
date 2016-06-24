@@ -49,9 +49,6 @@ class laundry extends CI_Controller{
     
     
     function tambah(){
-		$hasil = $this->m_laundry->cariTipe($this->session->userdata('username'));
-		
-		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Tambah Paket";
 		$data['noauto']=$this->m_laundry->nootomatis();
         $this->_set_rules();
@@ -96,9 +93,6 @@ class laundry extends CI_Controller{
     }
     
     function edit($id){
-		$hasil = $this->m_laundry->cariTipe($this->session->userdata('username'));
-		
-		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Edit data laundry";
         $this->_set_rules();
         if($this->form_validation->run()==true){

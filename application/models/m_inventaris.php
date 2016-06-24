@@ -1,3 +1,4 @@
+@@ -0,0 +1,70 @@
 <?php
 class M_inventaris extends CI_Model{
     private $table="inventaris";

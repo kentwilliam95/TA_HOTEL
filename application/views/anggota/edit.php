@@ -4,13 +4,13 @@
 
 <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
-        <label class="col-lg-2 control-label">Bed ID</label>
+        <label class="col-lg-2 control-label">ID Bed</label>
         <div class="col-lg-5">
             <input type="text" name="kode" class="form-control" value="<?php echo $anggota['id_bed'];?>" readonly="readonly">
         </div>
     </div>
     <div class="form-group">
-        <label class="col-lg-2 control-label">Bed Type</label>
+        <label class="col-lg-2 control-label">Nama Bed</label>
         <div class="col-lg-5">
             <input type="text" name="namabed" class="form-control" value="<?php echo $anggota['nama_bed'];?>">
         </div>
