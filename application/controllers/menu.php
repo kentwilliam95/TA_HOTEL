@@ -56,7 +56,7 @@ class menu extends CI_Controller{
 		
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Tambah Daftar Menu";
-		$temp = $this->basic->query("select max(substr(id_menu,4)) as maks from menu_restaurant");
+		$temp = $this->basic->query("select max(substr(id_menu,4)) as maks from restaurant");
 		$temp = $temp[0]->maks;
 		$temp = $temp +1;
 		$idbaru = "RES".sprintf("%'.03d\n", $temp);

@@ -286,7 +286,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Search Room
+                    <h4 class="modal-title">Cari Reservasi
                     <input type="text" name="cari22" id="cari22" >
 								 <button id="cari23" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                     </h4>
@@ -300,10 +300,10 @@
                             <table class="table table-striped" id="xx">
         <thead>
             <tr>
-                <td>Reservation ID</td>
-                <td>Name </td>
-                <td>Check in Date</td>
-				  <td>Check Out Date</td>
+                <td>ID Reservasi</td>
+                <td>Nama </td>
+                <td>Tanggal Check in</td>
+				<td>Tanggal Check Out</td>
                 <td>Room ID</td>
             </tr>
         </thead>

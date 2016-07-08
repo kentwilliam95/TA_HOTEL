@@ -81,7 +81,6 @@ class M_userestaurant extends CI_Model{
 	function GetAllDataFrom($tablename){
        $this->db->select("*");
 	   $this->db->from($tablename);
-	  // $this->db->where_not_in("booked_room.id_reservasi","checkin");
 	   return $this->db->get()->result();
     }
 	

@@ -43,7 +43,7 @@ class M_occupied extends CI_Model{
         $this->db->update($this->table,$jenis);
     }
    function cari($cari){
-        $query=$this->db->query("select * from kamar where id_kamar like'%$cari%'");
+        $query=$this->db->query("select * from booked_room where id_kamar like'%$cari%' and status like '%Occupied%'");
         return $query;
     }
 	function cariTipe($nama)

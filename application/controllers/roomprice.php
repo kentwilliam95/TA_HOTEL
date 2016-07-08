@@ -90,7 +90,9 @@ class roomprice extends CI_Controller{
 					'jenis_harga'=>$this->input->post('jenisharga'),
 					'tgl_awalharga'=>$this->input->post('tglawalharga'),
 					'tgl_akhirharga'=>$this->input->post('tglakhirharga'),
-					'harga'=>$this->input->post('harga')
+					'transit'=>$this->input->post('transit'),
+					'weekday'=>$this->input->post('weekday'),
+					'weekend'=>$this->input->post('weekend')
                 );
                 $this->m_roomprice->simpan($info);
                 redirect('roomprice/index/add_success');

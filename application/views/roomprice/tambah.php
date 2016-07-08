@@ -35,14 +35,26 @@
             <input type="text" name="tglakhirharga" id="tanggal2" class="form-control">
         </div>
     </div>
-	   <div class="form-group">
-           <label class="col-lg-2 control-label">Harga</label>
+	   	   <div class="form-group">
+           <label class="col-lg-2 control-label">Transit</label>
                     <div class="col-lg-5">
-                        <input type="text" name="harga" class="form-control">
+                        <input type="text" name="transit" class="form-control">
                     </div>
-                </div>  
+       </div>  
+	<div class="form-group">
+           <label class="col-lg-2 control-label">Weekday</label>
+                    <div class="col-lg-5">
+                        <input type="text" name="weekday" class="form-control" >
+                    </div>
+       </div>  
+	<div class="form-group">
+           <label class="col-lg-2 control-label">Weekend</label>
+                    <div class="col-lg-5">
+                        <input type="text" name="weekend" class="form-control" >
+                    </div>
+       </div>  
     <div class="form-group well">
         <button class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>
-        <a href="<?php echo site_url('laundry');?>" class="btn btn-default">Kembali</a>
+        <a href="<?php echo site_url('roomprice');?>" class="btn btn-default">Kembali</a>
     </div>
 </form>

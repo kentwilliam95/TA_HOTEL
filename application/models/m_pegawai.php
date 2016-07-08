@@ -4,14 +4,15 @@ class M_pegawai extends CI_Model{
     private $primary="id_pegawai";
     
 	 function nootomatis(){
-        $today=date('Ymd');
-        $query=mysql_query("select max(id_pegawai) as last from pegawai");
-        $data=mysql_fetch_array($query);
-        $lastNoFaktur=$data['last'];
+		$nextNoUrut =0;
+        // $today=date('Ymd');
+        // $query=mysql_query("select max(id_pegawai) as last from pegawai");
+        // $data=mysql_fetch_array($query);
+        // $lastNoFaktur=$data['last'];
         
-        $lastNoUrut=substr($lastNoFaktur,3,3);
+        // $lastNoUrut=substr($lastNoFaktur,3,3);
         
-        $nextNoUrut=$lastNoUrut+1;
+        // $nextNoUrut=$lastNoUrut+1;
 		if ($nextNoUrut<10)
 			return "PG"."00".$nextNoUrut;
 		else if ($nextNoUrut>=10)

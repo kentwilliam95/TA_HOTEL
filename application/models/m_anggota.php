@@ -5,14 +5,15 @@ class M_anggota extends CI_Model{
     
 	  
     function nootomatis(){
-        $today=date('Ymd');
-        $query=mysql_query("select max(id_bed) as last from bed");
-        $data=mysql_fetch_array($query);
-        $lastNoFaktur=$data['last'];
+		$nextNoUrut =0;
+        // $today=date('Ymd');
+        // $query=mysql_query("select max(id_bed) as last from bed");
+        // $data=mysql_fetch_array($query);
+        // $lastNoFaktur=$data['last'];
         
-        $lastNoUrut=substr($lastNoFaktur,3,3);
+        // $lastNoUrut=substr($lastNoFaktur,3,3);
         
-        $nextNoUrut=$lastNoUrut+1;
+        //$nextNoUrut=$lastNoUrut+1;
 			return "BD"."00".$nextNoUrut;
        
     }

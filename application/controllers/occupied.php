@@ -169,13 +169,7 @@ class occupied extends CI_Controller{
     }
     
     function edit($id){
-		if($this->session->userdata("username") == null)
-		{
-			redirect("web/index");
-		}
-		$hasil = $this->m_occupied->cariTipe($this->session->userdata('username'));
 		
-		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Status Kamar";
 		$data['pencarian']=$this->m_occupied->semua2()->result();
 		$hasil = $this->m_occupied->cariTipe($this->session->userdata('username'));
@@ -227,14 +221,7 @@ class occupied extends CI_Controller{
     }
     
     function cari(){
-		if($this->session->userdata("username") == null)
-		{
-			redirect("web/index");
-		}
-		$hasil = $this->m_occupied->cariTipe($this->session->userdata('username'));
-		
-		$data['tipe'] = $hasil[0]->tipe_pegawai;
-        $data['title']="Room Status";
+        $data['title']="Pencairan";
 		$cari=$this->input->post('cari');
 		$data['statuskamar']=$this->m_occupied->cari($cari)->result();
         $cari=$this->input->post('cari');

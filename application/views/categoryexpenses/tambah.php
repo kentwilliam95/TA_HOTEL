@@ -1,12 +1,7 @@
 <legend><?php echo $title;?></legend>
 <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" />
     <?php echo validation_errors(); echo $message;?>
-		 <div class="form-group">
-           <label class="col-lg-2 control-label">Category ID</label>
-                    <div class="col-lg-5">
-                        <input type="text" id="no" name="no" class="form-control" value="<?php echo $noauto;?>" readonly="readonly">
-                    </div>
-                </div>   
+
     <div class="form-group">
         <label class="col-lg-2 control-label">Category Name</label>
         <div class="col-lg-5">

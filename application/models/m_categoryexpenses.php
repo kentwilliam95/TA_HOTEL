@@ -4,14 +4,15 @@ class M_categoryexpenses extends CI_Model{
     private $primary="id_kategoripengeluaran";
     
 	  function nootomatis(){
-        $today=date('Ymd');
-        $query=mysql_query("select max(id_kategoripengeluaran) as last from kategori_pengeluaran");
-        $data=mysql_fetch_array($query);
-        $lastNoFaktur=$data['last'];
+        $nextNoUrut =0;
+        // $today=date('Ymd');
+        // $query=mysql_query("select max(id_kategoripengeluaran) as last from kategori_pengeluaran");
+        // $data=mysql_fetch_array($query);
+        // $lastNoFaktur=$data['last'];
         
-        $lastNoUrut=substr($lastNoFaktur,3,3);
+        // $lastNoUrut=substr($lastNoFaktur,3,3);
         
-        $nextNoUrut=$lastNoUrut+1;
+        // $nextNoUrut=$lastNoUrut+1;
 			return "KP"."00".$nextNoUrut;
        
     }

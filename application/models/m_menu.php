@@ -3,15 +3,16 @@ class M_menu extends CI_Model{
     private $table="restaurant";
     private $primary="id_menu";
     
-	  function nootomatis(){
-        $today=date('Ymd');
-        $query=mysql_query("select max(id_menu) as last from restaurant");
-        $data=mysql_fetch_array($query);
-        $lastNoFaktur=$data['last'];
+	 function nootomatis(){
+		  $nextNoUrut =0;
+		// $today=date('Ymd');
+        // $query=mysql_query("select max(id_menu) as last from restaurant");
+        // $data=mysql_fetch_array($query);
+        // $lastNoFaktur=$data['last'];
         
-        $lastNoUrut=substr($lastNoFaktur,3,3);
+        // $lastNoUrut=substr($lastNoFaktur,3,3);
         
-        $nextNoUrut=$lastNoUrut+1;
+        // $nextNoUrut=$lastNoUrut+1;
 		if ($nextNoUrut<10)
 			return "RES"."00".$nextNoUrut;
 		else if ($nextNoUrut>=10)

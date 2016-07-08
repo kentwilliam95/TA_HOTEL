@@ -130,10 +130,10 @@
                             <table class="table table-striped" id="xx">
         <thead>
             <tr>
-                <td>Checkin ID</td>
-                <td>Name </td>
-                <td>Check in Date</td>
-				<td>Check Out Date</td>
+                <td>ID Reservasi</td>
+                <td>Nama </td>
+                <td>Tanggal Check in</td>
+				<td>Tanggal Check Out</td>
 				<td>Room ID</td>
                 <td></td>
             </tr>
