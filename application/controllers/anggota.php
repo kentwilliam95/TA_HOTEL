@@ -145,7 +145,10 @@ class Anggota extends CI_Controller{
     }
     
     function cari(){
-        $data['title']="Pencarian";
+		$hasil = $this->m_anggota->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
+        $data['title']="Master Bed";
         $cari=$this->input->post('cari');
         $cek=$this->m_anggota->cari($cari);
         if($cek->num_rows()>0){

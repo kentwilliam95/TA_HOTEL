@@ -127,6 +127,7 @@
 <legend>Add Customer</legend>
 <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" />
     <?php echo validation_errors(); echo $message;?>
+	
 	 <div class="form-group">
            <label class="col-lg-2 control-label">Check In ID</label>
                     <div class="col-lg-5">

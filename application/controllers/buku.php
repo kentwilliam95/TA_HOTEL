@@ -152,6 +152,9 @@ class Buku extends CI_Controller{
     }
     
     function cari(){
+		$hasil = $this->m_buku->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Pencairan";
         $cari=$this->input->post('cari');
         $cek=$this->m_buku->cari($cari);

@@ -155,6 +155,13 @@ class menu extends CI_Controller{
     }
     
     function cari(){
+		if($this->session->userdata("username") == null)
+		{
+			redirect("web/index");
+		}
+		$hasil = $this->m_menu->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Pencairan";
         $cari=$this->input->post('cari');
         $cek=$this->m_menu->cari($cari);

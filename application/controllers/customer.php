@@ -137,7 +137,8 @@ class customer extends CI_Controller{
                 // }
                 
                 $info=array(
-				'id_customer'=>$this->input->post('no'),
+				'id_customer'=>$this->input->post('no2'),
+				'id_checkin'=>$this->input->post('no'),
                 'nama_customer'=>$this->input->post('namacustomer'),
                 'alamat_customer'=>$this->input->post('alamatcustomer'),
 				'ttl_customer'=>$this->input->post('ttl'),
@@ -169,6 +170,9 @@ class customer extends CI_Controller{
     }
     
     function cari(){
+		$hasil = $this->m_customer->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Pencarian";
         $cari=$this->input->post('cari');
         $cek=$this->m_customer->cari($cari);

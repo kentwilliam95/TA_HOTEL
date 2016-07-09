@@ -97,6 +97,9 @@ class Kamar extends CI_Controller{
         $this->template->display('kamar/listinventory',$data);
     }
     function tambah(){
+		$hasil = $this->m_kamar->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Tambah Kamar";
 		$data['anggota']=$this->m_kamar->getAnggota()->result();
 		$data['tipekamar']=$this->m_kamar->getTipeKamar()->result();
@@ -146,6 +149,9 @@ class Kamar extends CI_Controller{
     }
     
     function edit($id){
+		$hasil = $this->m_kamar->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Edit data kamar";
 		$data['anggota']=$this->m_kamar->getAnggota()->result();
 		$data['tipekamar']=$this->m_kamar->getTipeKamar()->result();
@@ -199,6 +205,9 @@ class Kamar extends CI_Controller{
     }
     
     function cari(){
+		$hasil = $this->m_kamar->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Pencarian";
         $cari=$this->input->post('cari');
         $cek=$this->m_kamar->cari($cari);

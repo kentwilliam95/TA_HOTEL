@@ -158,6 +158,9 @@ class Promo extends CI_Controller{
     }
     
     function cari(){
+		$hasil = $this->m_promo->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Pencarian";
         $cari=$this->input->post('cari');
         $cek=$this->m_promo->cari($cari);
