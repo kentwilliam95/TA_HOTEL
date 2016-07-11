@@ -24,8 +24,6 @@ class payment extends CI_Controller{
         $data['title']="Customer Payment";
 		$data["reserved"] = $this->m_payment->AllData();
 		$data['message']='';
-		$aaa = $this->m_payment->dataLaundry("20160406001");
-		print_r($aaa);
         $this->template->display('payment/index',$data);
     }
     
