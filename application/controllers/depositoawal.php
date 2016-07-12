@@ -25,8 +25,8 @@ class depositoawal extends CI_Controller{
 		$data["message"]="";
         $data['title']="Search Customer";
         
-		$data["reserved"]=$this->m_depositoawal->semua2("booked_room");
-		$data["promo"]=$this->m_depositoawal->semua2("promo");
+		$data["reserved"]=$this->m_depositoawal->semuaDataPembayaran();
+		$data["promo"]=$this->m_depositoawal->semuaPromo();
 		//print_r($this->m_depositoawal->getPriceKamar("Antorium"));
 		
         $this->template->display('depositoawal/index',$data);

@@ -62,9 +62,14 @@ class M_depositoawal extends CI_Model{
         $this->db->where($this->primary,$kode);
         $this->db->delete($this->table);
     }
-    function semua2($tableName)
+    function semuaDataPembayaran()
 	{
-		return $this->db->get($tableName)->result();
+		$query="Select * from booked_room where id_checkin not in (select id_checkin from pembayaran)";
+        return $this->db->query($query)->result();
+	}
+	function semuaPromo()
+	{
+		return $this->db->get("promo")->result();
 	}
     function cari($cari){
         $this->db->like($this->primary,$cari);

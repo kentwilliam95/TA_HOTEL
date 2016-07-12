@@ -74,8 +74,7 @@ class M_payment extends CI_Model{
 		$this->db->from("booked_room");
 		$this->db->join("pembayaran","booked_room.id_checkin = pembayaran.id_checkin");
 		$this->db->join("promo","promo.id_promo=pembayaran.id_promo");
-		$this->db->distinct();
-		$this->db->group_by("booked_room.id_reservasi");
+		
 		return $this->db->get()->result();
 	}
 	function dataLaundry($checkinID)
