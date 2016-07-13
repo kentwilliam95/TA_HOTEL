@@ -4,9 +4,9 @@ class M_checkin extends CI_Model{
     private $primary="id_reservasi";
     
     function nootomatis(){
-        $today=date('Ymd');
+          $today=date('Ymd');
 		//echo $today;
-        $query="select max(substr(id_checkin,9,3)) as last from checkin where substr(id_checkin,1,8) =".$today;
+        $query="select count(id_checkin) as last from booked_room where substr(id_checkin,1,8)=".$today;
 		
 		$data = $this->db->query($query);
         //print_r($data->result());

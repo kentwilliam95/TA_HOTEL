@@ -203,7 +203,7 @@ class reservasi extends CI_Controller{
 		$tipekamar = explode(",",$tipekamar);
 		$tipebed = explode(",",$tipebed);
 		
-		echo $tglReservasi;
+		echo $idreservasi;
 		
 		for($i=0; $i< $count; $i++)
 		{

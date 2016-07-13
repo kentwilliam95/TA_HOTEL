@@ -33,7 +33,7 @@ class reports extends CI_Controller
 		$hasil = Array();
 		foreach($temp as $row)
 		{
-			Array_push($hasil,Array($row->id_penggajian,$row->tgl_pengajian,$row->id_pegawai,$row->gajipokok,$row->bonus,$row->description,$row->overtime,$row->total_gaji));
+			Array_push($hasil,Array($row->id_penggajian,$row->tgl_penggajian,$row->id_pegawai,$row->gajipokok,$row->bonus,$row->description,$row->overtime,$row->total_gaji));
 		}
 		$hasil = json_encode($hasil);
 		$data["DataPengeluaranPayroll"] = $hasil;

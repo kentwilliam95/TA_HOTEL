@@ -7,7 +7,7 @@ class M_reservasi extends CI_Model{
     function nootomatis(){
         $today=date('Ymd');
 		//echo $today;
-        $query="select max(substr(id_reservasi,9,3)) as last from reservasi where substr(id_reservasi,1,8) =".$today;
+        $query="select count(id_reservasi) as last from reservasi where substr(id_reservasi,1,8)=".$today;
 		
 		$data = $this->db->query($query);
         //print_r($data->result());
@@ -102,4 +102,5 @@ class M_reservasi extends CI_Model{
 		$this->db->where("username",$nama);
 		return $this->db->get()->result();
 	}
+	
 }

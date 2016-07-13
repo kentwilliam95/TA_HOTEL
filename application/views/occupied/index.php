@@ -1,15 +1,31 @@
 <style>
-	.peach
-	{
-		background-color: #FFE5B4;
-	}
-	.fallLeaf
-	{
-		background-color:#FFCBA4;
-	}
 	.colour1
 	{
-		background-color:#E2A76F;
+		background-color:pink;
+	}
+	.colour2
+	{
+		background-color: #98FB98;
+	}
+	.colour3
+	{
+		background-color: #DA70D6	;
+	}
+	.colour4
+	{
+		background-color: #E0FFFF	;
+	}
+	.colour5
+	{
+		background-color: #FFD700;
+	}
+	.colour6
+	{
+		background-color: #90EE90;
+	}
+	.colour8
+	{
+		background-color: #FFF8DC;
 	}
 </style>
 
@@ -46,9 +62,44 @@
 		<td><?php echo $row->Status;?></td>
         <td><a href="<?php echo site_url('occupied/edit/'.$row->id_kamar);?>"><i class="glyphicon glyphicon-edit"></i></a></td>
     </tr>
+		<?php }else if($row->Status == "VACANT CLEAN"){?>
+	<tr class="colour2">
+		<td><?php echo $row->id_kamar;?></td>
+        <td><?php echo $row->id_tipekamar;?></td>
+		<td><?php echo $row->id_bed;?></td>
+		<td><?php echo $row->Status;?></td>
+        <td><a href="<?php echo site_url('occupied/edit/'.$row->id_kamar);?>"><i class="glyphicon glyphicon-edit"></i></a></td>
+    </tr>
 	<?php }
-	else if($row->Status == "VACANT READY"){?>
-	<tr class="colour1">
+	else if($row->Status == "OCCUPIED CLEAN"){?>
+	<tr class="colour3">
+		<td><?php echo $row->id_kamar;?></td>
+        <td><?php echo $row->id_tipekamar;?></td>
+		<td><?php echo $row->id_bed;?></td>
+		<td><?php echo $row->Status;?></td>
+        <td><a href="<?php echo site_url('occupied/edit/'.$row->id_kamar);?>"><i class="glyphicon glyphicon-edit"></i></a></td>
+    </tr>
+	<?php }
+	else if($row->Status == "OCCUPIED DIRTY"){?>
+	<tr class="colour4">
+		<td><?php echo $row->id_kamar;?></td>
+        <td><?php echo $row->id_tipekamar;?></td>
+		<td><?php echo $row->id_bed;?></td>
+		<td><?php echo $row->Status;?></td>
+        <td><a href="<?php echo site_url('occupied/edit/'.$row->id_kamar);?>"><i class="glyphicon glyphicon-edit"></i></a></td>
+    </tr>
+	<?php }
+	else if($row->Status == "OUT OF ORDER"){?>
+	<tr class="colour5">
+		<td><?php echo $row->id_kamar;?></td>
+        <td><?php echo $row->id_tipekamar;?></td>
+		<td><?php echo $row->id_bed;?></td>
+		<td><?php echo $row->Status;?></td>
+        <td><a href="<?php echo site_url('occupied/edit/'.$row->id_kamar);?>"><i class="glyphicon glyphicon-edit"></i></a></td>
+    </tr>
+	<?php }
+	else if($row->Status == "BLOCKED"){?>
+	<tr class="colour6">
 		<td><?php echo $row->id_kamar;?></td>
         <td><?php echo $row->id_tipekamar;?></td>
 		<td><?php echo $row->id_bed;?></td>
@@ -56,15 +107,22 @@
         <td><a href="<?php echo site_url('occupied/edit/'.$row->id_kamar);?>"><i class="glyphicon glyphicon-edit"></i></a></td>
     </tr>
 	<?php }else if($row->Status == "VACANT DIRTY"){?>
-	<tr class="fallLeaf">
-        <td><?php echo $row->id_kamar;?></td>
+	<tr class="colour1">
+		<td><?php echo $row->id_kamar;?></td>
         <td><?php echo $row->id_tipekamar;?></td>
 		<td><?php echo $row->id_bed;?></td>
 		<td><?php echo $row->Status;?></td>
         <td><a href="<?php echo site_url('occupied/edit/'.$row->id_kamar);?>"><i class="glyphicon glyphicon-edit"></i></a></td>
     </tr>
-	<?php }?>
-    <?php endforeach;?>
+    <?php }else if($row->Status == "VACANT READY"){?>
+	<tr class="colour8">
+		<td><?php echo $row->id_kamar;?></td>
+        <td><?php echo $row->id_tipekamar;?></td>
+		<td><?php echo $row->id_bed;?></td>
+		<td><?php echo $row->Status;?></td>
+        <td><a href="<?php echo site_url('occupied/edit/'.$row->id_kamar);?>"><i class="glyphicon glyphicon-edit"></i></a></td>
+    </tr>
+	<?php }endforeach;?>
 </Table>
 
 

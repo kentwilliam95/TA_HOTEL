@@ -72,8 +72,8 @@ class M_payment extends CI_Model{
 	{
 		$this->db->select("*");
 		$this->db->from("booked_room");
-		$this->db->join("pembayaran","booked_room.id_checkin = pembayaran.id_checkin");
-		$this->db->join("promo","promo.id_promo=pembayaran.id_promo");
+		$this->db->join("pembayaran","booked_room.id_checkin = pembayaran.id_checkin","left outer");
+		$this->db->join("promo","promo.id_promo=pembayaran.id_promo","left outer");
 		
 		return $this->db->get()->result();
 	}

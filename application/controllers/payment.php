@@ -168,12 +168,14 @@ class payment extends CI_Controller{
 				$data = Array("sisa"=>0,"status_pembayaran"=>"PAID","tanggal"=>$tanggal);
 				$this->m_payment->updateData("pembayaran",$data,"id_checkin",$checkinID);
 				$this->m_payment->updateData("kamar",Array("Status"=>"VACANT DIRTY"),"id_kamar",$roomid);
+				$hasil = $this->m_payment->getData("booked_room",Array("id_checkin"=>$checkinID));
 				$this->m_payment->deleteData("booked_room",Array("id_checkin"=>$checkinID));
 				$this->m_payment->deleteData("checkin",Array("id_checkin"=>$checkinID));
-				$hasil = $this->m_payment->getData("booked_room",Array("id_checkin"=>$checkinID));
+				
 				
 				if(!empty($hasil))
 				{
+					echo $hasil[0]->id_useroom;
 					$this->m_payment->deleteData("useroom",Array("id_useroom"=>$hasil[0]->id_useroom));
 				}
 				

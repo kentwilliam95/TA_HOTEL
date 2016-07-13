@@ -123,6 +123,7 @@
 					}
 					//selesai For in 
 					$("#jumlah").val(totalHarga);
+					$("#afterDiscount").val(totalHarga);
 				}
 				
 			});
