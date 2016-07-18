@@ -221,6 +221,13 @@ class occupied extends CI_Controller{
     }
     
     function cari(){
+		if($this->session->userdata("username") == null)
+		{
+			redirect("web/index");
+		}
+		$hasil = $this->m_occupied->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
         $data['title']="Pencairan";
 		$cari=$this->input->post('cari');
 		$data['statuskamar']=$this->m_occupied->cari($cari)->result();
