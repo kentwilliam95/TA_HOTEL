@@ -45,9 +45,10 @@ class M_reservasi extends CI_Model{
     }
 	function detail_pinjam($id){
         $this->db->select("*");
-        $this->db->from("reservasi");
-        $this->db->where("id_reservasi",$id);
-        return $this->db->get();
+		$this->db->from("reservasi re");
+		$this->db->join("useroom ur","ur.id_reservasi= re.id_reservasi");
+		$this->db->order_by("re.id_reservasi","asc");
+		return $this->db->get();
     }
     function semua($limit=10,$offset=0,$order_column='',$order_type='asc'){
         $this->db->select("*");

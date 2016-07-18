@@ -98,7 +98,7 @@
                             <option value="OCCUPIED">OCCUPIED</option>
 							<option value="OCCUPIED CLEAN">OCCUPIED CLEAN</option>
 							<option value="OCCUPIED DIRTY">OCCUPIED DIRTY</option>
-						    <option value="Vacant Clean">VACANT CLEAN</option>
+						    <option value="VACANT CLEAN">VACANT CLEAN</option>
 						    <option value="VACANT READY">VACANT READY</option>
 							<option value="VACANT DIRTY">VACANT DIRTY</option>
 							<option value="OUT OF ORDER">OUT OF ORDER</option>

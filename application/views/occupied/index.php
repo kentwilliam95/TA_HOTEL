@@ -1,11 +1,15 @@
 <style>
+	.peach
+	{
+		background-color:#ff99ff;
+	}
 	.colour1
 	{
-		background-color:pink;
+		background-color:#b3b3ff;
 	}
 	.colour2
 	{
-		background-color: #98FB98;
+		background-color: #ff8000;
 	}
 	.colour3
 	{
@@ -13,7 +17,7 @@
 	}
 	.colour4
 	{
-		background-color: #E0FFFF	;
+		background-color: #ff8080	;
 	}
 	.colour5
 	{

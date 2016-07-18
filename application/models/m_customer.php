@@ -4,22 +4,22 @@ class M_customer extends CI_Model{
     private $primary="id_customer";
     
 	 function nootomatis(){
-        $today=date('Ymd');
-        $query=mysql_query("select max(id_customer) as last from customer");
-        $data=mysql_fetch_array($query);
-        $lastNoFaktur=$data['last'];
+        // $today=date('Ymd');
+        // $query=mysql_query("select max(id_customer) as last from customer");
+     // //   $data=mysql_fetch_array($query);
+        // $lastNoFaktur=$data['last'];
         
-        $lastNoUrut=substr($lastNoFaktur,3,3);
+        // $lastNoUrut=substr($lastNoFaktur,3,3);
         
-        $nextNoUrut=$lastNoUrut+1;
-		if ($nextNoUrut<10)
-			return "CU"."000".$nextNoUrut;
-		else if ($nextNoUrut>=10)
-			return "CU"."00".$nextNoUrut;
-		else if ($nextNoUrut>=100)
-			return "CU"."0".$nextNoUrut;
-		else if ($nextNoUrut>=1000)
-			return "CU".$nextNoUrut;
+        // $nextNoUrut=$lastNoUrut+1;
+		// if ($nextNoUrut<10)
+			// return "CU"."000".$nextNoUrut;
+		// else if ($nextNoUrut>=10)
+			// return "CU"."00".$nextNoUrut;
+		// else if ($nextNoUrut>=100)
+			// return "CU"."0".$nextNoUrut;
+		// else if ($nextNoUrut>=1000)
+			// return "CU".$nextNoUrut;
        
     }
 	function semua2(){

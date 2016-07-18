@@ -16,7 +16,8 @@
         <tr>
             <td>Customer Name</td>
             <td>Customer Address</td>
-			<td>Customer Phone</td>
+			<td>Birthdate</td>
+			<td>Gender</td><td>Member</td>
             <td colspan="2"></td>
         </tr>
     </thead>
@@ -24,7 +25,9 @@
     <tr>
         <td><?php echo $row->nama_customer;?></td>
         <td><?php echo $row->alamat_customer;?></td>
-		<td><?php echo $row->telepon_customer;?></td>
+		<td><?php echo $row->ttl_customer;?></td>
+		<td><?php echo $row->jk_customer;?></td>
+		<td><?php echo $row->status_member;?></td>
 		 <td><a href="<?php echo site_url('customer/detail_pinjam/'.$row->id_customer);?>">See Detail</a></td>
         <td><a href="<?php echo site_url('customer/edit/'.$row->id_customer);?>"><i class="glyphicon glyphicon-edit"></i></a></td>
         <td><a href="#" class="hapus" kode="<?php echo $row->id_customer;?>"><i class="glyphicon glyphicon-trash"></i></a></td>
