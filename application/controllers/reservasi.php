@@ -202,8 +202,11 @@ class reservasi extends CI_Controller{
 		$checkout = explode(",",$checkout);
 		$tipekamar = explode(",",$tipekamar);
 		$tipebed = explode(",",$tipebed);
+		$tempDate1=null;
+		$tempDate2=null;
 		
-		echo $idreservasi;
+		$temp=null;
+		$temp2=null;
 		
 		for($i=0; $i< $count; $i++)
 		{
@@ -211,9 +214,9 @@ class reservasi extends CI_Controller{
 			$temp = substr($tempDate1,6)."-".substr($tempDate1,0,2)."-".substr($tempDate1,3,2);
 			$tempDate2 = str_replace("/","-",$checkout[$i]);
 			$temp2 = substr($tempDate2,6)."-".substr($tempDate2,0,2)."-".substr($tempDate2,3,2);
-			
 			$this->m_reservasi->insertInto("useroom",array("id_reservasi"=>$idreservasi,"id_bed"=>$tipebed[$i],"id_tipekamar"=>$tipekamar[$i],"tgl_checkout"=>$temp2,"tgl_checkin"=>$temp));
 		}
+		echo $temp.",".$temp2;
 		$this->m_reservasi->insertInto("reservasi",array("id_reservasi"=>$idreservasi,"tgl_reservasi"=>$tglReservasi,"passengers"=>$jumlah,"nama_reservasi"=>$nama,"status_reservasi"=>"Fixed"));
 		redirect("reservasi/index");
 		//print_r($count);

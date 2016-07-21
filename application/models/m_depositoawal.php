@@ -64,7 +64,7 @@ class M_depositoawal extends CI_Model{
     }
     function semuaDataPembayaran()
 	{
-		$query="Select * from booked_room where id_checkin not in (select id_checkin from pembayaran)";
+		$query="Select * from booked_room where id_checkin not in (select id_checkin from pembayaran) and id_checkin !=''";
         return $this->db->query($query)->result();
 	}
 	function semuaPromo()

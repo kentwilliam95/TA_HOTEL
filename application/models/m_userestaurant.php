@@ -80,7 +80,8 @@ class M_userestaurant extends CI_Model{
     }
 	function GetAllDataFrom($tablename){
        $this->db->select("*");
-	   $this->db->from($tablename);
+	   $this->db->from("booked_room");
+	   $this->db->where("id_checkin !=''");
 	   return $this->db->get()->result();
     }
 	

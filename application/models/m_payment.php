@@ -72,9 +72,9 @@ class M_payment extends CI_Model{
 	{
 		$this->db->select("*");
 		$this->db->from("booked_room");
-		$this->db->join("pembayaran","booked_room.id_checkin = pembayaran.id_checkin","left outer");
-		$this->db->join("promo","promo.id_promo=pembayaran.id_promo","left outer");
-		
+		$this->db->join("pembayaran","booked_room.id_checkin = pembayaran.id_checkin");
+		//$this->db->join("promo","promo.id_promo=pembayaran.id_promo","left outer");
+		$this->db->where("booked_room.id_checkin !=''");
 		return $this->db->get()->result();
 	}
 	function dataLaundry($checkinID)
@@ -122,5 +122,16 @@ class M_payment extends CI_Model{
 		$this->db->from($tablename);
 		$this->db->where($conditions);
 		return $this->db->get()->result();
+	}
+	function getPromo()
+	{
+		return $this->db->get("promo")->result();
+	}
+	function getCountTable($tablename,$conditions)
+	{
+		$this->db->select('*');
+		$this->db->from($tablename);
+		$this->db->where($conditions);
+		return $this->db->get()->num_rows;
 	}
 }

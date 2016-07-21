@@ -326,7 +326,7 @@
                             <table class="table table-striped" id="xx">
         <thead>
             <tr>
-                <td>Reservation ID</td>
+                <td>Checkin Id</td>
                 <td>Reservation Name</td>
                 <td>Check In Date</td>
 				<td>Check Out Date</td>
@@ -335,7 +335,7 @@
         </thead>
         <?php foreach($reserved as $tmp):?>
         <tr>
-            <td><?php echo $tmp->id_reservasi;?></td>
+            <td><?php echo $tmp->id_checkin;?></td>
             <td><?php echo $tmp->nama_reservasi;?></td>
             <td><?php echo $tmp->tgl_checkin;?></td>
 			<td><?php echo $tmp->tgl_checkout;?></td>

@@ -147,7 +147,7 @@
                     </div>
                 </div>
 		    <div class="form-group">
-                    <label class="col-lg-2 control-label">Check Out Date</label>
+                    <label class="col-lg-2 control-label">Check In Date</label>
                     <div class="col-lg-5">
                         <input type="text" id="tglsajian" name="tglsajian" value="<?php echo $tglsajian;?>" readonly="readonly"class="form-control" >
                     </div>
@@ -208,8 +208,8 @@
             <input type="text" name="carikamar" id="carikamar" class="form-control">
         </div>
 			<div class="col-lg-2">
-                        <a href="#" class="btn btn-primary" id="cari"><i class="glyphicon glyphicon-search"></i></a>
-                    </div>
+                <a href="#" class="btn btn-primary" id="cari"><i class="glyphicon glyphicon-search"></i></a>
+            </div>
     </div>
 	
     <div class="form-group well">

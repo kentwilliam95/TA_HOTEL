@@ -20,7 +20,7 @@ class payment extends CI_Controller{
 		$hasil = $this->m_payment->cariTipe($this->session->userdata('username'));
 		
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
-		
+		$data["promo"] = $this->m_payment->getPromo();
         $data['title']="Customer Payment";
 		$data["reserved"] = $this->m_payment->AllData();
 		$data['message']='';
@@ -157,6 +157,7 @@ class payment extends CI_Controller{
 		$checkinID = $this->input->post("checkinID");
 		$exchange = $this->input->post("exchange");
 		$tanggal = $this->input->post("tanggal");
+		
 		if($this->input->post("buttonSubmit"))
 		{
 			if($exchange < 0)
@@ -171,13 +172,22 @@ class payment extends CI_Controller{
 				$hasil = $this->m_payment->getData("booked_room",Array("id_checkin"=>$checkinID));
 				$this->m_payment->deleteData("booked_room",Array("id_checkin"=>$checkinID));
 				$this->m_payment->deleteData("checkin",Array("id_checkin"=>$checkinID));
-				
-				
-				if(!empty($hasil))
+				if(!empty($hasil[0]->id_reservasi))
 				{
-					echo $hasil[0]->id_useroom;
-					$this->m_payment->deleteData("useroom",Array("id_useroom"=>$hasil[0]->id_useroom));
+					$CountUseroom = $this->m_payment->getCountTable("useroom",Array("id_reservasi"=>$hasil[0]->id_reservasi));
+					if($CountUseroom == 1)
+					{
+						$this->m_payment->deleteData("useroom",Array("id_useroom"=>$hasil[0]->id_useroom));
+						$this->m_payment->deleteData("reservasi",Array("id_reservasi"=>$hasil[0]->id_reservasi));
+					}
+					else if($CountUseroom > 1)
+					{
+						$this->m_payment->deleteData("useroom",Array("id_useroom"=>$hasil[0]->id_useroom));
+					}
+					
 				}
+				
+				
 				
 			}
 			redirect("payment/index");

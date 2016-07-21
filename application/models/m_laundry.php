@@ -65,4 +65,5 @@ class M_laundry extends CI_Model{
 		$this->db->where("username",$nama);
 		return $this->db->get()->result();
 	}
+	
 }

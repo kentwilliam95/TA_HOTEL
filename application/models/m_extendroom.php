@@ -71,6 +71,7 @@ class M_extendroom extends CI_Model{
 	
 	function semua2()
 	{
+		$this->db->where("id_checkin !=''");
 		return $this->db->get("booked_room")->result();
 	}
 	function cariMenu($kode){

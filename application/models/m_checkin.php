@@ -5,28 +5,16 @@ class M_checkin extends CI_Model{
     
     function nootomatis(){
           $today=date('Ymd');
-		//echo $today;
-        $query="select count(id_checkin) as last from booked_room where substr(id_checkin,1,8)=".$today;
+		
+		$query="SELECT (max(substr(`id_checkin`,9))+1)as last FROM `checkin` WHERE substr(`id_checkin`,1,8)='".$today."'";
 		
 		$data = $this->db->query($query);
-        //print_r($data->result());
+        
 		$temp = $data->result()[0]->last;
-		//print $temp;
+		
         if(!empty($temp))
 		{
-			$lastNoUrut=$temp;
-			//print intval($lastNoUrut);
-			$nextNoUrut=$lastNoUrut+1;
-			//print $nextNoUrut;
-			if(count($nextNoUrut) ==1)
-			{
-				$nextNoUrut = "00".$nextNoUrut;
-			}
-			else if(count($nextNoUrut) == 2)
-			{
-				$nextNoUrut = "0".$nextNoUrut;
-			}
-			return $today.$nextNoUrut;
+			return $today.sprintf("%'.03d\n", $temp);
 		}
 		else
 		{

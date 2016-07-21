@@ -5,7 +5,7 @@ class M_uselaundry extends CI_Model{
     function nootomatis(){
         $today=date('Ymd');
         $query=mysql_query("select max(id_penyajian) as last from menu_restaurant where id_penyajian like '$today%'");
-        $data=mysql_fetch_array($query);
+        //$data=mysql_fetch_array($query);
         $lastNoFaktur=$data['last'];
         
         $lastNoUrut=substr($lastNoFaktur,8,3);
@@ -79,7 +79,8 @@ class M_uselaundry extends CI_Model{
     }
 	function GetAllDataFrom($tablename){
        $this->db->select("*");
-	   $this->db->from($tablename);
+	   $this->db->from("booked_room");
+	   $this->db->where("id_checkin !=''");
 	   return $this->db->get()->result();
     }
 	function saveTo($tablename,$data)

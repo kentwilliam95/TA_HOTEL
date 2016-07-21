@@ -300,16 +300,24 @@
                             <table class="table table-striped" id="xx">
         <thead>
             <tr>
-                <td>ID Reservasi</td>
+                <td>Checkin Id</td>
                 <td>Nama </td>
                 <td>Tanggal Check in</td>
 				<td>Tanggal Check Out</td>
                 <td>Room ID</td>
             </tr>
         </thead>
-        <?php foreach($reserved as $tmp):?>
+        <?php $discount;$namapromo; foreach($reserved as $tmp){?>
+		<?php foreach($promo as $row)
+		{ 
+			if($tmp->id_promo == $row->id_promo)
+			{
+				$discount = $row->disc_value;
+				$namapromo=$row->nama_promo;
+			}
+		}?>
         <tr>
-            <td><?php echo $tmp->id_reservasi;?></td>
+            <td><?php echo $tmp->id_checkin;?></td>
             <td><?php echo $tmp->nama_reservasi;?></td>
             <td><?php echo $tmp->tgl_checkin;?></td>
 			<td><?php echo $tmp->tgl_checkout;?></td>
@@ -325,14 +333,14 @@
 			paymentType="<?php echo $tmp->jenis_pembayaran?>"
 			creditCard="<?php echo $tmp->no_debit?>"
 			Amount="<?php echo $tmp->jumlah?>"
-			promo="<?php echo $tmp->nama_promo?>"
-			discount="<?php echo $tmp->disc_value?>"
+			promo="<?php echo $namapromo?>"
+			discount="<?php echo $discount?>"
 			earlyDeposit="<?php echo $tmp->terbayar?>"
 			change="<?php echo $tmp->sisa?>"
 			>
 			<i class="glyphicon glyphicon-plus"></i></a></td>
         </tr>
-        <?php endforeach;?>
+        <?php };?>
     </table>
                         </div>
                         

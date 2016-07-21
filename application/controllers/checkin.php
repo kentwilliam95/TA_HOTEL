@@ -21,10 +21,6 @@ class checkin extends CI_Controller{
 		
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
 		
-        if(empty($offset)) $offset=0;
-        if(empty($order_column)) $order_column='id_checkin';
-        if(empty($order_type)) $order_type='asc';
-        
         //load data
         $data['checkin']=$this->m_checkin->semua($this->limit,$offset,$order_column,$order_type)->result();
         $data['title']="Checkin";
@@ -53,8 +49,9 @@ class checkin extends CI_Controller{
 			$this->m_checkin->batal($idcheckin,$tglcheckin,$info);
     }
 	
-        function notreserved($offset=0,$order_column='id_checkin',$order_type='asc'){
-			$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
+        function notreserved($offset=0,$order_column='id_checkin',$order_type='asc')
+		{
+		$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
 		
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
         if(empty($offset)) $offset=0;
@@ -66,7 +63,7 @@ class checkin extends CI_Controller{
         $data['title']="Checkin";
 		$data['noauto']=$this->m_checkin->nootomatis();
         $data['reserved']=$this->m_checkin->semua2()->result();
-		$data['tglsajian']=date('d-m-Y');
+		$data['tglsajian']=date('Y-m-d');
         $data["tipekamar"]=$this->m_checkin->gettipekamar();
 		$data["tipebed"]=$this->m_checkin->gettipebed();
         $data['message']='';
@@ -185,5 +182,40 @@ class checkin extends CI_Controller{
 				$this->form_validation->set_rules('idbed','Keterangan','max_length[50]');
         $this->form_validation->set_error_delimiters("<div class='alert alert-danger'>","</div>");
     }
-	
+	function simpan2()
+	{
+		$checkinId = $this->input->post("nomer");
+		$customerName=$this->input->post("namareservasi");
+		$guest = $this->input->post("jumlah");
+		$tglCheckin =$this->input->post("tglcheckin");
+		$tglCheckout=$this->input->post("tglcheckout");
+		$roomType=$this->input->post("tipekamar");
+		$bedType=$this->input->post("tipebed");
+		$roomId=$this->input->post("carikamar");
+		
+		echo $checkinId.",".$customerName.",".$guest.",".$tglCheckin.",".$tglCheckout.",".$roomType.",".$bedType.",".$roomId;
+		
+		$this->m_checkin->insertData("checkin",Array("id_checkin"=>$checkinId,"tgl_checkin"=>$tglCheckin,"tgl_checkout"=>$tglCheckout));
+		$this->m_checkin->updateValue("kamar",Array("id_kamar"=>$roomId),Array("Status"=>"OCCUPIED"));
+		
+		$this->m_checkin->insertData("booked_room",Array("id_checkin"=>$checkinId,"tgl_checkin"=>$tglCheckin,"tgl_reservasi"=>$tglCheckin,"id_tipekamar"=>$roomType,"id_bed"=>$bedType,"status"=>"Blocked","tgl_checkout"=>$tglCheckout,"passengers"=>$guest,"nama_reservasi"=>$customerName,"id_kamar"=>$roomId));
+		
+		$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
+		
+		$data['tipe'] = $hasil[0]->tipe_pegawai;
+        if(empty($offset)) $offset=0;
+        if(empty($order_column)) $order_column='id_checkin';
+        if(empty($order_type)) $order_type='asc';
+        
+        //load data
+        $data['checkin']=$this->m_checkin->semua($this->limit,$offset,$order_column,$order_type)->result();
+        $data['title']="Checkin";
+		$data['noauto']=$this->m_checkin->nootomatis();
+        $data['reserved']=$this->m_checkin->semua2()->result();
+		$data['tglsajian']=date('Y-m-d');
+        $data["tipekamar"]=$this->m_checkin->gettipekamar();
+		$data["tipebed"]=$this->m_checkin->gettipebed();
+        $data['message']='';
+        $this->template->display('checkin/notreserved',$data);
+	}
 }

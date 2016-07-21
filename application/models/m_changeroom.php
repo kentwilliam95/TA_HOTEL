@@ -84,6 +84,7 @@ class M_changeroom extends CI_Model{
 	{
 		$this->db->select("*");
 		$this->db->from("booked_room");
+		$this->db->where("id_checkin !=''");
 		return $this->db->get()->result();
 	}
 	function cariMenu($kode){
