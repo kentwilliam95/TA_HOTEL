@@ -43,10 +43,7 @@ class checkin extends CI_Controller{
         else
             $data['message']='';
             $this->template->display('checkin/index',$data);
-			$info=$this->input->post('no');
-			$idcheckin=$this->input->post('nomer');
-			$tglcheckin=$this->input->post('tglsajian');
-			$this->m_checkin->batal($idcheckin,$tglcheckin,$info);
+			
     }
 	
         function notreserved($offset=0,$order_column='id_checkin',$order_type='asc')
@@ -193,29 +190,11 @@ class checkin extends CI_Controller{
 		$bedType=$this->input->post("tipebed");
 		$roomId=$this->input->post("carikamar");
 		
-		echo $checkinId.",".$customerName.",".$guest.",".$tglCheckin.",".$tglCheckout.",".$roomType.",".$bedType.",".$roomId;
+		//echo $checkinId.",".$customerName.",".$guest.",".$tglCheckin.",".$tglCheckout.",".$roomType.",".$bedType.",".$roomId;
 		
 		$this->m_checkin->insertData("checkin",Array("id_checkin"=>$checkinId,"tgl_checkin"=>$tglCheckin,"tgl_checkout"=>$tglCheckout));
-		$this->m_checkin->updateValue("kamar",Array("id_kamar"=>$roomId),Array("Status"=>"OCCUPIED"));
-		
 		$this->m_checkin->insertData("booked_room",Array("id_checkin"=>$checkinId,"tgl_checkin"=>$tglCheckin,"tgl_reservasi"=>$tglCheckin,"id_tipekamar"=>$roomType,"id_bed"=>$bedType,"status"=>"Blocked","tgl_checkout"=>$tglCheckout,"passengers"=>$guest,"nama_reservasi"=>$customerName,"id_kamar"=>$roomId));
-		
-		$hasil = $this->m_checkin->cariTipe($this->session->userdata('username'));
-		
-		$data['tipe'] = $hasil[0]->tipe_pegawai;
-        if(empty($offset)) $offset=0;
-        if(empty($order_column)) $order_column='id_checkin';
-        if(empty($order_type)) $order_type='asc';
-        
-        //load data
-        $data['checkin']=$this->m_checkin->semua($this->limit,$offset,$order_column,$order_type)->result();
-        $data['title']="Checkin";
-		$data['noauto']=$this->m_checkin->nootomatis();
-        $data['reserved']=$this->m_checkin->semua2()->result();
-		$data['tglsajian']=date('Y-m-d');
-        $data["tipekamar"]=$this->m_checkin->gettipekamar();
-		$data["tipebed"]=$this->m_checkin->gettipebed();
-        $data['message']='';
-        $this->template->display('checkin/notreserved',$data);
+		$this->m_checkin->updateValue("kamar",Array("id_kamar"=>$roomId),Array("Status"=>"OCCUPIED"));
+		redirect("checkin/notreserved");
 	}
 }

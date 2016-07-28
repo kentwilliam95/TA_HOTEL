@@ -35,7 +35,6 @@
 			$("#tipekamar").val($(this).attr("tipekamar"));
 			$("#checkinID").val(checkinId);
 			$("#roomID").val(roomId);
-			
 			$("#myModal2").modal("hide");
 			betweenDate(checkinDate,checkoutDate);
 		});
@@ -70,7 +69,6 @@
 				dd1 = dateStart.getDate();
 				mm1 = dateStart.getMonth()+1;
 				yyyy1 = dateStart.getFullYear();
-				
 			}
 			
 			var tprice;
