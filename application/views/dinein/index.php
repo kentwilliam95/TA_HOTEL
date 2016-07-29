@@ -18,7 +18,10 @@
             $("#judul").val('');
             $("#pengarang").val('');
         }
-        
+        $("#HARGABAYAR").change(function(){
+			var harga =parseInt($("#TOTAL").val())-parseInt($("#HARGABAYAR").val());
+			$("#hargaKEMBALIAN").val(harga);
+		})
         $("#nis").click(function(){
             var nis=$("#nis").val();
             
@@ -316,13 +319,13 @@
 			<br>
             <div class="form-group">
                 <label>Payment Amount &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" class="form-control" placeholder="Item Name" id="namamenu" >
+                <input type="text" class="form-control" placeholder="Item Name" id="HARGABAYAR" >
             </div>
 			<br>
 			<br>
 			  <div class="form-group">
                 <label>Change &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" class="form-control" placeholder="Price" id="harga" readonly="readonly">
+                <input type="text" class="form-control" placeholder="Price" id="hargaKEMBALIAN" readonly="readonly">
             </div>
 			<br>
 			<br>

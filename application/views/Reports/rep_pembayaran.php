@@ -135,7 +135,6 @@ $(document).ready(function() {
 	});
 	$("#submitLabaRugi").click(function()
 	{
-		alert(1);
 		$.ajax({
 			url:"<?php echo site_url("reports/prosesLabaRugi")?>",
 			datatype:"json",
@@ -143,6 +142,13 @@ $(document).ready(function() {
 			data:{tanggal1:$("#tanggal1").val(),tanggal2:$("#tanggal2").val()},
 			success:function(res)
 			{
+				var temp = JSON.parse(res);
+				var pengeluaran =0;var pemasukan =0;
+				$.each(temp,function(index,value){
+					pengeluaran = pengeluaran + parseInt(value[1]);
+					pemasukan = pemasukan + parseInt(value[2]);
+				})
+				$("#HasilLaba").html("Rp."+pemasukan+",-");$("#HasilRugi").html("Rp."+pengeluaran+",-");
 				createLabaRugi(JSON.parse(res));
 			}
 		})
@@ -245,6 +251,8 @@ $(document).ready(function() {
 		<table id="labarugi" class="table table-striped table-bordered table-responsive">
 		
 		</table>
+		<h2>Total Laba:<span id="HasilLaba">Rp.0,-</span></h2>
+		<h2>Total Rugi:<span id="HasilRugi">Rp.0,-</span></h2>
 	</div>
 	
 </div>
