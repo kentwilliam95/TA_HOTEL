@@ -5,7 +5,7 @@ class M_depositoawal extends CI_Model{
     
 	 function nootomatis(){
         $today=date('Ymd');
-        $query=mysql_query("select max(id_reservasi) as last from reservasi where id_reservasi like '$today%'");
+        $query=mysql_query("select max(id_reservasi) as last from pembayaran where id_reservasi like '$today%'");
         $data=mysql_fetch_array($query);
         $lastNoFaktur=$data['last'];
         
