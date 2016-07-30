@@ -171,7 +171,7 @@ class payment extends CI_Controller{
 				$this->m_payment->updateData("kamar",Array("Status"=>"VACANT DIRTY"),"id_kamar",$roomid);
 				$hasil = $this->m_payment->getData("booked_room",Array("id_checkin"=>$checkinID));
 				$this->m_payment->deleteData("booked_room",Array("id_checkin"=>$checkinID));
-				$this->m_payment->deleteData("checkin",Array("id_checkin"=>$checkinID));
+				
 				if(!empty($hasil[0]->id_reservasi))
 				{
 					$CountUseroom = $this->m_payment->getCountTable("useroom",Array("id_reservasi"=>$hasil[0]->id_reservasi));

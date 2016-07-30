@@ -26,7 +26,7 @@ class depositoawal extends CI_Controller{
         $data['title']="Search Customer";
         
 		$data["reserved"]=$this->m_depositoawal->semuaDataPembayaran();
-		print_r($data["reserved"]);
+		//print_r($data["reserved"]);
 		$data["promo"]=$this->m_depositoawal->semuaPromo();
 		
 		

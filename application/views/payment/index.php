@@ -307,7 +307,7 @@
                 <td>Room ID</td>
             </tr>
         </thead>
-        <?php $discount;$namapromo; foreach($reserved as $tmp){?>
+        <?php $discount=0;$namapromo=""; foreach($reserved as $tmp){?>
 		<?php foreach($promo as $row)
 		{ 
 			if($tmp->id_promo == $row->id_promo)
