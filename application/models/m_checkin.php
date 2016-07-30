@@ -6,7 +6,7 @@ class M_checkin extends CI_Model{
     function nootomatis(){
           $today=date('Ymd');
 		
-		$query="SELECT (max(substr(`id_checkin`,9))+1)as last FROM `checkin` WHERE substr(`id_checkin`,1,8)='".$today."'";
+		$query="SELECT (max(substr(`id_checkin`,9))+1)as last FROM `pembayaran` WHERE substr(`id_checkin`,1,8)='".$today."'";
 		
 		$data = $this->db->query($query);
         
