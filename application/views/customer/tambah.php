@@ -100,26 +100,10 @@
 
         $(".tambah").live("click",function(){
             var kode=$(this).attr("no");
-            var judul=$(this).attr("tglreservasi");
-			var judul2=$(this).attr("tglcheckin");
-			var judul3=$(this).attr("tglcheckout");
-			var judul4=$(this).attr("jumlah");
-			var judul5=$(this).attr("tipekamar");
-			var judul6=$(this).attr("tipebed");
-			var judul7=$(this).attr("namareservasi");
-			var judul8=$(this).attr("idkamar");
-            
+            var nama = $(this).attr("nama");
+			
             $("#no").val(kode);
-            $("#tglreservasi").val(judul);
-			$("#tglcheckin").val(judul2);
-			$("#tglcheckout").val(judul3);
-			$("#jumlah").val(judul4);
-			$("#tipekamar").val(judul5);
-			$("#tipebed").val(judul6);
-			$("#namareservasi").val(judul7);
-			$("#idkamar").val(judul8);
-	
-            
+            $("#namacustomer").val(nama);
             $("#myModal2").modal("hide");
         })
     })
@@ -140,7 +124,7 @@
     <div class="form-group">
         <label class="col-lg-2 control-label">Customer Name</label>
         <div class="col-lg-5">
-            <input type="text" name="namacustomer" class="form-control">
+            <input id="namacustomer" type="text" name="namacustomer" class="form-control">
         </div>
     </div>
      <div class="form-group">
@@ -238,16 +222,17 @@
                 <td></td>
             </tr>
         </thead>
-        <?php foreach($reserved as $tmp):?>
-        <tr>
+        <?php foreach($reserved as $tmp){?>
+        <?php if($tmp->id_checkin != ""){?>
+		<tr>
+		
             <td><?php echo $tmp->id_checkin;?></td>
             <td><?php echo $tmp->nama_reservasi;?></td>
 			
-            <td><a href="#" class="tambah" no="<?php echo $tmp->id_checkin;?>"
-			>
+            <td><a href="#" class="tambah" no="<?php echo $tmp->id_checkin;?>" nama="<?php echo $tmp->nama_reservasi?>">
 			<i class="glyphicon glyphicon-plus"></i></a></td>
-        </tr>
-        <?php endforeach;?>
+		</tr>
+        <?php }}?>
     </table>
                         </div>
                         

@@ -23,7 +23,7 @@ class M_customer extends CI_Model{
        
     }
 	function semua2(){
-		$query=$this->db->query("select c.id_checkin,r.nama_reservasi from checkin c,reservasi r where r.id_reservasi=c.id_reservasi");
+		$query=$this->db->query("select * from booked_room where id_checkin not in(select id_checkin from customer)");
         return $query;
     }
 	function detail_pinjam($id){

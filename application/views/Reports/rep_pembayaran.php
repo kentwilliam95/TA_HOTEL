@@ -29,9 +29,8 @@ $(document).ready(function() {
 	$('#tabelPayroll').DataTable( {
         data: <?php echo $DataPengeluaranPayroll?>,
         columns: [
-            { title: "ID Penggajian" },
             { title: "Tangal Pengajian" },
-            { title: "Id Pegawai" },
+            { title: "Nama Pegawai" },
             { title: "Gaji Pokok" },
             { title: "bonus" },
 			{ title: "Deskripsi" },
@@ -99,8 +98,7 @@ $(document).ready(function() {
 		{title:"Id Menu"},
 		{title:"Id Checkin"},
 		{title:"Jumlah"},
-		{title:"Subtotal"},
-		{title:"Id Userestaurant"}
+		{title:"Subtotal"}
 		]
 	});
 	$("#tabelKamar").DataTable({
@@ -197,6 +195,7 @@ $(document).ready(function() {
       <table id="tabelPembayaran" class="table table-striped table-bordered table-responsive">
 	
 	  </table>
+	  <h2><span id="expense_harga">Pengeluaran Hotel:<?php echo $expense_harga;?></span></h2>
     </div>
     <div id="payroll" class="tab-pane fade">
       <table id="tabelPayroll" class="table table-striped table-bordered table-responsive"> 
@@ -207,6 +206,7 @@ $(document).ready(function() {
      <table id="tabelIncome" class="table table-striped table-bordered table-responsive"> 
 	  
 	  </table>
+	  <h2>Total Pemasukan: Rp. <span><?php echo $DataIncome?></span>,-</h2>
     </div>
     <div id="menu3" class="tab-pane fade">
      <table id="tabelInventaris" class="table table-striped table-bordered table-responsive"> 
@@ -230,6 +230,7 @@ $(document).ready(function() {
 		<table id="tabelUseRestaurant" class="table table-striped table-bordered table-responsive">
 		
 		</table>
+		<h2>Total Pemasukan : Rp.<span><?php echo $DataUseRestaurant?></span>,-</h2>
 	</div>
 	
 	<div id="reportKamar" class="tab-pane fade"> 
@@ -242,6 +243,7 @@ $(document).ready(function() {
 		<table id="dinein" class="table table-striped table-bordered table-responsive">
 		
 		</table>
+		<h2>Total Pemasukan : Rp.<span><?php echo $DataDineIn;?></span>,-</h2>
 	</div>
 	
 	<div id="LabaRugi" class="tab-pane fade"> 
@@ -251,7 +253,7 @@ $(document).ready(function() {
 		<table id="labarugi" class="table table-striped table-bordered table-responsive">
 		
 		</table>
-		<h2>Total Laba:<span id="HasilLaba">Rp.0,-</span></h2>
+		<h2>Total Untung:<span id="HasilLaba">Rp.0,-</span></h2>
 		<h2>Total Rugi:<span id="HasilRugi">Rp.0,-</span></h2>
 	</div>
 	

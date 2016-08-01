@@ -43,6 +43,12 @@ class basic extends CI_Model
 		$this->db->where("tanggal <=",$tanggal2);
 		return $this->db->get()->result();
 	}
+	function getPayroll()
+	{
+		$query = "select * from payroll pa,pegawai pe where pa.id_pegawai=pe.id_pegawai";
+		
+		return $this->db->query($query)->result();
+	}
 }
 
 ?>

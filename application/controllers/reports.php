@@ -19,44 +19,39 @@ class reports extends CI_Controller
 		$hasil = $this->basic->getData("pegawai",Array("username"=>$this->session->userdata("username")));
 		
 		$data['tipe'] = $hasil[0]->tipe_pegawai;
-		
+		$harga1 = 0;
 		$hasil = Array();
 		$temp = $this->basic->getData("pengeluaran",null);
 		foreach($temp as $row)
 		{
 			Array_push($hasil,Array($row->id_kategoripengeluaran,$row->id_pengeluaran,$row->tanggal,$row->nominal,$row->keterangan));
+			$harga1 += $row->nominal;
 		}
 		$hasil = json_encode($hasil);
 		$data["DataPengeluaran"] = $hasil;
+		$data["expense_harga"] = $harga1;
 		
-		$temp = $this->basic->getData("payroll",null);
+		$temp = $this->basic->getPayroll();
 		$hasil = Array();
 		foreach($temp as $row)
 		{
-			Array_push($hasil,Array($row->id_penggajian,$row->tgl_penggajian,$row->id_pegawai,$row->gajipokok,$row->bonus,$row->description,$row->overtime,$row->total_gaji));
+			Array_push($hasil,Array($row->tgl_penggajian,$row->nama_pegawai,$row->gajipokok,$row->bonus,$row->description,$row->overtime,$row->total_gaji));
 		}
 		$hasil = json_encode($hasil);
 		$data["DataPengeluaranPayroll"] = $hasil;
 		
+		$harga1 = 0;
 		$temp = $this->basic->getData("pembayaran",null);
 		$hasil = Array();
 		foreach($temp as $row)
 		{
 			Array_push($hasil,Array($row->id_checkin,$row->no_debit,$row->akun_bayar,$row->jumlah,$row->terbayar,$row->sisa,$row->id_promo,$row->status_pembayaran,$row->jenis_pembayaran));
+			if($row->status_pembayaran !="WAITING")
+			{$harga1 += $row->jumlah;}
 		}
 		$hasil = json_encode($hasil);
 		$data["DataPengeluaranIncome"] = $hasil;
-		
-		
-		$temp = $this->basic->getData("inventaris",null);
-		$hasil = Array();
-		foreach($temp as $row)
-		{
-			Array_push($hasil,Array($row->id_kategoriinventaris,$row->id_item,$row->nama_item,$row->start_guarantee,$row->end_guarantee));
-		}
-		$hasil = json_encode($hasil);
-		$data["DataPengeluaranInventaris"] = $hasil;
-		
+		$data["DataIncome"] = $harga1;
 		
 		$temp = $this->basic->getData("inventaris",null);
 		$hasil = Array();
@@ -84,15 +79,18 @@ class reports extends CI_Controller
 		}
 		$hasil = json_encode($hasil);
 		$data["DataPengeluaranMenurestaurant"] = $hasil;
-
+		
+		$harga1 = 0;
 		$temp =$this->basic->getData("userestaurant",null);
 		$hasil = Array();
 		foreach($temp as $row)
 		{
-			Array_push($hasil,Array($row->id_menu,$row->id_checkin,$row->jumlah,$row->subtotal,$row->total,$row->id_userestaurant));
+			Array_push($hasil,Array($row->id_menu,$row->id_checkin,$row->jumlah,$row->subtotal,$row->total));
+			$harga1 += $row->subtotal;
 		}
 		$hasil = json_encode($hasil);
 		$data["DataPengeluaranUserestaurant"] = $hasil;
+		$data["DataUseRestaurant"] = $harga1;
 		
 		$temp =$this->basic->getData("kamar",null);
 		$hasil = Array();
@@ -103,15 +101,17 @@ class reports extends CI_Controller
 		$hasil = json_encode($hasil);
 		$data["DataPengeluaranKamar"] = $hasil;
 		
+		$harga1 = 0;
 		$temp =$this->basic->getData("hnotadinein",null);
 		$hasil = Array();
 		foreach($temp as $row)
 		{
 			Array_push($hasil,Array($row->idHnota,$row->tanggal,$row->subtotal));
+			$harga1 += $row->subtotal;
 		}
 		$hasil = json_encode($hasil);
 		$data["DataPengeluarandinein"] = $hasil;
-		
+		$data["DataDineIn"] = $harga1;
 		$data['title']="The Hotel Reports";
 		$data['message']="";
 		$this->template->display("Reports/rep_pembayaran",$data);

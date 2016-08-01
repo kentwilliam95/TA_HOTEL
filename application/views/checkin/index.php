@@ -118,7 +118,7 @@
 			$("#idkamar").val(judul8);
 			$("#id_bookedRoom").val($(this).attr("id_bookedRoom"));
             $("#myModal2").modal("hide");
-			alert(judul8);
+			
 			$("#nomorKamar").val("Kamar Nomor :"+judul8);
 			
         })

@@ -26,7 +26,6 @@ class dinein extends CI_Controller{
 		$data['kategorifb']=$this->m_dinein->getKategori()->result();
         $data['tglsajian']=date('d-m-Y');
 		//$data['tanggalkembali'] = strtotime('+7 day',strtotime($data['tanggalpinjam']));
-        $data['noauto']=$this->m_dinein->nootomatis();
         $data['anggota']=$this->m_dinein->getAnggota()->result();
        // $data['tanggalkembali'] = date('Y-m-d', $data['tanggalkembali']);
         $this->template->display('dinein/index',$data);

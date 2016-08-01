@@ -4,9 +4,9 @@ class M_uselaundry extends CI_Model{
     
     function nootomatis(){
         $today=date('Ymd');
-        $query=mysql_query("select max(id_penyajian) as last from menu_restaurant where id_penyajian like '$today%'");
-        //$data=mysql_fetch_array($query);
-        $lastNoFaktur=$data['last'];
+        $query="select max(id_penyajian) as last from menu_restaurant where id_penyajian like '$today%'";
+        $data = $this->db->query($query)->result();
+        $lastNoFaktur=$data[0]->last;
         
         $lastNoUrut=substr($lastNoFaktur,8,3);
         
